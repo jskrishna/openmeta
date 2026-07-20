@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<ruleset name="OpenMeta">
+	<description>OpenMeta PHP coding standards (pre-alpha scaffold).</description>
+
+	<!-- Paths to check when packages have PHP sources -->
+	<file>packages/</file>
+	<file>tests/</file>
+
+	<exclude-pattern>*/vendor/*</exclude-pattern>
+	<exclude-pattern>*/node_modules/*</exclude-pattern>
+	<exclude-pattern>*/tests/Fixtures/*</exclude-pattern>
+
+	<arg name="extensions" value="php"/>
+	<arg name="colors"/>
+	<arg value="sp"/>
+
+	<!--
+		When ready, add WordPress-Coding-Standards / PHPCSUtils via Composer
+		and switch to WordPress-Extra or a custom ruleset.
+		For now, use the PSR12 baseline so `phpcs` can run once installed.
+	-->
+	<rule ref="PSR12"/>
+
+	<config name="testVersion" value="8.3-"/>
+</ruleset>

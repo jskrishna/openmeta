@@ -1,0 +1,40 @@
+{
+  "name": "openmeta/openmeta",
+  "description": "Modern open-source content modeling framework for WordPress.",
+  "type": "wordpress-plugin",
+  "license": "GPL-2.0-or-later",
+  "authors": [
+    {
+      "name": "OpenMeta Contributors",
+      "homepage": "https://github.com/jskrishna/openmeta"
+    }
+  ],
+  "require": {
+    "php": ">=8.3"
+  },
+  "require-dev": {
+    "phpstan/phpstan": "^2.0",
+    "squizlabs/php_codesniffer": "^3.10"
+  },
+  "scripts": {
+    "phpcs": "phpcs",
+    "phpstan": "phpstan analyse --memory-limit=1G",
+    "test": "echo \"PHPUnit not configured yet — see tests/README.md\""
+  },
+  "autoload": {
+    "psr-4": {
+      "OpenMeta\\": "packages/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "OpenMeta\\Tests\\": "tests/"
+    }
+  },
+  "config": {
+    "sort-packages": true,
+    "allow-plugins": {}
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}

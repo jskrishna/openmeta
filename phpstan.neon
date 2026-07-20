@@ -1,0 +1,21 @@
+includes:
+    - packages
+    - tests
+
+parameters:
+    # Raise level as code lands; start conservative for an empty tree.
+    level: 5
+    phpVersion: 80300
+    paths:
+        - packages
+        - tests
+    excludePaths:
+        - */vendor/*
+        - */node_modules/*
+        - */tests/Fixtures/*
+
+    # Treat missing classes gently until bootstrap and WP stubs exist.
+    reportUnmatchedIgnoredErrors: false
+
+# When WordPress stubs / php-stubs/wordpress-stubs are added, include them here.
+# When PHPUnit lands, add phpstan/phpstan-phpunit as needed.

@@ -1,0 +1,44 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: Dry run (no publish)
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Resolve version
+        id: meta
+        run: |
+          if [[ "${{ github.ref_type }}" == "tag" ]]; then
+            echo "version=${GITHUB_REF_NAME}" >> "$GITHUB_OUTPUT"
+          else
+            echo "version=manual" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Placeholder release steps
+        run: |
+          echo "Tag/version: ${{ steps.meta.outputs.version }}"
+          echo "Dry run: ${{ github.event.inputs.dry_run }}"
+          echo "Wire changelog + GitHub Release + package publish when ready."
+
+      # Example (enable later):
+      # - uses: softprops/action-gh-release@v2
+      #   with:
+      #     generate_release_notes: true
