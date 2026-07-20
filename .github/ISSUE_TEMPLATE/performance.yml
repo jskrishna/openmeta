@@ -1,0 +1,41 @@
+name: Performance
+description: Slow paths, memory, or scalability concerns
+title: "[Perf]: "
+labels: ["performance", "needs-triage"]
+body:
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: What is slow or expensive?
+    validations:
+      required: true
+  - type: textarea
+    id: scenario
+    attributes:
+      label: Scenario
+      description: Setup, data size, and steps that trigger the issue.
+    validations:
+      required: true
+  - type: textarea
+    id: metrics
+    attributes:
+      label: Measurements
+      description: Timing, memory, query counts, profiling notes (if any).
+      value: |
+        - Metric:
+        - Before / baseline:
+        - Observed:
+        - Tooling used:
+  - type: textarea
+    id: impact
+    attributes:
+      label: Impact
+      description: Who is affected and how often?
+    validations:
+      required: true
+  - type: textarea
+    id: ideas
+    attributes:
+      label: Ideas / suspected cause
+      description: Optional hypotheses or patches.

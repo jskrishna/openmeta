@@ -2,121 +2,303 @@
 
 # OpenMeta
 
-### Modern Content Modeling for WordPress
+### Modern Content Modeling Framework for WordPress
 
-Build custom fields, content models, and developer-first experiences with a modern open-source framework.
-
- 🚧 OpenMeta is currently under active development.
-
----
+Build powerful custom fields, structured content models, and developer-first experiences with a modern open-source framework.
 
 ![License](https://img.shields.io/badge/license-GPL--2.0-blue.svg)
 ![PHP](https://img.shields.io/badge/PHP-8.3+-777BB4?logo=php&logoColor=white)
 ![WordPress](https://img.shields.io/badge/WordPress-6.8+-21759B?logo=wordpress&logoColor=white)
-![Status](https://img.shields.io/badge/status-pre--alpha-orange)
+![Status](https://img.shields.io/badge/status-Pre--Alpha-orange)
+![Contributions](https://img.shields.io/badge/contributions-welcome-brightgreen)
+
+---
+
+**Open Source • Developer First • Performance Focused • Community Driven**
 
 </div>
 
 ---
 
+# About OpenMeta
+
+OpenMeta is a modern content modeling framework built for WordPress.
+
+It enables developers to create custom fields, field groups, structured content models, validation rules, conditional logic, and advanced editing experiences using a clean and extensible architecture.
+
+Rather than being just another custom fields plugin, OpenMeta aims to provide a complete foundation for structured content development in modern WordPress projects.
+
+---
+
 # Why OpenMeta?
 
-OpenMeta is an open-source content modeling framework built for modern WordPress development.
+WordPress developers deserve modern tooling.
 
+OpenMeta is being built to provide:
 
-Our goal is to rethink how developers build structured content inside WordPress using modern architecture, clean APIs, React-powered interfaces, and first-class developer experience.
+- Modern architecture
+- Excellent developer experience
+- High performance
+- Clean APIs
+- Extensible field system
+- React-powered administration
+- Native REST support
+- First-class GraphQL support
+- Open-source development
+- Long-term maintainability
 
 ---
 
 # Vision
 
-OpenMeta aims to become the modern foundation for structured content in WordPress.
+Our vision is simple.
 
-We believe developers deserve:
+Build the best open-source content modeling framework for WordPress.
 
-- Modern architecture
-- Beautiful UI
-- Clean APIs
-- High performance
-- Native GraphQL support
-- REST-first development
-- AI-assisted workflows
-- Community-driven development
+OpenMeta should become the foundation developers choose when building modern WordPress applications.
+
+---
+
+# Project Goals
+
+- Build a scalable architecture
+- Improve developer productivity
+- Reduce technical debt
+- Support modern WordPress development
+- Maintain excellent documentation
+- Encourage community contributions
+- Keep the project open forever
+
+---
+
+# Planned Features
+
+## Core
+
+- Plugin Framework
+- Settings System
+- Field Groups
+- Validation Engine
+- Location Rules
+- Conditional Logic
+- Asset Manager
+
+## Field Types
+
+- Text
+- Textarea
+- Number
+- Email
+- URL
+- Select
+- Checkbox
+- Radio
+- Toggle
+- Date
+- Time
+- Image
+- Gallery
+- File
+- Relationship
+- Taxonomy
+- User
+- WYSIWYG
+
+## Advanced Fields
+
+- Repeater
+- Flexible Content
+- Group
+- Clone
+- Accordion
+- Tabs
+
+## Developer Experience
+
+- PHP API
+- JavaScript API
+- REST API
+- GraphQL
+- CLI
+- Hooks
+- Filters
+
+## Integrations
+
+- Gutenberg
+- WooCommerce
+- WPGraphQL
+- Elementor
+- Bricks Builder
 
 ---
 
 # Current Status
 
-🚧 Pre-Alpha
+Current Stage:
 
-Currently working on:
+**Pre-Alpha**
 
-- Product vision
-- System architecture
-- Documentation
-- Core framework design
+The project is currently in the planning and architecture phase.
 
-No production-ready code has been released yet.
+No production-ready version has been released.
 
----
-
-# Roadmap
-
-- [ ] Project Vision
-- [ ] Core Architecture
-- [ ] Plugin Bootstrap
-- [ ] Field Engine
-- [ ] Admin Builder
-- [ ] Advanced Fields
-- [ ] Gutenberg Integration
-- [ ] GraphQL Support
-- [ ] AI Features
-- [ ] Stable v1.0
+Development will begin after the architecture and documentation are finalized.
 
 ---
 
 # Documentation
 
-Documentation is currently being written.
+Project documentation is organized into dedicated sections.
 
-Coming soon:
+```
+docs/
 
-- Architecture
-- Developer Guide
-- API Reference
-- Plugin Development
-- Contribution Guide
+vision/
+architecture/
+database/
+fields/
+api/
+ui/
+development/
+security/
+testing/
+roadmap/
+adr/
+getting-started/
+guides/
+```
+
+Detailed documentation will continue to evolve alongside implementation.
+
+---
+
+# Roadmap
+
+## Phase 00
+
+Planning & Documentation
+
+## Phase 01
+
+Plugin Bootstrap
+
+## Phase 02
+
+Core Framework
+
+## Phase 03
+
+Database Layer
+
+## Phase 04
+
+Field Engine
+
+## Phase 05
+
+Administration UI
+
+## Phase 06
+
+Field Builder
+
+## Phase 07
+
+Advanced Fields
+
+## Phase 08
+
+API Layer
+
+## Phase 09
+
+Integrations
+
+## Phase 10
+
+Testing
+
+## Phase 11
+
+Stable Release
+
+See **ROADMAP.md** for the complete development roadmap.
 
 ---
 
 # Contributing
 
-OpenMeta is community-driven.
+OpenMeta is a community-driven project.
 
-Everyone is welcome to contribute.
+We welcome contributions in the following areas:
 
-Ways to contribute:
+- Development
+- Documentation
+- Testing
+- Bug Reports
+- Feature Requests
+- Performance Improvements
+- Security Reviews
 
-- Report bugs
-- Suggest features
-- Improve documentation
-- Submit pull requests
-- Participate in discussions
+Please read **CONTRIBUTING.md** before opening issues or pull requests.
 
 ---
 
-# Philosophy
+# Development Principles
 
-OpenMeta follows a few simple principles.
+OpenMeta follows a few core principles.
 
-- Documentation before code.
-- Community before company.
-- Performance over complexity.
+- Documentation before implementation.
+- Simplicity over complexity.
+- Performance by default.
 - Developer experience matters.
-- Open source forever.
+- Secure by design.
+- Backward compatibility when practical.
+- Community-driven development.
+
+---
+
+# Technology
+
+The target technology stack includes:
+
+- PHP 8.3+
+- WordPress 6.8+
+- Composer
+- PSR Standards
+- React
+- TypeScript
+- Vite
+- PHPUnit
+- Playwright
+- PHPStan
+- PHPCS
+
+Tooling and dependencies are being introduced during the bootstrap phase. See **TECH_STACK.md** for details.
 
 ---
 
 # License
 
-Licensed under the GNU General Public License v2.0 or later.
+OpenMeta is licensed under the GNU General Public License v2.0 or later.
+
+See the **LICENSE** file for complete licensing information.
+
+---
+
+# Project Status
+
+This repository is under active development.
+
+Features, architecture, and APIs may change before the first stable release.
+
+Feedback and discussions are always welcome.
+
+---
+
+<div align="center">
+
+Built with ❤️ by the OpenMeta Community.
+
+</div>

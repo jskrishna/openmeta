@@ -1,0 +1,12 @@
+# Default owners for the OpenMeta monorepo.
+# Update GitHub usernames/teams as the project grows.
+# https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+*       @jskrishna
+
+/.github/       @jskrishna
+/docs/          @jskrishna
+/packages/      @jskrishna
+/examples/      @jskrishna
+/tools/         @jskrishna
+/website/       @jskrishna

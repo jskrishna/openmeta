@@ -1,0 +1,22 @@
+name: Security (public redirect)
+description: Do not use for real vulnerabilities — redirects to private reporting
+title: "[Security]: DO NOT FILE HERE"
+labels: ["security"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Please do not report vulnerabilities in public issues
+
+        Open a **private** advisory instead:
+
+        - [Report a vulnerability](https://github.com/jskrishna/openmeta/security/advisories/new)
+        - Or follow [SECURITY.md](https://github.com/jskrishna/openmeta/blob/main/SECURITY.md)
+
+        If this is **not** a vulnerability (e.g. hardening suggestion with no exploit path), describe it below and we will retitle/relabel.
+  - type: textarea
+    id: note
+    attributes:
+      label: Non-sensitive note (optional)
+      description: Only use this if you are sure no sensitive exploit details are included.
+      placeholder: Hardening idea / clarification request…

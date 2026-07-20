@@ -1,0 +1,38 @@
+name: Documentation
+description: Missing, unclear, or incorrect docs
+title: "[Docs]: "
+labels: ["documentation", "needs-triage"]
+body:
+  - type: dropdown
+    id: type
+    attributes:
+      label: Type
+      options:
+        - Missing documentation
+        - Unclear / confusing
+        - Incorrect / outdated
+        - Typo / formatting
+        - Example request
+    validations:
+      required: true
+  - type: textarea
+    id: location
+    attributes:
+      label: Location
+      description: Path, URL, or section (e.g. `docs/`, README, website).
+      placeholder: docs/… or https://…
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: What should change?
+      description: Current vs desired wording or structure.
+    validations:
+      required: true
+  - type: textarea
+    id: audience
+    attributes:
+      label: Audience
+      description: Who is this for? (optional)
+      placeholder: Plugin developers, contributors, site builders…

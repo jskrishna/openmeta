@@ -1,0 +1,51 @@
+name: Feature request
+description: Propose a new capability or improvement
+title: "[Feature]: "
+labels: ["enhancement", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Describe the problem and the outcome you want. Large design changes may belong in Discussions (RFC / proposal).
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What problem does this solve?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: How should OpenMeta behave?
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Other approaches you thought about (optional).
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Core / field engine
+        - Admin UI
+        - Gutenberg
+        - REST / GraphQL
+        - Docs / DX
+        - Tooling / CI
+        - Other
+    validations:
+      required: true
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      options:
+        - label: I searched existing issues and discussions
+          required: true
+        - label: This fits OpenMeta’s scope (WordPress content modeling)
+          required: true
