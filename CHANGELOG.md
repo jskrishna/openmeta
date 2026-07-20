@@ -101,13 +101,9 @@ Documentation
 
 ## [Unreleased]
 
-> Pre-Alpha — no public release has been published yet.
-
 ### Added
 
-- Project architecture and documentation foundation.
-- ADR set documenting core architectural decisions.
-- Contribution, security, roadmap, and technology stack documents.
+- None.
 
 ### Changed
 
@@ -131,7 +127,47 @@ Documentation
 
 ### Documentation
 
-- Planning-phase documentation published under `docs/` and top-level project guides.
+- None.
+
+---
+
+## [0.1.0-alpha] - 2026-07-21
+
+First public pre-release. Milestone v0.1 — **core kernel only**.
+
+### Added
+
+- `packages/core` runtime spine: Bootstrap → Container → Config → Kernel → Service Provider.
+- `OpenMeta\Core\Bootstrap\Bootstrap::init()` entrypoint (`VERSION = 0.1.0-alpha`).
+- Minimal DI container, nested config repository, kernel boot sequence, and `ServiceProviderInterface`.
+- Domain package layout stubs (`admin`, `api`, `database`, `fields`, `builder`, `ui`, `validation`, `security`, `support`).
+- Core smoke test (`composer test:core`).
+- Architecture-first documentation, ADRs, roadmap, security, and contribution guides.
+- GitHub workflows, issue/PR templates, and community files.
+
+### Changed
+
+- Monorepo package map moved from feature stubs (graphql/react/cli/…) to domain packages.
+
+### Deprecated
+
+- None.
+
+### Removed
+
+- None.
+
+### Fixed
+
+- Documentation consistency (PHP 8.3+, roadmap phases, changelog honesty).
+
+### Security
+
+- Security policy and private vulnerability reporting enabled on GitHub.
+
+### Documentation
+
+- Package README contracts (Purpose, Responsibilities, Public APIs, Dependencies, Extension Points, Folder Structure).
 
 ---
 

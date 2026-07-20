@@ -19,15 +19,17 @@
   "scripts": {
     "phpcs": "phpcs",
     "phpstan": "phpstan analyse --memory-limit=1G",
-    "test": "echo \"PHPUnit not configured yet — see tests/README.md\""
+    "test": "php packages/core/tests/smoke.php",
+    "test:core": "php packages/core/tests/smoke.php"
   },
   "autoload": {
     "psr-4": {
-      "OpenMeta\\": "packages/"
+      "OpenMeta\\Core\\": "packages/core/src/"
     }
   },
   "autoload-dev": {
     "psr-4": {
+      "OpenMeta\\Core\\Tests\\": "packages/core/tests/",
       "OpenMeta\\Tests\\": "tests/"
     }
   },

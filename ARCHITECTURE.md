@@ -154,10 +154,12 @@ The monorepo separates documentation, packages, tooling, and examples.
 ```text
 .github/          CI, issue templates, community config
 docs/             Architecture, guides, ADRs, roadmap
-packages/         Framework packages (core, graphql, react, …)
+packages/         Domain packages (core, fields, api, …)
 tests/            Automated tests
 examples/         Sample integrations and usage
-tools/            Generators, migration helpers, scripts
+bin/              CLI / executable entrypoints
+scripts/          Maintainer automation scripts
+tools/            Generators, migration helpers, release tooling
 website/          Project site / docs site assets
 ```
 
@@ -172,13 +174,16 @@ Packages isolate major capabilities so they can evolve independently while shari
 ```text
 packages/
 
-core/       Bootstrap, container, events, shared contracts
-blocks/     Gutenberg / block editor integrations
-react/      Shared React UI components
-graphql/    GraphQL schema and resolvers
-sdk/        Public developer SDK surfaces
-cli/        Command-line tooling
-ai/         Experimental AI-assisted features
+core/         Bootstrap, container, events, shared contracts
+admin/        WordPress admin screens and app shell
+api/          REST and GraphQL public API layer
+database/     Schema, migrations, repositories, storage
+fields/       Field registry, types, lifecycle
+builder/      Visual field / schema builder
+ui/           Shared React / UI component library
+validation/   Validation rules and error contracts
+security/     Capabilities, nonces, authorization helpers
+support/      Shared helpers and utilities
 ```
 
 Only documented public APIs should be consumed by extensions and third-party code.
@@ -489,15 +494,24 @@ Public behavior should be covered before release candidates. See ADR-0018 and `d
 
 # Future Packages
 
-Planned packages:
+Current domain packages:
 
 - OpenMeta Core
-- OpenMeta Blocks
-- OpenMeta GraphQL
-- OpenMeta React
-- OpenMeta CLI
-- OpenMeta SDK
-- OpenMeta AI
+- OpenMeta Admin
+- OpenMeta API
+- OpenMeta Database
+- OpenMeta Fields
+- OpenMeta Builder
+- OpenMeta UI
+- OpenMeta Validation
+- OpenMeta Security
+- OpenMeta Support
+
+Deferred / exploratory packages (not in the monorepo yet):
+
+- Gutenberg Blocks integration
+- Standalone Developer SDK
+- AI-assisted modeling
 
 Package boundaries may refine during bootstrap, but public contracts should remain stable once released.
 

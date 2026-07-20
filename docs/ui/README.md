@@ -1,6 +1,6 @@
 # UI
 
-Admin and shared React UI for OpenMeta (`packages/react` and admin surfaces in `packages/core`).
+Admin and shared React UI for OpenMeta (`packages/ui`, `packages/admin`, and `packages/builder`).
 
 > **Pre-alpha:** Target architecture. Implementation lands mainly in Phase 05 (Admin UI) and related phases.
 

@@ -121,7 +121,7 @@ OpenMeta exposes framework capabilities through modern APIs.
 ### Supported APIs
 
 - WordPress REST API
-- GraphQL (first-class support via the OpenMeta GraphQL package / WPGraphQL integration)
+- GraphQL (first-class support via `packages/api` / WPGraphQL integration)
 
 API capabilities include:
 
@@ -191,6 +191,8 @@ OpenMeta/
 ├── packages/
 ├── tests/
 ├── examples/
+├── bin/
+├── scripts/
 ├── tools/
 ├── website/
 ├── README.md
