@@ -33,7 +33,8 @@
       "@test:core",
       "@test:support",
       "@test:validation",
-      "@test:security"
+      "@test:security",
+      "@test:database"
     ],
     "test:core": [
       "phpunit --configuration phpunit.xml --testsuite core",
@@ -47,6 +48,9 @@
     ],
     "test:security": [
       "phpunit --configuration phpunit.xml --testsuite security"
+    ],
+    "test:database": [
+      "phpunit --configuration phpunit.xml --testsuite database"
     ]
   },
   "autoload": {
@@ -54,7 +58,8 @@
       "OpenMeta\\Core\\": "packages/core/src/",
       "OpenMeta\\Support\\": "packages/support/src/",
       "OpenMeta\\Validation\\": "packages/validation/src/",
-      "OpenMeta\\Security\\": "packages/security/src/"
+      "OpenMeta\\Security\\": "packages/security/src/",
+      "OpenMeta\\Database\\": "packages/database/src/"
     }
   },
   "autoload-dev": {
@@ -63,6 +68,7 @@
       "OpenMeta\\Support\\Tests\\": "packages/support/tests/",
       "OpenMeta\\Validation\\Tests\\": "packages/validation/tests/",
       "OpenMeta\\Security\\Tests\\": "packages/security/tests/",
+      "OpenMeta\\Database\\Tests\\": "packages/database/tests/",
       "OpenMeta\\Tests\\": "tests/"
     },
     "exclude-from-classmap": [
@@ -70,6 +76,7 @@
       "/packages/support/tests/",
       "/packages/validation/tests/",
       "/packages/security/tests/",
+      "/packages/database/tests/",
       "/tests/"
     ]
   },

@@ -10,6 +10,8 @@ parameters:
         - packages/validation/tests
         - packages/security/src
         - packages/security/tests
+        - packages/database/src
+        - packages/database/tests
     excludePaths:
         - */vendor/*
         - */node_modules/*
@@ -22,6 +24,7 @@ parameters:
         - packages/core/tests/Unit/service-providers.php
         - packages/core/tests/smoke.php
         - packages/core/config/*
+        - packages/database/tests/Fixtures/*
 
     treatPhpDocTypesAsCertain: false
     reportUnmatchedIgnoredErrors: false
