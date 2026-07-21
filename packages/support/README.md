@@ -1,57 +1,59 @@
 # `@openmeta/support`
 
-> Pre-alpha contract — implement against this document, not ad-hoc assumptions.
+> Shared, framework-agnostic utilities. **Zero business logic** — pure helpers only.
+
+**Status:** ✅ Complete (Phase 3) · **v0.2.0-alpha**  
+**Blueprint:** [SPEC.md](./SPEC.md) · Prompt: [`.ai/prompts/phase-03-support.md`](../../.ai/prompts/phase-03-support.md)
 
 ---
 
 ## Purpose
 
-Provide small, framework-agnostic helpers and utilities reused across packages without becoming a dumping ground for domain logic.
-
----
-
-## Responsibilities
-
-- Pure helpers (arrays, strings, paths, collections)
-- Small shared value objects / DTOs that are not domain-specific
-- Cross-cutting utilities that do not belong in `core`
-
-Must stay lean. Feature logic belongs in domain packages.
+Reusable utilities so other packages do not reinvent collections, strings, arrays, paths, filesystem, env, UUID, reflection, or small traits.
 
 ---
 
 ## Public APIs
 
-- Documented helper functions / classes
-- Shared scalar/value utilities
-- Collection / Arr / Str style helpers (names TBD in Phase 01)
+| API | Class |
+| --- | ----- |
+| Arr | `OpenMeta\Support\Arr\Arr` |
+| Str | `OpenMeta\Support\Str\Str` |
+| Collection | `OpenMeta\Support\Collections\Collection` |
+| Path | `OpenMeta\Support\Paths\Path` |
+| Filesystem | `OpenMeta\Support\Filesystem\FilesystemInterface` / `LocalFilesystem` |
+| Env | `OpenMeta\Support\Environment\Env` |
+| UUID | `OpenMeta\Support\Uuid\Uuid` |
+| Value object | `OpenMeta\Support\ValueObjects\UuidValue` |
+| Contract | `OpenMeta\Support\Contracts\ArrayableInterface` |
+| Reflection | `OpenMeta\Support\Reflection\Reflector` |
+| Helpers | `OpenMeta\Support\Helpers\Helpers` (`value`, `tap`, `with`, `blank`, `filled`, `classBasename`) |
+| Traits | `OpenMeta\Support\Traits\Conditionable` |
+| Provider | `OpenMeta\Support\SupportServiceProvider` |
+
+---
+
+## Exit criteria
+
+- Zero business logic (no fields, caps, validation rules, HTTP, WP screens)
+- Pure utilities only
+- `composer test:support` + `composer ci` green
+- No WordPress dependency
 
 ---
 
 ## Dependencies
 
-- PHP 8.3+ only (prefer zero WordPress coupling)
+- `packages/core` (required)
+- PHP 8.3+
 
-Must not depend on any other OpenMeta package. Other packages may depend on `support`.
-
----
-
-## Extension Points
-
-- Generally none — prefer adding focused helpers via PRs rather than plugin hooks
-- If a hook is required, document it explicitly before shipping
+Must not depend on domain packages.
 
 ---
 
-## Folder Structure
+## Verify
 
-```text
-packages/support/
-├── src/
-│   ├── Arr/
-│   ├── Str/
-│   ├── Path/
-│   └── Types/
-├── tests/
-└── README.md
+```bash
+composer test:support
+composer ci
 ```

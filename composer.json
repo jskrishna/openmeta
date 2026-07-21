@@ -30,25 +30,120 @@
       "@ci"
     ],
     "test": [
-      "@test:core"
+      "@test:core",
+      "@test:support",
+      "@test:validation",
+      "@test:security",
+      "@test:database",
+      "@test:fields",
+      "@test:rest",
+      "@test:api",
+      "@test:ui",
+      "@test:admin",
+      "@test:builder",
+      "@test:wordpress"
     ],
     "test:core": [
       "phpunit --configuration phpunit.xml --testsuite core",
       "php packages/core/tests/smoke.php"
+    ],
+    "test:support": [
+      "phpunit --configuration phpunit.xml --testsuite support"
+    ],
+    "test:validation": [
+      "phpunit --configuration phpunit.xml --testsuite validation"
+    ],
+    "test:security": [
+      "phpunit --configuration phpunit.xml --testsuite security"
+    ],
+    "test:database": [
+      "phpunit --configuration phpunit.xml --testsuite database"
+    ],
+    "test:fields": [
+      "phpunit --configuration phpunit.xml --testsuite fields"
+    ],
+    "test:rest": [
+      "phpunit --configuration phpunit.xml --testsuite rest"
+    ],
+    "test:api": [
+      "phpunit --configuration phpunit.xml --testsuite api"
+    ],
+    "test:ui": [
+      "phpunit --configuration phpunit.xml --testsuite ui"
+    ],
+    "test:admin": [
+      "phpunit --configuration phpunit.xml --testsuite admin"
+    ],
+    "test:builder": [
+      "phpunit --configuration phpunit.xml --testsuite builder"
+    ],
+    "test:wordpress": [
+      "phpunit --configuration phpunit.xml --testsuite wordpress"
+    ],
+    "test:phase12": [
+      "phpunit --configuration phpunit.xml --testsuite phase12"
+    ],
+    "test:phase12:unit": [
+      "phpunit --configuration phpunit.xml --testsuite phase12-unit"
+    ],
+    "test:phase12:integration": [
+      "phpunit --configuration phpunit.xml --testsuite phase12-integration"
+    ],
+    "test:phase12:wordpress": [
+      "phpunit --configuration phpunit.xml --testsuite phase12-wordpress"
+    ],
+    "test:phase12:performance": [
+      "phpunit --configuration phpunit.xml --testsuite phase12-performance"
+    ],
+    "test:phase12:security": [
+      "phpunit --configuration phpunit.xml --testsuite phase12-security"
     ]
   },
   "autoload": {
     "psr-4": {
-      "OpenMeta\\Core\\": "packages/core/src/"
+      "OpenMeta\\Core\\": "packages/core/src/",
+      "OpenMeta\\Support\\": "packages/support/src/",
+      "OpenMeta\\Validation\\": "packages/validation/src/",
+      "OpenMeta\\Security\\": "packages/security/src/",
+      "OpenMeta\\Database\\": "packages/database/src/",
+      "OpenMeta\\Fields\\": "packages/fields/src/",
+      "OpenMeta\\Rest\\": "packages/rest/src/",
+      "OpenMeta\\Api\\": "packages/api/src/",
+      "OpenMeta\\Ui\\": "packages/ui/src/",
+      "OpenMeta\\Admin\\": "packages/admin/src/",
+      "OpenMeta\\Builder\\": "packages/builder/src/",
+      "OpenMeta\\Wordpress\\": "packages/wordpress/src/"
     }
   },
   "autoload-dev": {
     "psr-4": {
       "OpenMeta\\Core\\Tests\\": "packages/core/tests/",
+      "OpenMeta\\Support\\Tests\\": "packages/support/tests/",
+      "OpenMeta\\Validation\\Tests\\": "packages/validation/tests/",
+      "OpenMeta\\Security\\Tests\\": "packages/security/tests/",
+      "OpenMeta\\Database\\Tests\\": "packages/database/tests/",
+      "OpenMeta\\Fields\\Tests\\": "packages/fields/tests/",
+      "OpenMeta\\Rest\\Tests\\": "packages/rest/tests/",
+      "OpenMeta\\Api\\Tests\\": "packages/api/tests/",
+      "OpenMeta\\Ui\\Tests\\": "packages/ui/tests/",
+      "OpenMeta\\Admin\\Tests\\": "packages/admin/tests/",
+      "OpenMeta\\Builder\\Tests\\": "packages/builder/tests/",
+      "OpenMeta\\Wordpress\\Tests\\": "packages/wordpress/tests/",
       "OpenMeta\\Tests\\": "tests/"
     },
     "exclude-from-classmap": [
       "/packages/core/tests/",
+      "/packages/support/tests/",
+      "/packages/validation/tests/",
+      "/packages/security/tests/",
+      "/packages/database/tests/",
+      "/packages/fields/tests/",
+      "/packages/rest/tests/",
+      "/packages/api/tests/",
+      "/packages/ui/tests/",
+      "/packages/admin/tests/",
+      "/packages/builder/tests/",
+      "/packages/wordpress/tests/",
       "/tests/"
     ]
   },
