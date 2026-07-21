@@ -56,7 +56,8 @@
             "@test:graphql",
             "@test:cli",
             "@test:framework",
-            "@test:generator"
+            "@test:generator",
+            "@test:docgen"
         ],
         "test:core": [
             "phpunit --configuration phpunit.xml --testsuite core",
@@ -110,6 +111,9 @@
         "test:generator": [
             "phpunit --configuration phpunit.xml --testsuite generator"
         ],
+        "test:docgen": [
+            "phpunit --configuration phpunit.xml --testsuite docgen"
+        ],
         "test:e2e": [
             "phpunit --configuration phpunit.xml --testsuite e2e"
         ]
@@ -132,7 +136,8 @@
             "OpenMeta\\GraphQL\\": "packages/graphql/src/",
             "OpenMeta\\Cli\\": "packages/cli/src/",
             "OpenMeta\\Framework\\": "packages/framework/src/",
-            "OpenMeta\\Generator\\": "packages/generator/src/"
+            "OpenMeta\\Generator\\": "packages/generator/src/",
+            "OpenMeta\\Docgen\\": "packages/docgen/src/"
         }
     },
     "autoload-dev": {
@@ -154,6 +159,7 @@
             "OpenMeta\\Cli\\Tests\\": "packages/cli/tests/",
             "OpenMeta\\Framework\\Tests\\": "packages/framework/tests/",
             "OpenMeta\\Generator\\Tests\\": "packages/generator/tests/",
+            "OpenMeta\\Docgen\\Tests\\": "packages/docgen/tests/",
             "OpenMeta\\Tests\\": "tests/"
         },
         "exclude-from-classmap": [
@@ -174,7 +180,8 @@
             "/packages/cli/tests/",
             "/tests/",
             "/packages/framework/tests/",
-            "/packages/generator/tests/"
+            "/packages/generator/tests/",
+            "/packages/docgen/tests/"
         ]
     },
     "config": {

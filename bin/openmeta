@@ -1,0 +1,26 @@
+#!/usr/bin/env php
+<?php
+
+declare(strict_types=1);
+
+/**
+ * OpenMeta developer console (monorepo entry point).
+ *
+ * Boots the full framework — every package service provider, so all commands
+ * (make:*, docs:*, doctor, info, …) are available — and runs the console
+ * against the process arguments.
+ *
+ * Usage: php bin/openmeta <command> [args]
+ */
+
+use OpenMeta\Cli\Contracts\ConsoleApplicationInterface;
+use OpenMeta\Framework\Framework;
+
+require __DIR__ . '/../vendor/autoload.php';
+
+$app = Framework::boot();
+
+/** @var ConsoleApplicationInterface $console */
+$console = $app->get(ConsoleApplicationInterface::class);
+
+exit($console->run(array_values(array_slice($argv, 1))));

@@ -12,6 +12,7 @@ use OpenMeta\Core\Application\Application;
 use OpenMeta\Core\Bootstrap\Bootstrap;
 use OpenMeta\Core\Contracts\ServiceProviderInterface;
 use OpenMeta\Database\DatabaseServiceProvider;
+use OpenMeta\Docgen\DocgenServiceProvider;
 use OpenMeta\Extensions\ExtensionsServiceProvider;
 use OpenMeta\Fields\FieldsServiceProvider;
 use OpenMeta\Generator\GeneratorServiceProvider;
@@ -68,6 +69,7 @@ final class Framework
             GraphQLServiceProvider::class,
             CliServiceProvider::class,
             GeneratorServiceProvider::class,
+            DocgenServiceProvider::class,
         ];
     }
 

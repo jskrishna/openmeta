@@ -1,0 +1,25 @@
+{
+    "name": "openmeta/docgen",
+    "version": "0.15.0-beta",
+    "description": "OpenMeta documentation platform — API/package doc generation, search index, sitemap, changelog, and documentation validation (links, markdown, API references) with docs:* CLI commands.",
+    "type": "library",
+    "license": "GPL-2.0-or-later",
+    "require": {
+        "php": ">=8.3",
+        "openmeta/core": "*",
+        "openmeta/support": "*",
+        "openmeta/cli": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "OpenMeta\\Docgen\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "OpenMeta\\Docgen\\Tests\\": "tests/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

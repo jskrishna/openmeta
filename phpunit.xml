@@ -52,6 +52,8 @@
             <directory suffix="Test.php">packages/generator/tests</directory>
             <exclude>packages/generator/tests/GeneratorTestCase.php</exclude>
             <exclude>packages/generator/tests/Fixtures</exclude>
+            <directory suffix="Test.php">packages/docgen/tests</directory>
+            <exclude>packages/docgen/tests/Fixtures</exclude>
             <directory suffix="Test.php">tests/E2E</directory>
         </testsuite>
         <testsuite name="core">
@@ -128,6 +130,10 @@
             <exclude>packages/generator/tests/GeneratorTestCase.php</exclude>
             <exclude>packages/generator/tests/Fixtures</exclude>
         </testsuite>
+        <testsuite name="docgen">
+            <directory suffix="Test.php">packages/docgen/tests</directory>
+            <exclude>packages/docgen/tests/Fixtures</exclude>
+        </testsuite>
         <testsuite name="e2e">
             <directory suffix="Test.php">tests/E2E</directory>
         </testsuite>
@@ -151,6 +157,7 @@
             <directory>packages/cli/src</directory>
             <directory>packages/framework/src</directory>
             <directory>packages/generator/src</directory>
+            <directory>packages/docgen/src</directory>
         </include>
     </source>
 </phpunit>

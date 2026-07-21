@@ -21,7 +21,8 @@
         "openmeta/extensions": "*",
         "openmeta/graphql": "*",
         "openmeta/cli": "*",
-        "openmeta/generator": "*"
+        "openmeta/generator": "*",
+        "openmeta/docgen": "*"
     },
     "autoload": {
         "psr-4": {
