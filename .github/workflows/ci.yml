@@ -2,9 +2,9 @@ name: CI
 
 on:
   push:
-    branches: [main]
+    branches: [main, develop]
   pull_request:
-    branches: [main]
+    branches: [main, develop]
 
 concurrency:
   group: ci-${{ github.workflow }}-${{ github.ref }}
@@ -14,6 +14,11 @@ jobs:
   ci:
     name: CI
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        php: ["8.3", "8.4"]
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -21,26 +26,31 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: "8.3"
+          php-version: ${{ matrix.php }}
           coverage: none
-
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: "20"
-          cache: npm
+          tools: cs2pr
 
       - name: Validate Composer
         run: composer validate --no-check-publish --strict
 
-      - name: Install Composer deps
-        run: composer install --prefer-dist --no-progress
-        continue-on-error: true
+      - name: Composer Install
+        uses: ramsey/composer-install@v3
+        with:
+          dependency-versions: highest
 
-      - name: Install npm deps
-        run: npm ci
-        continue-on-error: true
+      - name: PHPStan
+        run: composer phpstan
 
-      - name: Aggregate status
+      - name: PHPCS
         run: |
-          echo "CI scaffold is green. Wire packages to fail closed as they land."
+          set -o pipefail
+          vendor/bin/phpcs --report=checkstyle | cs2pr
+
+      - name: PHPUnit
+        run: composer phpunit
+
+      - name: Smoke
+        run: php packages/core/tests/smoke.php
+
+      - name: Success
+        run: echo "CI OK — Composer Install → PHPStan → PHPCS → PHPUnit → Success"

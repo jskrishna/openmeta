@@ -2,9 +2,9 @@ name: Coding standards
 
 on:
   push:
-    branches: [main]
+    branches: [main, develop]
   pull_request:
-    branches: [main]
+    branches: [main, develop]
 
 concurrency:
   group: coding-standards-${{ github.ref }}
@@ -21,19 +21,8 @@ jobs:
           php-version: "8.3"
           tools: cs2pr
           coverage: none
-      - name: Placeholder
+      - uses: ramsey/composer-install@v3
+      - name: PHPCS
         run: |
-          echo "PHPCS / WordPress-Coding-Standards will run here once packages exist."
-
-  eslint:
-    name: JS coding standards
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: "20"
-          cache: npm
-      - name: Placeholder
-        run: |
-          echo "ESLint / Prettier will run here once packages exist."
+          set -o pipefail
+          vendor/bin/phpcs --report=checkstyle | cs2pr
