@@ -1,0 +1,83 @@
+---
+description: "Rule 6 — WordPress: WPCS awareness, hooks, filters, caps, escape, nonces, i18n, compatibility"
+alwaysApply: true
+---
+
+# Rule 6 — WordPress
+
+ADR: `docs/adr/ADR-0003-wordpress-first.md`  
+Glue: `packages/wordpress` · Entry: `openmeta.php` · Security: `packages/security`  
+Docs: `docs/security/`, `docs/guides/localization.md`
+
+OpenMeta is **WordPress-first**. Domain packages stay testable without WP; bridges **fail closed** when WP APIs are missing.
+
+## WordPress Coding Standards
+
+- Framework packages (`packages/*/src`) follow **PSR-12** + OpenMeta Rule 2 (PHPCS).
+- **WP-facing glue** (`openmeta.php`, `packages/wordpress`, outputs that hit `wp-admin` / front) must also respect **WordPress Coding Standards** habits:
+  - Prefix everything public: functions, options, CPT, rest routes, hooks → `openmeta_` / `OpenMeta\\`
+  - No PHP closing tag; escape late; validate early
+  - Don’t pollute the global namespace
+- Prefer WP APIs (`add_action`, `register_rest_route`, `wp_enqueue_*`) **only** inside Wordpress/Security/API bridges — not inside Fields/Database cores.
+- Target supported WP from project docs (e.g. 6.4+); don’t rely on removed APIs.
+
+## Hooks (actions)
+
+- Register via Wordpress runtime / `ActionBridge` — stable names: `openmeta_*` (e.g. `openmeta_ready`).
+- Actions **react**; they must not become a second business-logic engine.
+- Document new public hooks (name, args, when fired).
+- Keep `openmeta.php` thin: activation/deactivation + `plugins_loaded` boot only.
+
+## Filters
+
+- Use filters to **modify values** at documented extension points (`openmeta_config`, menu capability, REST namespace, etc.).
+- Filters are **not** authorization — never “filter away” security checks.
+- Third-party-friendly: pass enough context; don’t break backward compatibility casually.
+
+## Capability checks
+
+- All mutations / admin screens / sensitive REST: check via **`@openmeta/security` Gate** + Permission map (WP caps underneath).
+- Prefer `current_user_can` **through** Security bridges — fail closed if WP absent.
+- Map OpenMeta permissions → WP capabilities in `PermissionMap`; seed roles on activate (`CapabilityRegistrar`).
+- UI hide ≠ security. Always enforce server-side.
+
+## Escaping
+
+- Escape **on output** (late): `Escaper::html`, `attr`, `url`, or WP `esc_html` / `esc_attr` / `esc_url` in pure WP callbacks.
+- Never print raw request/storage data into admin HTML, attributes, or JS.
+- Field/Admin/UI render paths must go through Security escaping helpers.
+
+## Nonces
+
+- State-changing requests (admin forms, builder save, settings): **Nonce create + check** via `@openmeta/security` Nonce (HMAC in CI; WP nonce handler when available).
+- Nonces ≠ authentication or capability checks — use **all three** where needed.
+- Fail closed on invalid/missing nonce; don’t “log and continue.”
+
+## Translation (i18n)
+
+- Text domain: **`openmeta`** (matches plugin header).
+- User-facing strings in WP UI: `__()`, `_e()`, `esc_html__()`, `_x()` / `_n()` as appropriate — **after** load_plugin_textdomain / just-in-time i18n.
+- Do not concatenate HTML inside translatable strings; use placeholders (`sprintf` + translators comments).
+- Framework-internal log/exception messages for developers may stay English; anything shown to site admins/users should be translatable.
+
+## Plugin compatibility
+
+- Integrate through **public WP APIs** and OpenMeta hooks/filters — no core hacks, no rewriting other plugins’ internals.
+- Assume other plugins exist: unique prefixes, no generic function names, no unconditional takeover of global admin menus.
+- REST under `openmeta/v1` (or filtered namespace); don’t collide with other plugins’ routes.
+- Gutenberg: register block metadata via bridges; don’t fork the field engine inside blocks.
+- Multisite / capability differences: fail closed; don’t assume `administrator` alone forever.
+- Soft-depend on optional plugins (Woo, etc.) behind `class_exists` / feature flags when added later — never hard-fatal if absent.
+
+## Must not
+
+- ❌ Multi-CMS abstractions  
+- ❌ Domain engines inside `openmeta.php`  
+- ❌ `$wpdb` schema ownership outside `database`  
+- ❌ Trusting Canvas/UI without Gate + Nonce + Validation  
+- ❌ Unescaped echo in admin/REST HTML  
+
+## Tests
+
+- CI: `ArrayWordPressRuntime` (or fakes); Native runtime no-ops safely without WP.
+- Cover fail-closed caps/nonces/auth bridges.

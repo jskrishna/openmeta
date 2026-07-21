@@ -1,0 +1,79 @@
+---
+description: "Rule 1 — OpenMeta architecture, layering, deps, SOLID, DI; never break architecture"
+alwaysApply: true
+---
+
+# Rule 1 — Architecture
+
+**Never break OpenMeta architecture.** North star: `.cursor/context/project.md`.  
+If unclear → stop and ask. Sources: `ARCHITECTURE.md`, `packages/*/SPEC.md`, `docs/adr/`.
+
+## OpenMeta architecture
+
+- WordPress-first content-modeling framework (modular monorepo).
+- Packages isolate capabilities; share contracts through `core` (container, providers, events).
+- Plugin entry (`openmeta.php`) is thin — boot only, no business logic.
+- SPEC-first: implement only what that package’s SPEC allows (Responsibilities / Must not).
+
+```text
+WordPress → Plugin Bootstrap → Service Container → Core services
+  → Fields / Validation / Security / Database
+  → REST · Admin UI · Builder · Developer API
+```
+
+## Layering
+
+Keep boundaries sharp. Outer layers **consume** inner layers; they do **not** reimplement them.
+
+| Layer | Owns | Must not own |
+| ----- | ---- | ------------ |
+| Wordpress glue | Hooks, mount, bridges | Field types, validation engine, schema |
+| Admin / Builder / UI | Screens, canvas, chrome | Persistence, public REST server, field engine |
+| API | HTTP REST auth + resources | Field-type definitions, admin menus |
+| Fields | Field model, render, field storage adapters | WP menus, full GraphQL server |
+| Database | Connection, schema, migrations, query | Field UI, REST routes |
+| Validation / Security | Rules, caps, nonce, escape | Storage, HTTP routing |
+| Core | App, container, kernel, providers, config, events | Any domain package feature |
+| Support | Pure helpers | Domain logic |
+
+One package at a time. Coding order: see `.cursor/context/roadmap.md`.
+
+## Package dependency rules
+
+Downstream → upstream only. **Never invert.**
+
+```text
+Core ← Support ← Validation ← Security ← Database ← Fields
+  ← API / UI ← Admin ← Builder ← Wordpress (glue)
+```
+
+- `core` depends on **zero** other OpenMeta packages.
+- Do not import Admin from Fields, Database from API, Builder from Wordpress internals, etc.
+- Detail table: `.cursor/rules/dependency-rules.mdc`. New edge → update SPEC first.
+
+## SOLID
+
+- **S** — one reason to change per class / package spine component  
+- **O** — extend via providers, registries, contracts — not core edits  
+- **L** — honor interface contracts; don’t weaken fail-closed security  
+- **I** — small contracts over god interfaces  
+- **D** — depend on abstractions (container bindings), not foreign concretes  
+
+Also: separation of concerns, simplicity over cleverness, additive public APIs (deprecate don’t delete).
+
+## Dependency Injection (DI)
+
+- Resolve collaborators through the **Core Container** + **ServiceProviders** (register → boot).
+- Prefer constructor injection; avoid service-locator sprawl in domain code.
+- No hidden `$GLOBALS` domain state; no `new` collaborator graphs that bypass the container in app services.
+- WordPress bridges: fail closed when WP APIs missing (`function_exists` / runtime adapters).
+
+## Never break architecture
+
+- ❌ Business logic in `openmeta.php`, templates, or random root scripts  
+- ❌ Reimplement Fields / Validation / Security / Database inside Admin, Builder, or API  
+- ❌ Skip SPEC / ADR when they exist  
+- ❌ Guess when docs conflict — **stop and ask**  
+- ❌ Cross-package shortcuts that violate Dependency Rules  
+
+**Done only if** SPEC Must not still holds and `composer ci` can stay green.
