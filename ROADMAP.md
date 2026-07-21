@@ -381,14 +381,15 @@ See [docs/roadmap/phase-13-cli.md](docs/roadmap/phase-13-cli.md).
 
 ## Phase 15 — Code Generator
 
-Status: ⏳ Planned (`v0.14.0-beta`)
+Status: ✅ Completed (`v0.14.0-beta`, `packages/generator`)
 
 Objectives
 
-- `make:*` scaffolding for extensions, field types, tests
-- Convention-enforced stubs (PSR-12, dependency rules)
+- Template-driven `make:*` scaffolding (18 generator types) ✅
+- Stub engine, placeholder/namespace resolvers, conflict detection, dry-run/preview ✅
+- Never overwrites without `--force`; mounts `make:*` into the CLI ✅
 
-See [docs/roadmap/phase-15-code-generator.md](docs/roadmap/phase-15-code-generator.md).
+See [docs/roadmap/phase-15-code-generator.md](docs/roadmap/phase-15-code-generator.md) · [packages/generator/SPEC.md](packages/generator/SPEC.md).
 
 ---
 

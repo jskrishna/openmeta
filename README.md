@@ -219,9 +219,14 @@ Discovery, manifest, and lifecycle contract (`packages/extensions`).
 
 First-class GraphQL schema and resolvers (`packages/graphql`).
 
-## Phase 14 — CLI & Developer Tools (`v0.13-beta`) ← next
+## Phase 14 — CLI & Developer Tools ✅ (`v0.13-beta`)
 
 Command-line scaffolding and developer tooling (`packages/cli`).
+
+> **Install everything with one target:** `composer require openmeta/framework`
+> — the `packages/framework` meta package aggregates every component and boots
+> them with `OpenMeta\Framework\Framework::boot()`. Advanced users may still
+> install individual packages (`openmeta/fields`, `openmeta/database`, …).
 
 ## Phase 15 — Code Generator (`v0.14-beta`)
 
