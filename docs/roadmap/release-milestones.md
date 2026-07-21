@@ -2,9 +2,9 @@
 
 Versioned path from Core Bootstrap to stable **v1.0.0**.
 
-**Phase 18** is the authoritative release freeze. Related: [ROADMAP.md](../../ROADMAP.md), [phase-18-releases.md](./phase-18-releases.md), [ADR-0024](../adr/ADR-0024-post-rest-phase-order.md), [ADR-0026](../adr/ADR-0026-complete-framework-ecosystem.md), [release-process.md](../development/release-process.md), [`.github/MILESTONES.md`](../../.github/MILESTONES.md).
+**Phase 19** is the authoritative release freeze ([ADR-0027](../adr/ADR-0027-dx-first-roadmap.md)). Related: [ROADMAP.md](../../ROADMAP.md), [phase-18-releases.md](./phase-18-releases.md), [ADR-0024](../adr/ADR-0024-post-rest-phase-order.md), [ADR-0026](../adr/ADR-0026-complete-framework-ecosystem.md) (superseded numbering), [release-process.md](../development/release-process.md), [`.github/MILESTONES.md`](../../.github/MILESTONES.md).
 
-Post-REST phase order (Accepted): WordPress Adapter → Admin → Builder → GraphQL → CLI → Extension SDK → Code Generator → Testing & Performance → Developer Doc Generator → v1.0.
+Post-REST phase order (Accepted, DX-first — ADR-0027): WordPress Adapter → Admin → Builder → Extension SDK → GraphQL → CLI → Code Generator → Testing & Performance → Documentation Generator → Marketplace (optional) → v1.0.
 
 ---
 
@@ -62,17 +62,17 @@ Visual Builder ✅
 ↓
 
 v0.11.0-beta
-GraphQL Package  ← next
+Extension SDK ✅
 
 ↓
 
 v0.12.0-beta
-CLI & Developer Tools
+GraphQL Package ✅
 
 ↓
 
 v0.13.0-beta
-Extension SDK
+CLI & Developer Tools  ← next
 
 ↓
 
@@ -82,7 +82,12 @@ Code Generator
 ↓
 
 v0.15.0-beta
-Developer Documentation Generator
+Documentation Generator
+
+↓
+
+v0.16.0-beta
+Marketplace & Package Manager (optional)
 
 ↓
 
@@ -108,14 +113,15 @@ Phase 16 (Testing, QA & Performance) is a **continuous gate** on every train and
 | **v0.8.0-alpha** | WordPress Adapter | `wordpress` | Plugin boot, hooks, REST mount, caps |
 | **v0.9.0-alpha** | Admin UI | `admin` | `ui` kit + screens via WP bridges |
 | **v0.10.0-beta** | Visual Builder | `builder` | Schema/history pipeline + admin slot |
-| **v0.11.0-beta** | GraphQL | `graphql` / `api` GraphQL mount | Schema maps from Fields contracts |
-| **v0.12.0-beta** | CLI & Developer Tools | `cli` | Commands over Core container |
-| **v0.13.0-beta** | Extension SDK | `sdk` (or Core extension spine) | Manifest, loader, sample extension |
+| **v0.11.0-beta** | Extension SDK | `extensions` | Manifest, discovery, lifecycle, resources |
+| **v0.12.0-beta** | GraphQL | `graphql` | Framework-independent schema/resolvers; reuse Security + Validation |
+| **v0.13.0-beta** | CLI & Developer Tools | `cli` | Console app + registry/discovery/tasks over Core container |
 | **v0.14.0-beta** | Code Generator | codegen / CLI `make:*` | Scaffold extension, field, tests |
-| **v0.15.0-beta** | Developer Documentation Generator | docgen / CLI `docs:*` | Generated reference + hooks catalog |
+| **v0.15.0-beta** | Documentation Generator | docgen / CLI `docs:*` | Generated reference + hooks catalog |
+| **v0.16.0-beta** | Marketplace & Package Manager (optional) | marketplace | Extension distribution over the SDK |
 | **v1.0.0** | Stable | — | Phases 14–17 green; Phase 16 gate; API freeze |
 
-Status today: **through Visual Builder (`v0.10`) ✅** · next **`v0.11` GraphQL Package**.
+Status today: **through GraphQL (`v0.12`) ✅** · next **`v0.13` CLI & Developer Tools**.
 
 ---
 
@@ -134,7 +140,7 @@ Status today: **through Visual Builder (`v0.10`) ✅** · next **`v0.11` GraphQL
 | Stage | Versions | Intent |
 | ----- | -------- | ------ |
 | **Alpha** | `v0.1`–`v0.9` | Spines; APIs may shift |
-| **Beta** | `v0.10`–`v0.15` | Builder, GraphQL, CLI, SDK, codegen, docgen soak |
+| **Beta** | `v0.10`–`v0.16` | Builder, SDK, GraphQL, CLI, codegen, docgen, marketplace soak |
 | **Stable** | `v1.0.0` | SemVer-stable public contracts |
 
 Do not skip trains. Do not claim a version “done” without its testing gates (or explicit N/A in SPEC).
