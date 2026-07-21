@@ -26,8 +26,8 @@ parameters:
         - packages/admin/tests
         - packages/builder/src
         - packages/builder/tests
-        - packages/sdk/src
-        - packages/sdk/tests
+        - packages/extensions/src
+        - packages/extensions/tests
     excludePaths:
         - */vendor/*
         - */node_modules/*

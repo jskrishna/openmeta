@@ -42,7 +42,7 @@
       "@test:ui",
       "@test:admin",
       "@test:builder",
-      "@test:sdk"
+      "@test:extensions"
     ],
     "test:core": [
       "phpunit --configuration phpunit.xml --testsuite core",
@@ -81,8 +81,8 @@
     "test:builder": [
       "phpunit --configuration phpunit.xml --testsuite builder"
     ],
-    "test:sdk": [
-      "phpunit --configuration phpunit.xml --testsuite sdk"
+    "test:extensions": [
+      "phpunit --configuration phpunit.xml --testsuite extensions"
     ]
   },
   "autoload": {
@@ -99,7 +99,7 @@
       "OpenMeta\\Ui\\": "packages/ui/src/",
       "OpenMeta\\Admin\\": "packages/admin/src/",
       "OpenMeta\\Builder\\": "packages/builder/src/",
-      "OpenMeta\\Sdk\\": "packages/sdk/src/"
+      "OpenMeta\\Extensions\\": "packages/extensions/src/"
     }
   },
   "autoload-dev": {
@@ -116,7 +116,7 @@
       "OpenMeta\\Ui\\Tests\\": "packages/ui/tests/",
       "OpenMeta\\Admin\\Tests\\": "packages/admin/tests/",
       "OpenMeta\\Builder\\Tests\\": "packages/builder/tests/",
-      "OpenMeta\\Sdk\\Tests\\": "packages/sdk/tests/",
+      "OpenMeta\\Extensions\\Tests\\": "packages/extensions/tests/",
       "OpenMeta\\Tests\\": "tests/"
     },
     "exclude-from-classmap": [
@@ -132,7 +132,7 @@
       "/packages/ui/tests/",
       "/packages/admin/tests/",
       "/packages/builder/tests/",
-      "/packages/sdk/tests/",
+      "/packages/extensions/tests/",
       "/tests/"
     ]
   },
