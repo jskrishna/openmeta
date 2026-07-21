@@ -1,0 +1,24 @@
+{
+    "name": "openmeta/validation",
+    "version": "0.3.0-alpha",
+    "description": "OpenMeta shared validation \u2014 rule engine, validator, error bag, and messages.",
+    "type": "library",
+    "license": "GPL-2.0-or-later",
+    "require": {
+        "php": ">=8.3",
+        "openmeta/core": "*",
+        "openmeta/support": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "OpenMeta\\Validation\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "OpenMeta\\Validation\\Tests\\": "tests/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

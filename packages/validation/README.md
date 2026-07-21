@@ -1,61 +1,63 @@
 # `@openmeta/validation`
 
-> Pre-alpha contract — implement against this document, not ad-hoc assumptions.
+> Shared validation engine for the whole framework. **Not** a Fields/API feature. **Validation ≠ authorization.**
+
+**Status:** ✅ Complete (Phase 4) · **v0.3.0-alpha**  
+**Blueprint:** [SPEC.md](./SPEC.md) · Prompt: [`.ai/prompts/phase-04-validation.md`](../../.ai/prompts/phase-04-validation.md)
 
 ---
 
 ## Purpose
 
-Define validation rules and structured error contracts shared by fields, APIs, and UI feedback surfaces.
+One Rule Engine + Validator + Error Bag + Messages stack for array/object payloads (nested / dot notation, custom rules, conditional `required_if`).
 
----
-
-## Responsibilities
-
-- Built-in validation rules
-- Custom rule registration
-- Structured validation error envelopes
-- Server-side validation execution (and client-evaluable rule metadata where practical)
-
-Must not persist data or render UI components.
+**Highest-leverage core service** — reused by Fields, REST, Admin, Builder, Database schema checks, import/export, and future plugin extensions. Do not fork validators in those packages; extend this registry instead.
 
 ---
 
 ## Public APIs
 
-- Validator / rule interfaces
-- Rule registry API
-- Validation result and error DTO shapes
-- Helpers to run rule sets against input payloads
+| API | Class |
+| --- | ----- |
+| Façade | `OpenMeta\Validation\Validation` |
+| Validator | `OpenMeta\Validation\Validator\Validator` |
+| Context / Result | `ValidationContext`, `ValidationResult`, `ErrorBag`, `ValidationError` |
+| Registry | `RuleRegistry`, `RuleEngine` |
+| Support | `DataNormalizer`, `AttributeFormatter` |
+| Rules | `OpenMeta\Validation\Rules\*` + `RuleInterface` |
+| Messages | `MessageBag` (`MessageResolverInterface`) |
+| ErrorBag | `ErrorBag`, `ValidationError` |
+| Exceptions | `ValidationException`, `InvalidRuleException` |
+| Provider | `OpenMeta\Validation\ValidationServiceProvider` |
+
+```php
+use OpenMeta\Validation\Validation;
+
+Validation::make($arrayOrObject, [
+    'email' => 'required|email',
+    'age' => 'integer|min:18',
+    'id' => 'uuid',
+])->validate();
+
+$result = Validation::make($data, $rules)->result();
+
+Validation::extend('odd', fn ($attr, $value) => ((int) $value) % 2 === 1);
+```
 
 ---
 
-## Dependencies
+## Exit criteria
 
-- `packages/core`
-- `packages/support` (optional pure helpers)
-
-Consumed by `fields`, `api`, `builder`, and `admin`. Must not depend on those packages.
-
----
-
-## Extension Points
-
-- Custom validation rules
-- Error message formatters / translators
-- Rule set presets for field types
+- ✅ Validate arrays / objects / nested data
+- ✅ Built-in rule set per SPEC
+- ✅ Custom rules (`Validation::extend` / `RuleInterface`)
+- ✅ `composer test:validation` + quality gates green
 
 ---
 
-## Folder Structure
+## Verify
 
-```text
-packages/validation/
-├── src/
-│   ├── Rules/
-│   ├── Registry/
-│   ├── Results/
-│   └── Contracts/
-├── tests/
-└── README.md
+```bash
+composer test:validation
+composer ci
 ```
