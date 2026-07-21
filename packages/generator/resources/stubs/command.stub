@@ -1,0 +1,25 @@
+<?php
+
+declare(strict_types=1);
+
+namespace {{ namespace }};
+
+use OpenMeta\Cli\Commands\Command;
+use OpenMeta\Cli\Contracts\InputInterface;
+use OpenMeta\Cli\Contracts\OutputInterface;
+use OpenMeta\Cli\Support\ExitCode;
+
+/**
+ * {{ class }}.
+ */
+final class {{ class }} extends Command
+{
+    protected string $name = '{{ snake }}';
+
+    protected string $description = 'Describe {{ class }}.';
+
+    public function execute(InputInterface $input, OutputInterface $output): int
+    {
+        return ExitCode::SUCCESS;
+    }
+}

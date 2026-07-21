@@ -1,66 +1,42 @@
 # `@openmeta/admin`
 
-> Pre-alpha contract — implement against this document, not ad-hoc assumptions.
+> Reusable **Admin UI framework** — pages, navigation, layouts, forms, tables, dashboard widgets, and UI events.
+
+**Status:** ✅ Phase 10 · **v0.9.0-alpha**  
+**Blueprint:** [SPEC.md](./SPEC.md) · **Docs:** [docs/README.md](./docs/README.md)
+
+Uses `@openmeta/ui` primitives + `@openmeta/security` (Gate / Nonce). No WordPress APIs, field storage, or business logic.
+
+```bash
+php composer.phar test:admin
+php composer.phar ci
+```
 
 ---
 
-## Purpose
+## Exit criteria (Phase 10)
 
-Own WordPress admin screens and the OpenMeta admin application shell that editors and developers use to manage models, fields, and settings.
-
----
-
-## Responsibilities
-
-- Admin menu registration and page routing
-- Dashboard, settings, and management shells
-- Wiring admin screens to `ui` components and domain services
-- Admin-only assets and capability-gated pages
-
-Must not contain domain persistence, field-type logic, or public HTTP API controllers.
-
----
-
-## Public APIs
-
-- Admin page/menu registration helpers
-- Screen controller contracts
-- Hooks for injecting admin menu items and panels
-- Documented JS bridges for admin screens (when introduced)
+| Criterion | Status |
+| --------- | ------ |
+| Admin application boot + registries | ✅ `AdminApplication` |
+| Pages + navigation + layouts | ✅ `PageManager`, `NavigationManager`, `LayoutManager` |
+| Components + forms + tables | ✅ `ComponentRegistry`, `FormBuilder`, `TableBuilder` |
+| Dashboard / notices / modals / toolbar | ✅ |
+| Theme + asset declarations | ✅ `ThemeManager`, `AssetRegistry` |
+| Security integration (Gate) | ✅ |
+| UI events via Core dispatcher | ✅ |
+| No WP / Builder / business logic | ✅ |
+| PHPUnit / PHPStan / PHPCS | ✅ |
+| Docs updated | ✅ |
 
 ---
 
-## Dependencies
-
-- `packages/core`
-- `packages/ui`
-- `packages/fields` (read/display contracts)
-- `packages/security` (capabilities / nonces)
-- WordPress Admin APIs
-
-Must not depend on `builder` internals (builder may embed into admin via extension points).
-
----
-
-## Extension Points
-
-- Admin menu / submenu registration filters
-- Screen panel slots
-- Settings section registration
-- Capability maps for admin routes
-
----
-
-## Folder Structure
+## Spine
 
 ```text
-packages/admin/
-├── src/
-│   ├── Menus/
-│   ├── Screens/
-│   ├── Controllers/
-│   └── Assets/
-├── resources/
-├── tests/
-└── README.md
+AdminApplication → Pages / Navigation / Layouts
+    → Forms / Tables / Components / Dashboard
+    → Notices / Modals / Toolbar / Themes / Assets
 ```
+
+WordPress mounts admin via `@openmeta/wordpress` (`AdminPages` bridge) — this package never calls WP directly.

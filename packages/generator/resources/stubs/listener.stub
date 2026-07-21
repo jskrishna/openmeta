@@ -1,0 +1,15 @@
+<?php
+
+declare(strict_types=1);
+
+namespace {{ namespace }};
+
+/**
+ * {{ class }} listener.
+ */
+final class {{ class }}
+{
+    public function handle(object $event): void
+    {
+    }
+}

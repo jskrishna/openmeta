@@ -1,0 +1,24 @@
+{
+    "name": "openmeta/ui",
+    "version": "0.8.0-alpha",
+    "description": "OpenMeta shared UI primitives and components for admin and builder.",
+    "type": "library",
+    "license": "GPL-2.0-or-later",
+    "require": {
+        "php": ">=8.3",
+        "openmeta/core": "*",
+        "openmeta/security": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "OpenMeta\\Ui\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "OpenMeta\\Ui\\Tests\\": "tests/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

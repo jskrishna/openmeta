@@ -9,7 +9,7 @@ Build powerful custom fields, structured content models, and developer-first exp
 ![License](https://img.shields.io/badge/license-GPL--2.0-blue.svg)
 ![PHP](https://img.shields.io/badge/PHP-8.3+-777BB4?logo=php&logoColor=white)
 ![WordPress](https://img.shields.io/badge/WordPress-6.8+-21759B?logo=wordpress&logoColor=white)
-![Status](https://img.shields.io/badge/status-Pre--Alpha-orange)
+![Status](https://img.shields.io/badge/status-Beta-yellow)
 ![Contributions](https://img.shields.io/badge/contributions-welcome-brightgreen)
 
 ---
@@ -137,11 +137,15 @@ OpenMeta should become the foundation developers choose when building modern Wor
 
 Current Stage:
 
-**Pre-Alpha — Core Bootstrap `v0.1.0-alpha` ✅**
+**Beta — Developer-Experience train `v0.12.0-beta` ✅**
 
-Shipped: Application, Kernel, Container, Config, Providers, Bootstrap, PHPUnit, CI.
+Shipped: Foundation (Core → Support → Validation → Security → Database → Fields → REST → API),
+WordPress adapter, Admin UI, Visual Builder, Extension SDK, and the GraphQL package.
 
-Next: **Support Package** → Validation → Security → Database → Fields → API → Admin → Builder → `v1.0.0`
+Next: **CLI & Developer Tools** (`v0.13.0-beta`) → Code Generator → Documentation Generator
+→ Marketplace (optional) → `v1.0.0`.
+
+Phase order is authoritative in [ADR-0027](docs/adr/ADR-0027-dx-first-roadmap.md).
 
 Track progress: [milestones](https://github.com/jskrishna/openmeta/milestones) · [`.github/MILESTONES.md`](.github/MILESTONES.md)
 
@@ -178,60 +182,71 @@ Detailed documentation will continue to evolve alongside implementation.
 # Roadmap
 
 ```text
-v0.1.0-alpha (Core) ✅
+Foundation (Core → Support → Validation → Security → Database → Fields → REST → API) ✅
     ↓
-Support → Validation → Security → Database → Fields → API → Admin → Builder
+WordPress ✅ → Admin UI ✅ → Visual Builder ✅ → Extension SDK ✅ → GraphQL ✅
+    ↓
+CLI → Code Generator → Documentation Generator → Marketplace (optional)
     ↓
 v1.0.0
 ```
 
-## Phase 00
+Foundation and the post-REST ecosystem phases are complete; the project is now on the
+developer-experience train. Phase numbering follows [ADR-0027](docs/adr/ADR-0027-dx-first-roadmap.md).
 
-Planning & Documentation ✅
+## Foundation ✅
 
-## Phase 01
+Core, Support, Validation, Security, Database, Fields, REST, and API packages
+(`v0.1` – `v0.7`).
 
-Plugin Bootstrap ✅ (`v0.1.0-alpha`)
+## Phase 08 — WordPress Adapter ✅ (`v0.8`)
 
-## Phase 02
+Plugin bootstrap, hook/action bridges, and fail-closed WP runtime.
 
-Core Framework ✅ spine; remaining packages per build order
+## Phase 09 — Admin UI ✅ (`v0.9`)
 
-## Phase 03
+React + TypeScript admin: UI kit, dashboard, menus, forms, settings.
 
-Database Layer
+## Phase 11 — Visual Builder ✅ (`v0.10-beta`)
 
-## Phase 04
+Canvas, drag-and-drop, schema, and live preview.
 
-Field Engine
+## Phase 12 — Extension SDK ✅ (`v0.11-beta`)
 
-## Phase 05
+Discovery, manifest, and lifecycle contract (`packages/extensions`).
 
-Administration UI
+## Phase 13 — GraphQL Package ✅ (`v0.12-beta`)
 
-## Phase 06
+First-class GraphQL schema and resolvers (`packages/graphql`).
 
-Field Builder
+## Phase 14 — CLI & Developer Tools ✅ (`v0.13-beta`)
 
-## Phase 07
+Command-line scaffolding and developer tooling (`packages/cli`).
 
-Advanced Fields
+> **Install everything with one target:** `composer require openmeta/framework`
+> — the `packages/framework` meta package aggregates every component and boots
+> them with `OpenMeta\Framework\Framework::boot()`. Advanced users may still
+> install individual packages (`openmeta/fields`, `openmeta/database`, …).
 
-## Phase 08
+## Phase 15 — Code Generator (`v0.14-beta`)
 
-API Layer
+Scaffolding generators built on the Extension SDK.
 
-## Phase 09
+## Phase 16 — Testing, QA & Performance
 
-Integrations
+Continuous quality gate on every train plus a pre-v1.0 hardening pass (no dedicated semver train).
 
-## Phase 10
+## Phase 17 — Documentation Generator (`v0.15-beta`)
 
-Testing
+Generated developer documentation.
 
-## Phase 11
+## Phase 18 — Marketplace & Package Manager (`v0.16-beta`, optional)
 
-Stable Release
+Distribution surface; may be deferred without blocking Stable.
+
+## Phase 19 — Stable Release (`v1.0.0`)
+
+Public API freeze and the first production-ready release.
 
 See **ROADMAP.md** for the complete development roadmap.
 

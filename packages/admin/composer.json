@@ -1,0 +1,29 @@
+{
+    "name": "openmeta/admin",
+    "version": "0.9.0-alpha",
+    "description": "OpenMeta WordPress admin \u2014 dashboard, menus, screens, forms, tables, settings.",
+    "type": "library",
+    "license": "GPL-2.0-or-later",
+    "require": {
+        "php": ">=8.3",
+        "openmeta/core": "*",
+        "openmeta/support": "*",
+        "openmeta/security": "*",
+        "openmeta/validation": "*",
+        "openmeta/ui": "*",
+        "openmeta/database": "*",
+        "openmeta/fields": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "OpenMeta\\Admin\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "OpenMeta\\Admin\\Tests\\": "tests/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

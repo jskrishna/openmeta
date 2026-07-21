@@ -2,7 +2,7 @@
 
 Every OpenMeta **release train** ships behind a **GitHub milestone**. Package coding order still applies inside each train.
 
-Authoritative version plan: [docs/roadmap/release-milestones.md](../docs/roadmap/release-milestones.md) · Phase 13: [docs/roadmap/phase-13-releases.md](../docs/roadmap/phase-13-releases.md).
+Authoritative version plan: [docs/roadmap/release-milestones.md](../docs/roadmap/release-milestones.md) · Phase 15: [docs/roadmap/phase-15-releases.md](../docs/roadmap/phase-15-releases.md) · [ADR-0024](../docs/adr/ADR-0024-post-rest-phase-order.md).
 
 ## Rule
 
@@ -14,9 +14,12 @@ Authoritative version plan: [docs/roadmap/release-milestones.md](../docs/roadmap
 | `v0.4.0-alpha` | `v0.4.0-alpha – Security` | `security` |
 | `v0.5.0-alpha` | `v0.5.0-alpha – Database` | `database` |
 | `v0.6.0-alpha` | `v0.6.0-alpha – Field Engine` | `fields` |
-| `v0.7.0-alpha` | `v0.7.0-alpha – REST API` | `api` |
-| `v0.8.0-alpha` | `v0.8.0-alpha – Admin` | `ui`, `admin` |
-| `v0.9.0-beta` | `v0.9.0-beta – Builder` | `builder`, `wordpress` |
+| `v0.7.0-alpha` | `v0.7.0-alpha – REST` | `rest` (+ `api`) |
+| `v0.8.0-alpha` | `v0.8.0-alpha – WordPress Adapter` | `wordpress` |
+| `v0.9.0-alpha` | `v0.9.0-alpha – Admin` | `ui`, `admin` |
+| `v0.10.0-beta` | `v0.10.0-beta – Builder` | `builder` |
+| `v0.11.0-beta` | `v0.11.0-beta – GraphQL` | GraphQL / API mount |
+| `v0.12.0-beta` | `v0.12.0-beta – CLI` | CLI package |
 | `v1.0.0` | `v1.0.0 – Stable` | Production freeze |
 
 Optional: open **per-package** milestones under a train when the board gets noisy — still close them before the version train exits.
@@ -29,7 +32,7 @@ For each package slice inside a train:
 2. Primary subsystem implementation  
 3. Configuration (if any)  
 4. Service provider wiring into Core  
-5. Phase 12 tests (Unit → Integration → WordPress → Performance → Security)  
+5. Testing gate (Unit → Integration → WordPress → Performance → Security)  
 6. Docs + CI green  
 
 Close issues when merged; close the **version** milestone when the train’s exit criteria pass.
@@ -39,38 +42,3 @@ Close issues when merged; close the **version** milestone when the train’s exi
 ```text
 Backlog → Ready → In progress → Review → Done
 ```
-
-Filter the board by milestone so trains do not mix.
-
-## Release train (summary)
-
-```text
-v0.1.0-alpha  Core ✅
-      ↓
-v0.2.0-alpha  Support ✅
-      ↓
-v0.3.0-alpha  Validation ✅
-      ↓
-v0.4.0-alpha  Security ✅
-      ↓
-v0.5.0-alpha  Database ✅
-      ↓
-v0.6.0-alpha  Field Engine ✅
-      ↓
-v0.7.0-alpha  REST API ✅
-      ↓
-v0.8.0-alpha  Admin ✅
-      ↓
-v0.9.0-beta   Builder ✅
-      ↓
-v1.0.0        Stable ⏳
-```
-
-## Live tracking
-
-| Resource | URL |
-| -------- | --- |
-| Milestone (Core, closed) | https://github.com/jskrishna/openmeta/milestone/1 |
-| Project board | https://github.com/users/jskrishna/projects/2 |
-
-Rename or create milestones #2+ to match the Phase 13 titles above when cutting each train.

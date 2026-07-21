@@ -1,0 +1,38 @@
+#!/usr/bin/env php
+<?php
+
+declare(strict_types=1);
+
+/**
+ * OpenMeta CLI entry point.
+ *
+ * Boots the framework with the CLI provider and runs the console application
+ * against the process arguments. Locates the Composer autoloader whether the
+ * package is installed as a dependency or used from the monorepo.
+ */
+
+use OpenMeta\Cli\CliServiceProvider;
+use OpenMeta\Cli\Contracts\ConsoleApplicationInterface;
+use OpenMeta\Core\Bootstrap\Bootstrap;
+
+$autoloaders = [
+    __DIR__ . '/../../../autoload.php',   // installed as a dependency (vendor/openmeta/cli/bin)
+    __DIR__ . '/../../../../vendor/autoload.php', // monorepo (packages/cli/bin)
+    __DIR__ . '/../vendor/autoload.php',
+];
+
+foreach ($autoloaders as $autoloader) {
+    if (is_file($autoloader)) {
+        require $autoloader;
+        break;
+    }
+}
+
+$app = Bootstrap::run([], [CliServiceProvider::class]);
+
+/** @var ConsoleApplicationInterface $console */
+$console = $app->get(ConsoleApplicationInterface::class);
+
+$arguments = array_slice($argv, 1);
+
+exit($console->run(array_values($arguments)));

@@ -1,65 +1,51 @@
 # `@openmeta/fields`
 
-> Pre-alpha contract — implement against this document, not ad-hoc assumptions.
+> **Heart of OpenMeta** — field registry, factory, manager, types, validation, storage contracts, rendering contracts.
+
+**Status:** ✅ Complete (Phase 7) · **v0.6.0-alpha**  
+**Blueprint:** [SPEC.md](./SPEC.md) · Package notes: [docs/](./docs/)
 
 ---
 
-## Purpose
+## Exit criteria
 
-Own the field registry, built-in field types, and the create → render → validate → save → load → display lifecycle for OpenMeta fields.
-
----
-
-## Responsibilities
-
-- Field registry and discovery
-- Built-in field type implementations
-- Field lifecycle orchestration
-- Location-rule aware field group resolution (with core/events)
-- Extension contracts for custom field types
-
-Must not own visual builder UI, raw SQL schema migrations, or REST route registration.
+| Criterion | Status |
+| --------- | ------ |
+| Register field | ✅ `FieldRegistry` / `FieldEngine::register` (aliases + versions) |
+| Immutable definitions | ✅ `Definitions\FieldDefinition` |
+| Factory / Manager | ✅ `FieldFactory` / `FieldManager` + lifecycle events |
+| Save / load | ✅ Manager → serialize → `FieldStorageInterface` (DB adapter) |
+| Validate field | ✅ `FieldValidator` → `@openmeta/validation` |
+| Conditions / groups | ✅ `Conditions\*` / `Groups\*` |
+| Render field | ✅ `FieldRendererInterface` (plain escaped descriptors — **no HTML/UI**) |
 
 ---
 
-## Public APIs
+## Public API
 
-- Field registry API
-- Base field contracts / abstract field type
-- Field group APIs
-- Lifecycle hooks (render, save, load, display)
-- Custom field type registration API
+```php
+$engine->make('text', 'title', ['required' => true]);
+$engine->factory()->makeFromDefinition($definition);
+$engine->manager()->save('post', 1, $field, $value);
+$engine->validate($field, $value);
+$engine->render($field, $value);
+```
 
----
-
-## Dependencies
-
-- `packages/core`
-- `packages/validation`
-- `packages/database` (persistence adapters)
-- `packages/security` (capability-aware field access where required)
+Prefer **Registry · Factory · Manager · Contracts**. Hide internals.
 
 ---
 
-## Extension Points
+## Built-in types
 
-- Custom field type registration
-- Field lifecycle filters/actions
-- Field settings schema extensions
-- Storage mapping overrides per field type
+`text` · `textarea` · `number` · `email` · `url` · `password` · `hidden` · `checkbox` · `radio` · `select` · `multiselect` · `toggle` · `boolean` · `date` · `datetime` · `time` · `color` · `range` · `file` · `image` · `gallery` · `relationship` · `repeater` · `group` · `object`
+
+Complex media / nested types ship as architectural stubs; adapters expand in later packages.
 
 ---
 
-## Folder Structure
+## Verify
 
-```text
-packages/fields/
-├── src/
-│   ├── Registry/
-│   ├── Types/
-│   ├── Groups/
-│   ├── Lifecycle/
-│   └── Contracts/
-├── tests/
-└── README.md
+```bash
+php composer.phar test:fields
+php composer.phar ci
 ```

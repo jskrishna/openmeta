@@ -1,0 +1,39 @@
+{
+    "name": "openmeta/framework",
+    "version": "0.13.0-beta",
+    "description": "OpenMeta framework — the batteries-included meta package aggregating every stable OpenMeta component behind a single install target.",
+    "type": "library",
+    "license": "GPL-2.0-or-later",
+    "require": {
+        "php": ">=8.3",
+        "openmeta/core": "*",
+        "openmeta/support": "*",
+        "openmeta/validation": "*",
+        "openmeta/security": "*",
+        "openmeta/database": "*",
+        "openmeta/fields": "*",
+        "openmeta/rest": "*",
+        "openmeta/api": "*",
+        "openmeta/ui": "*",
+        "openmeta/admin": "*",
+        "openmeta/builder": "*",
+        "openmeta/wordpress": "*",
+        "openmeta/extensions": "*",
+        "openmeta/graphql": "*",
+        "openmeta/cli": "*",
+        "openmeta/generator": "*",
+        "openmeta/docgen": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "OpenMeta\\Framework\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "OpenMeta\\Framework\\Tests\\": "tests/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

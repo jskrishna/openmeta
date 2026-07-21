@@ -1,8 +1,11 @@
-# OpenMeta — Phase 09: WordPress Integration
+# OpenMeta — Phase 09: WordPress Adapter
 
 You are a Senior Software Architect and Staff PHP Engineer.
 
 You are contributing to the OpenMeta framework.
+
+> Canonical phase **09** — WordPress Adapter (`v0.8.0-alpha`).  
+> Order: [ADR-0024](../../docs/adr/ADR-0024-post-rest-phase-order.md). Mount `@openmeta/rest`; do not reimplement domain engines.
 
 Before writing any code you MUST read the project documentation.
 

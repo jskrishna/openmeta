@@ -1,58 +1,42 @@
 # OpenMeta — roadmap context (Phase 01.5)
 
-> Authoritative long form: `ROADMAP.md`, `docs/roadmap/release-milestones.md`, `docs/roadmap/phase-13-releases.md`.
+> Authoritative long form: `ROADMAP.md`, `docs/roadmap/release-milestones.md`, `docs/roadmap/phase-18-releases.md`, [ADR-0024](../../docs/adr/ADR-0024-post-rest-phase-order.md), [ADR-0026](../../docs/adr/ADR-0026-complete-framework-ecosystem.md).
 
 ## Coding order (implementation)
 
 ```text
-Core → Support → Validation → Security → Database → Fields
-  → API → UI → Admin → Builder → Wordpress
+Core → … → Fields → Rest → Wordpress → UI → Admin → Builder
+  → GraphQL → CLI → Extension SDK → Code Generator
+    → Testing & Performance → Developer Doc Generator → v1.0
 ```
 
-One package at a time. Against that package’s `SPEC.md` only.
+One package / phase slice at a time. Against that package’s `SPEC.md` only.
 
-## Release train (Phase 13)
+## Release train (Phase 18 = Stable)
 
 ```text
-v0.1.0-alpha   Core
-v0.2.0-alpha   Support
-v0.3.0-alpha   Validation
-v0.4.0-alpha   Security
-v0.5.0-alpha   Database
-v0.6.0-alpha   Field Engine
-v0.7.0-alpha   REST API
-v0.8.0-alpha   Admin (+ UI)
-v0.9.0-beta    Builder (+ WordPress)
-v1.0.0         Stable  ← next
+v0.1–v0.7   Foundation ✅
+v0.8        WordPress Adapter ✅
+v0.9        Admin UI ✅
+v0.10-beta  Visual Builder ✅
+v0.11-beta  GraphQL Package  ← next
+v0.12-beta  CLI & Developer Tools
+v0.13-beta  Extension SDK
+v0.14-beta  Code Generator
+v0.15-beta  Developer Documentation Generator
+v1.0.0      Stable (Phase 18)
 ```
-
-## Agent phase prompts (`.ai/prompts/`)
-
-| Prompt | Focus |
-| ------ | ----- |
-| `phase-02-core-bootstrap.md` | Core |
-| `phase-03-support.md` | Support |
-| `phase-04-validation.md` | Validation |
-| `phase-05-security.md` | Security |
-| `phase-06-database.md` | Database |
-| `phase-07-fields.md` | Fields |
-| `phase-08-rest-api.md` | API |
-| `phase-09-wordpress.md` | WordPress glue |
-| `phase-10-admin.md` | UI + Admin |
-| `phase-11-builder.md` | Builder |
-| `phase-12-testing.md` | Five-layer testing gate |
 
 ## Status snapshot
 
-- Spines **v0.1–v0.9** ✅  
-- Phase 12 testing gate ✅  
-- Phase 01.5 Cursor rules ✅ (this folder)  
-- **v1.0.0 Stable** ⏳  
+- Foundation **v0.1–v0.7** ✅ · Phases **09–11** ✅  
+- **Next:** Phase 12 GraphQL Package (`v0.11`)  
+- **v1.0.0 Stable** (Phase 18) ⏳  
 
 ## Exit criteria (any train)
 
 1. SPEC Must not respected  
-2. Phase 12 layers green  
+2. Testing layers green (Phase 16 / `packages/TESTING.md`)  
 3. `composer ci` green  
 4. CHANGELOG entry  
 5. Milestone closed (when releasing)

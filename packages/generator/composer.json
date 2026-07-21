@@ -1,0 +1,25 @@
+{
+    "name": "openmeta/generator",
+    "version": "0.14.0-beta",
+    "description": "OpenMeta code generator — template-driven scaffolding for fields, repositories, providers, commands, GraphQL types, extensions, and more. Never overwrites without confirmation.",
+    "type": "library",
+    "license": "GPL-2.0-or-later",
+    "require": {
+        "php": ">=8.3",
+        "openmeta/core": "*",
+        "openmeta/support": "*",
+        "openmeta/cli": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "OpenMeta\\Generator\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "OpenMeta\\Generator\\Tests\\": "tests/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

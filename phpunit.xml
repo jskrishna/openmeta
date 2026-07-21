@@ -28,16 +28,33 @@
             <exclude>packages/fields/tests/FieldsTestCase.php</exclude>
             <directory suffix="Test.php">packages/rest/tests</directory>
             <exclude>packages/rest/tests/RestTestCase.php</exclude>
+            <exclude>packages/rest/tests/Fixtures</exclude>
             <directory suffix="Test.php">packages/api/tests</directory>
             <exclude>packages/api/tests/ApiTestCase.php</exclude>
+            <directory suffix="Test.php">packages/wordpress/tests</directory>
+            <exclude>packages/wordpress/tests/WordpressTestCase.php</exclude>
+            <exclude>packages/wordpress/tests/bootstrap.php</exclude>
             <directory suffix="Test.php">packages/ui/tests</directory>
             <directory suffix="Test.php">packages/admin/tests</directory>
             <exclude>packages/admin/tests/AdminTestCase.php</exclude>
             <directory suffix="Test.php">packages/builder/tests</directory>
             <exclude>packages/builder/tests/BuilderTestCase.php</exclude>
-            <directory suffix="Test.php">packages/wordpress/tests</directory>
-            <exclude>packages/wordpress/tests/WordpressTestCase.php</exclude>
-            <directory suffix="Test.php">tests/Phase12</directory>
+            <directory suffix="Test.php">packages/extensions/tests</directory>
+            <exclude>packages/extensions/tests/ExtensionsTestCase.php</exclude>
+            <exclude>packages/extensions/tests/Fixtures</exclude>
+            <directory suffix="Test.php">packages/graphql/tests</directory>
+            <exclude>packages/graphql/tests/GraphQLTestCase.php</exclude>
+            <exclude>packages/graphql/tests/Fixtures</exclude>
+            <directory suffix="Test.php">packages/cli/tests</directory>
+            <exclude>packages/cli/tests/CliTestCase.php</exclude>
+            <exclude>packages/cli/tests/Fixtures</exclude>
+            <directory suffix="Test.php">packages/framework/tests</directory>
+            <directory suffix="Test.php">packages/generator/tests</directory>
+            <exclude>packages/generator/tests/GeneratorTestCase.php</exclude>
+            <exclude>packages/generator/tests/Fixtures</exclude>
+            <directory suffix="Test.php">packages/docgen/tests</directory>
+            <exclude>packages/docgen/tests/Fixtures</exclude>
+            <directory suffix="Test.php">tests/E2E</directory>
         </testsuite>
         <testsuite name="core">
             <directory suffix="Test.php">packages/core/tests</directory>
@@ -68,10 +85,16 @@
         <testsuite name="rest">
             <directory suffix="Test.php">packages/rest/tests</directory>
             <exclude>packages/rest/tests/RestTestCase.php</exclude>
+            <exclude>packages/rest/tests/Fixtures</exclude>
         </testsuite>
         <testsuite name="api">
             <directory suffix="Test.php">packages/api/tests</directory>
             <exclude>packages/api/tests/ApiTestCase.php</exclude>
+        </testsuite>
+        <testsuite name="wordpress">
+            <directory suffix="Test.php">packages/wordpress/tests</directory>
+            <exclude>packages/wordpress/tests/WordpressTestCase.php</exclude>
+            <exclude>packages/wordpress/tests/bootstrap.php</exclude>
         </testsuite>
         <testsuite name="ui">
             <directory suffix="Test.php">packages/ui/tests</directory>
@@ -84,12 +107,35 @@
             <directory suffix="Test.php">packages/builder/tests</directory>
             <exclude>packages/builder/tests/BuilderTestCase.php</exclude>
         </testsuite>
-        <testsuite name="wordpress">
-            <directory suffix="Test.php">packages/wordpress/tests</directory>
-            <exclude>packages/wordpress/tests/WordpressTestCase.php</exclude>
+        <testsuite name="extensions">
+            <directory suffix="Test.php">packages/extensions/tests</directory>
+            <exclude>packages/extensions/tests/ExtensionsTestCase.php</exclude>
+            <exclude>packages/extensions/tests/Fixtures</exclude>
         </testsuite>
-        <testsuite name="phase12">
-            <directory suffix="Test.php">tests/Phase12</directory>
+        <testsuite name="graphql">
+            <directory suffix="Test.php">packages/graphql/tests</directory>
+            <exclude>packages/graphql/tests/GraphQLTestCase.php</exclude>
+            <exclude>packages/graphql/tests/Fixtures</exclude>
+        </testsuite>
+        <testsuite name="cli">
+            <directory suffix="Test.php">packages/cli/tests</directory>
+            <exclude>packages/cli/tests/CliTestCase.php</exclude>
+            <exclude>packages/cli/tests/Fixtures</exclude>
+        </testsuite>
+        <testsuite name="framework">
+            <directory suffix="Test.php">packages/framework/tests</directory>
+        </testsuite>
+        <testsuite name="generator">
+            <directory suffix="Test.php">packages/generator/tests</directory>
+            <exclude>packages/generator/tests/GeneratorTestCase.php</exclude>
+            <exclude>packages/generator/tests/Fixtures</exclude>
+        </testsuite>
+        <testsuite name="docgen">
+            <directory suffix="Test.php">packages/docgen/tests</directory>
+            <exclude>packages/docgen/tests/Fixtures</exclude>
+        </testsuite>
+        <testsuite name="e2e">
+            <directory suffix="Test.php">tests/E2E</directory>
         </testsuite>
     </testsuites>
     <source>
@@ -102,10 +148,16 @@
             <directory>packages/fields/src</directory>
             <directory>packages/rest/src</directory>
             <directory>packages/api/src</directory>
+            <directory>packages/wordpress/src</directory>
             <directory>packages/ui/src</directory>
             <directory>packages/admin/src</directory>
             <directory>packages/builder/src</directory>
-            <directory>packages/wordpress/src</directory>
+            <directory>packages/extensions/src</directory>
+            <directory>packages/graphql/src</directory>
+            <directory>packages/cli/src</directory>
+            <directory>packages/framework/src</directory>
+            <directory>packages/generator/src</directory>
+            <directory>packages/docgen/src</directory>
         </include>
     </source>
 </phpunit>

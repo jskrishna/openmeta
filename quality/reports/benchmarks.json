@@ -1,0 +1,69 @@
+{
+    "php": "8.3.31",
+    "results": [
+        {
+            "name": "framework.boot",
+            "iterations": 50,
+            "total_ms": 61.438,
+            "avg_ms": 1.22876,
+            "mem_delta_kb": 1594.7,
+            "peak_mb": 8
+        },
+        {
+            "name": "container.resolve",
+            "iterations": 5000,
+            "total_ms": 1.783,
+            "avg_ms": 0.00036,
+            "mem_delta_kb": 0.37,
+            "peak_mb": 8
+        },
+        {
+            "name": "fields.register_100",
+            "iterations": 500,
+            "total_ms": 21.351,
+            "avg_ms": 0.0427,
+            "mem_delta_kb": 0.37,
+            "peak_mb": 8
+        },
+        {
+            "name": "validation.run",
+            "iterations": 5000,
+            "total_ms": 42.288,
+            "avg_ms": 0.00846,
+            "mem_delta_kb": 0.37,
+            "peak_mb": 8
+        },
+        {
+            "name": "graphql.schema_build",
+            "iterations": 2000,
+            "total_ms": 5.377,
+            "avg_ms": 0.00269,
+            "mem_delta_kb": 1158.18,
+            "peak_mb": 8
+        },
+        {
+            "name": "graphql.execute",
+            "iterations": 5000,
+            "total_ms": 10.682,
+            "avg_ms": 0.00214,
+            "mem_delta_kb": 0.37,
+            "peak_mb": 8
+        },
+        {
+            "name": "serialization.json",
+            "iterations": 5000,
+            "total_ms": 336.353,
+            "avg_ms": 0.06727,
+            "mem_delta_kb": 0.37,
+            "peak_mb": 8
+        },
+        {
+            "name": "support.str",
+            "iterations": 20000,
+            "total_ms": 31.897,
+            "avg_ms": 0.00159,
+            "mem_delta_kb": 0.37,
+            "peak_mb": 8
+        }
+    ]
+}

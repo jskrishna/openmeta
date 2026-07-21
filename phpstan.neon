@@ -18,15 +18,26 @@ parameters:
         - packages/rest/tests
         - packages/api/src
         - packages/api/tests
+        - packages/wordpress/src
+        - packages/wordpress/tests
         - packages/ui/src
         - packages/ui/tests
         - packages/admin/src
         - packages/admin/tests
         - packages/builder/src
         - packages/builder/tests
-        - packages/wordpress/src
-        - packages/wordpress/tests
-        - tests/Phase12
+        - packages/extensions/src
+        - packages/extensions/tests
+        - packages/graphql/src
+        - packages/graphql/tests
+        - packages/cli/src
+        - packages/cli/tests
+        - packages/framework/src
+        - packages/framework/tests
+        - packages/generator/src
+        - packages/generator/tests
+        - packages/docgen/src
+        - packages/docgen/tests
     excludePaths:
         - */vendor/*
         - */node_modules/*
@@ -40,7 +51,7 @@ parameters:
         - packages/core/tests/smoke.php
         - packages/core/config/*
         - packages/database/tests/Fixtures/*
+        - packages/rest/tests/Fixtures/*
 
     treatPhpDocTypesAsCertain: false
-
     reportUnmatchedIgnoredErrors: false

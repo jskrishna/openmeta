@@ -67,6 +67,7 @@ Authz deny, escaping, injection guards, nonce / capability fail-closed.
 | Security | ✅ Gate | ✅ Nonce | ✅ WP fail-closed | ✅ cap checks | ✅ escape + deny |
 | Database | ✅ QB | ✅ schema/query | ✅ memory w/o `$wpdb` | ✅ selects | ✅ injection guard |
 | Fields | ✅ registry | ✅ validate→save→load | ✅ w/o WP | ✅ registry | ✅ render escape |
+| REST | ✅ Resource / Router | ✅ Kernel dispatch | N/A (WP mount later) | ✅ match budget | ✅ authz deny |
 | API | ✅ Resource | ✅ REST health | ✅ WP auth fail-closed | ✅ dispatch | ✅ 401 deny |
 | UI | ✅ Button | ✅ Theme | N/A | ✅ Card render | ✅ Notice escape |
 | Admin | ✅ Menus | ✅ Screen | ✅ screens w/o WP | ✅ dashboard | ✅ cap gate |

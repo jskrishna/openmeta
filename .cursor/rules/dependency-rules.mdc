@@ -23,7 +23,9 @@ Database
   ↓
 Fields
   ↓
-API
+Rest (framework HTTP)
+  ↓
+API (application routes)
   ↓
 Admin
   ↓
@@ -35,7 +37,8 @@ Read top → bottom as **implementation / dependency direction**: lower packages
 Examples:
 
 - ✅ `Fields` may use `Database`, `Validation`, `Security`, `Support`, `Core`
-- ✅ `API` may use `Fields` (+ upstream)
+- ✅ `Rest` may use `Fields` (+ upstream); must not use `Admin` / `Builder` / `Wordpress`
+- ✅ `API` may use `Rest` / `Fields` (+ upstream)
 - ✅ `Admin` may use `API` contracts only if SPEC allows — prefer Fields/Security/UI; never own field engine
 - ❌ `Core` must not import `Support`, `Fields`, `API`, …
 - ❌ `Database` must not import `Fields` or `API`
@@ -70,7 +73,8 @@ Detail map: `.cursor/context/project.md` · each package SPEC **Dependency Rules
 | `validation` | security*, database, fields, api, ui, admin, builder, wordpress |
 | `security` | database, fields, api, ui, admin, builder, wordpress |
 | `database` | fields, api, ui, admin, builder, wordpress |
-| `fields` | api, ui, admin, builder, wordpress |
+| `fields` | rest, api, ui, admin, builder, wordpress |
+| `rest` | api, ui, admin, builder, wordpress |
 | `api` | ui, admin, builder, wordpress |
 | `ui` | admin, builder, fields storage, api, wordpress |
 | `admin` | builder, wordpress internals, raw `$wpdb` |

@@ -1,65 +1,49 @@
 # `@openmeta/database`
 
-> Pre-alpha contract — implement against this document, not ad-hoc assumptions.
+> OpenMeta **Database Abstraction Layer (DAL)** — not Eloquent, not Doctrine, **not Active Record**.  
+> Layering: Application → Repository → Query Builder → Connection → Driver → Engine.
+
+**Status:** ✅ Complete (Phase 6) · **v0.5.0-alpha**  
+**Blueprint:** [SPEC.md](./SPEC.md) · ADR: [ADR-0023](../../docs/adr/ADR-0023-database-dal-no-active-record.md) · Docs: [docs/README.md](./docs/README.md)
 
 ---
 
 ## Purpose
 
-Provide storage abstraction, schema/migrations, repositories, and persistence for OpenMeta structured content — independent of field UI and HTTP layers.
+Connection management, query builder, repositories, schema/migrations, relationships, transactions, pagination, and metadata — **without** Active Record, `$wpdb` leakage, or field/HTTP concerns.
 
 ---
 
-## Responsibilities
+## Layout
 
-- Storage drivers and repository implementations
-- Schema management and migrations
-- Custom tables vs meta storage strategy
-- Relationship persistence and indexing
-- Query helpers used by domain services
-
-Must not own field rendering, validation rule definitions, or HTTP controllers.
+```text
+Collections/ Configuration/ Connections/ Contracts/ Drivers/
+Events/ Exceptions/ Metadata/ Migrations/ Pagination/ Query/
+Relationships/ Repositories/ Schema/ Support/ Transactions/
+```
 
 ---
 
 ## Public APIs
 
-- Repository interfaces
-- Migration runner contracts
-- Storage driver interfaces
-- Query / criteria helpers documented for package consumers
+| Area | Types |
+| ---- | ----- |
+| Connections | `ConnectionInterface`, `ConnectionManager`, `MemoryConnection`, `PdoConnection` |
+| Query | `QueryBuilder` (select/insert/update/delete, where*, join, aggregates, paginate) |
+| Repositories | `RepositoryInterface`, `TableRepository` |
+| Schema / Migrations | `Schema`, `Blueprint`, `Migration`, `Migrator` |
+| Relationships | `RelationLoader`, `RelationType` |
+| Transactions | `TransactionManager` |
+| Pagination | `LengthAwarePaginator`, `CursorPaginator` (stub) |
+| Drivers | `DriverInterface`, `MemoryDriver`, `TableStorage` |
+
+Default CI driver: **memory**. PDO sqlite/mysql when configured. WordPress `$wpdb` adapter belongs in `@openmeta/wordpress` later.
 
 ---
 
-## Dependencies
+## Verify
 
-- `packages/core`
-- WordPress `$wpdb` / database APIs
-- MySQL / MariaDB
-
-May be used by `fields`, `api`, and other domain packages. Must not depend on `admin`, `ui`, or `builder`.
-
----
-
-## Extension Points
-
-- Custom storage drivers
-- Migration providers
-- Repository decorators / caching layers
-- Index strategy plugins
-
----
-
-## Folder Structure
-
-```text
-packages/database/
-├── src/
-│   ├── Repositories/
-│   ├── Migrations/
-│   ├── Schema/
-│   ├── Drivers/
-│   └── Query/
-├── tests/
-└── README.md
+```bash
+composer test:database
+composer ci
 ```

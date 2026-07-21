@@ -1,0 +1,22 @@
+<?php
+
+declare(strict_types=1);
+
+namespace {{ namespace }};
+
+use OpenMeta\GraphQL\Contracts\ResolverInterface;
+use OpenMeta\GraphQL\Resolvers\ResolutionContext;
+
+/**
+ * {{ class }}.
+ */
+final class {{ class }} implements ResolverInterface
+{
+    /**
+     * @param array<string, mixed> $args
+     */
+    public function resolve(mixed $root, array $args, ResolutionContext $context): mixed
+    {
+        return null;
+    }
+}

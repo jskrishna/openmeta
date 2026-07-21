@@ -1,0 +1,26 @@
+{
+    "name": "openmeta/cli",
+    "version": "0.13.0-beta",
+    "description": "OpenMeta CLI & Developer Tools — a framework-aware, platform-independent console: command registry, discovery, input/output, prompts, tasks, and environment tooling over the Core container.",
+    "type": "library",
+    "license": "GPL-2.0-or-later",
+    "bin": ["bin/openmeta"],
+    "require": {
+        "php": ">=8.3",
+        "openmeta/core": "*",
+        "openmeta/support": "*",
+        "openmeta/validation": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "OpenMeta\\Cli\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "OpenMeta\\Cli\\Tests\\": "tests/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

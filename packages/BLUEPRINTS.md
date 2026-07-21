@@ -25,11 +25,18 @@ AI-assisted development stays predictable. Reviews stay easy. Each package can b
 | 4 | Security ✅ | Permissions → Capabilities → Gate/Authorizer → Nonce/CSRF → Sanitize/Escape → Hash/Random/Tokens | [SPEC](./security/SPEC.md) |
 | 5 | Database ✅ | **DAL** (not ORM): Connections → Query/Schema/Migrations → Repositories → Relationships/Transactions | [SPEC](./database/SPEC.md) |
 | 6 | Fields ✅ | Registry → Factory → Manager → Definitions → Types → Groups/Conditions → Validation → Serialization/Hydration → Storage/Rendering contracts → Lifecycle/Events (+ REST/GQL exposure) | [SPEC](./fields/SPEC.md) |
-| 7 | API ✅ | REST → Controllers → Resources → Authentication → Authorization | [SPEC](./api/SPEC.md) |
+| 7 | REST ✅ | Router → Middleware → Controllers → Resources → Auth contracts → GateAuthorizer | [SPEC](./rest/SPEC.md) |
+| 7b | API ✅ | Application REST surface (field routes) on framework REST / legacy stack | [SPEC](./api/SPEC.md) |
 | 8 | UI ✅ | Tokens → Primitives → Components → Hooks → Theme | [SPEC](./ui/SPEC.md) |
 | 9 | Admin ✅ | Dashboard → Menus → Screens → Forms → Tables → Settings | [SPEC](./admin/SPEC.md) |
 | 10 | Builder ✅ | Visual Builder → Canvas → Components → Drag & Drop → Templates → Conditions | [SPEC](./builder/SPEC.md) |
-| 11 | Wordpress ✅ | Plugin Bootstrap → Hooks → Filters → Admin Pages → Capabilities → Gutenberg → REST | [SPEC](./wordpress/SPEC.md) |
+| 11 | Wordpress ✅ | Plugin Bootstrap → Hooks → Filters → Admin Pages → Capabilities → Gutenberg → REST mount | [SPEC](./wordpress/SPEC.md) |
+
+> **Meta package:** `framework` (`packages/framework`) aggregates every stable component behind one install target — `composer require openmeta/framework` + `Framework::boot()`. Not a spine package; it depends on all, and nothing depends on it.
+
+> **Production train after REST** ([ADR-0024](../docs/adr/ADR-0024-post-rest-phase-order.md), [ADR-0026](../docs/adr/ADR-0026-complete-framework-ecosystem.md)):  
+> WordPress → Admin → Builder → GraphQL → CLI → Extension SDK → Code Generator → Testing & Performance → Developer Doc Generator → v1.0.  
+> Spine packages may already exist; Phase 09+ work hardens them in that order.
 
 ## Rule
 
@@ -37,6 +44,7 @@ AI-assisted development stays predictable. Reviews stay easy. Each package can b
 2. Then code in [coding order](./core/docs/build-order.md)  
 3. One package at a time against its SPEC only  
 4. After each package: **[Phase 10 — Testing gate](./TESTING.md)** (Unit → Integration → WP Compatibility → Performance)  
-5. Ship by **[Release Plan](../docs/roadmap/release-milestones.md)** (`v0.1` → `v1.0`)
+5. Ship by **[Release Plan](../docs/roadmap/release-milestones.md)** (`v0.1` → `v1.0`)  
+   Post-REST order: WordPress → Admin → Builder → GraphQL → CLI → Extension SDK → Code Generator → Testing → Developer Doc Generator → v1.0 ([ADR-0024](../docs/adr/ADR-0024-post-rest-phase-order.md), [ADR-0026](../docs/adr/ADR-0026-complete-framework-ecosystem.md))
 
 Template: [SPEC.TEMPLATE.md](./SPEC.TEMPLATE.md)

@@ -1,67 +1,39 @@
 # `@openmeta/api`
 
-> Pre-alpha contract — implement against this document, not ad-hoc assumptions.
+> Public REST API — Routes, Controllers, Resources, Authentication, Authorization.
+
+**Status:** ✅ Complete (Phase 8) · **v0.7.0-alpha**  
+**Blueprint:** [SPEC.md](./SPEC.md)
 
 ---
 
-## Purpose
+## Namespace
 
-Expose OpenMeta resources through a consistent public API layer — WordPress REST and first-class GraphQL — with shared auth, validation, and error shapes.
+`openmeta/v1`
 
----
+| Method | Path | Auth |
+| ------ | ---- | ---- |
+| GET | `/health` | public |
+| GET | `/fields/{entityType}/{entityId}/{field}` | AuthN + READ/EDIT/MANAGE |
+| PUT | `/fields/{entityType}/{entityId}/{field}` | AuthN + EDIT/MANAGE |
 
-## Responsibilities
-
-- REST route registration and controllers
-- GraphQL schema, types, and resolvers (including WPGraphQL integration)
-- API authentication/authorization boundaries
-- Pagination, filtering, sorting, and structured errors
-- Versioned public HTTP contracts
-
-Must not implement field storage or admin UI rendering.
+```php
+$kernel->handle(new Request('GET', '/openmeta/v1/health'));
+```
 
 ---
 
-## Public APIs
-
-- REST route namespaces and resource controllers
-- GraphQL schema entrypoints
-- Shared request/response DTOs and error envelopes
-- Documented auth and capability requirements per endpoint
-
----
-
-## Dependencies
-
-- `packages/core`
-- `packages/fields`
-- `packages/database`
-- `packages/validation`
-- `packages/security`
-- WordPress REST API
-- WPGraphQL (optional runtime integration)
-
----
-
-## Extension Points
-
-- Custom REST routes / controllers
-- GraphQL type and field registration
-- Serialization transformers
-- Auth / capability middleware hooks
-
----
-
-## Folder Structure
+## Stack
 
 ```text
-packages/api/
-├── src/
-│   ├── Rest/
-│   ├── GraphQL/
-│   ├── Auth/
-│   ├── Serialization/
-│   └── Errors/
-├── tests/
-└── README.md
+REST (Router) → Authentication → Authorization → Controller → Resource
+```
+
+---
+
+## Verify
+
+```bash
+composer test:api
+composer ci
 ```

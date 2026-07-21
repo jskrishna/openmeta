@@ -1,0 +1,25 @@
+{
+    "name": "openmeta/database",
+    "version": "0.5.0-alpha",
+    "description": "OpenMeta persistence \u2014 connection, schema, migration, repository, query, storage, relationships.",
+    "type": "library",
+    "license": "GPL-2.0-or-later",
+    "require": {
+        "php": ">=8.3",
+        "ext-pdo": "*",
+        "openmeta/core": "*",
+        "openmeta/support": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "OpenMeta\\Database\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "OpenMeta\\Database\\Tests\\": "tests/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

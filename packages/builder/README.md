@@ -1,66 +1,33 @@
 # `@openmeta/builder`
 
-> Pre-alpha contract — implement against this document, not ad-hoc assumptions.
+> Low-code **visual configuration engine** — canvas, schema, history, templates, conditions. Architecture only (no frontend UI).
 
----
+**Status:** ✅ Phase 11 · **v0.10.0-beta**  
+**Blueprint:** [SPEC.md](./SPEC.md)
 
-## Purpose
+Mounted in `@openmeta/admin` screens. Orchestrates `@openmeta/fields`, `@openmeta/validation`, `@openmeta/security` — never reimplements field types or persistence.
 
-Provide the visual field/schema builder experience (drag-and-drop editing, templates, live validation feedback) used inside admin.
+```bash
+composer test:builder
+composer ci
+```
 
----
-
-## Responsibilities
-
-- Builder UI application and interactions
-- Field group editing flows
-- Templates and presets
-- Live validation feedback wired to validation contracts
-- Persisting builder changes through documented field/admin APIs
-
-Must not redefine field types or bypass `fields` / `validation` contracts.
-
----
-
-## Public APIs
-
-- Builder bootstrap / mount API for admin screens
-- Template/preset registration API
-- Documented events for builder save/load cycles
-- Extension slots for custom builder panels
-
----
-
-## Dependencies
-
-- `packages/core`
-- `packages/ui`
-- `packages/fields`
-- `packages/validation`
-- `packages/admin` (host screens)
-- `packages/security`
-
----
-
-## Extension Points
-
-- Custom builder panels / inspectors
-- Template providers
-- Drag-and-drop item types
-- Save pipeline middleware
-
----
-
-## Folder Structure
+## Public API
 
 ```text
-packages/builder/
-├── src/
-│   ├── App/
-│   ├── Panels/
-│   ├── Templates/
-│   └── State/
-├── resources/
-├── tests/
-└── README.md
+Builder (façade)
+  → canvas / registry / schema / history / sessionState()
+BuilderApplication (orchestrator)
 ```
+
+## Spine
+
+```text
+Application → Canvas (Workspace) → Registry → Layouts → DragDrop
+  → Selection → Inspector → Properties → Schema → Serialization
+  → History → Clipboard → Templates → Library → Conditions → Preview → Events
+```
+
+## Docs
+
+See [docs/README.md](./docs/README.md).

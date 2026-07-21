@@ -1,0 +1,33 @@
+{
+    "name": "openmeta/wordpress",
+    "version": "0.8.0-alpha",
+    "description": "OpenMeta WordPress adapter \u2014 plugin bootstrap, hooks, meta, REST, lifecycle bridges.",
+    "type": "library",
+    "license": "GPL-2.0-or-later",
+    "require": {
+        "php": ">=8.3",
+        "openmeta/core": "*",
+        "openmeta/support": "*",
+        "openmeta/validation": "*",
+        "openmeta/security": "*",
+        "openmeta/database": "*",
+        "openmeta/fields": "*",
+        "openmeta/rest": "*",
+        "openmeta/api": "*",
+        "openmeta/ui": "*",
+        "openmeta/admin": "*",
+        "openmeta/builder": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "OpenMeta\\Wordpress\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "OpenMeta\\Wordpress\\Tests\\": "tests/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

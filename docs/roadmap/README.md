@@ -8,214 +8,49 @@ The OpenMeta roadmap defines the long-term implementation strategy of the framew
 
 Unlike feature lists, this roadmap organizes development into structured architectural phases. Each phase builds upon the previous one, ensuring predictable progress, maintainability, and high software quality.
 
-The roadmap acts as the primary execution plan for the OpenMeta project.
+**Versioned release train:** [release-milestones.md](./release-milestones.md) (`v0.1.0-alpha` → `v1.0.0`).  
+**Post-REST order:** [ADR-0024](../adr/ADR-0024-post-rest-phase-order.md) · **Ecosystem tail:** [ADR-0026](../adr/ADR-0026-complete-framework-ecosystem.md).
 
-**Versioned release train:** [release-milestones.md](./release-milestones.md) (`v0.1.0-alpha` → `v1.0.0`).
-
----
-
-# Goals
-
-The roadmap aims to:
-
-- Define a clear implementation sequence
-- Minimize architectural rework
-- Reduce technical debt
-- Enable incremental releases
-- Support contributor collaboration
-- Maintain alignment with project architecture
-- Ensure every subsystem is fully documented before implementation
+OpenMeta is a **complete PHP framework ecosystem** with a **WordPress-first adapter** — extend with plugins (SDK), automate with CLI, integrate via GraphQL, scaffold with codegen, and publish generated developer docs.
 
 ---
 
-# Roadmap Philosophy
+# Development Phases (canonical)
 
-OpenMeta follows an Architecture First and Documentation First development methodology.
+| Phase | Name | Doc |
+| ----- | ---- | --- |
+| 00 | Project Planning | [phase-00-planning.md](./phase-00-planning.md) |
+| 01 | Framework Bootstrap | [phase-01-bootstrap.md](./phase-01-bootstrap.md) |
+| 01.5 | Cursor rules | [phase-01.5-cursor-rules.md](./phase-01.5-cursor-rules.md) |
+| 02–08 | Core … REST | see [ROADMAP.md](../../ROADMAP.md) |
+| **09** | **WordPress Adapter** ✅ | [phase-11-wordpress-integration.md](./phase-11-wordpress-integration.md) |
+| **10** | **Admin UI** ✅ | [phase-09-admin.md](./phase-09-admin.md) |
+| **11** | **Visual Builder** ✅ | [phase-10-visual-builder.md](./phase-10-visual-builder.md) |
+| **12** | **GraphQL Package** ← next | [phase-12-graphql.md](./phase-12-graphql.md) |
+| **13** | **CLI & Developer Tools** | [phase-13-cli.md](./phase-13-cli.md) |
+| **14** | **Extension SDK** | [phase-15-sdk-extensions.md](./phase-15-sdk-extensions.md) |
+| **15** | **Code Generator** | [phase-15-code-generator.md](./phase-15-code-generator.md) |
+| **16** | **Testing, QA & Performance** | [phase-14-testing.md](./phase-14-testing.md) |
+| **17** | **Developer Documentation Generator** | [phase-16-documentation-generator.md](./phase-16-documentation-generator.md) |
+| **18** | **Stable v1.0 Release** | [phase-18-releases.md](./phase-18-releases.md) |
 
-Every phase follows this workflow:
-
-```text
-Research
-
-↓
-
-Architecture
-
-↓
-
-Documentation
-
-↓
-
-Review
-
-↓
-
-Implementation
-
-↓
-
-Testing
-
-↓
-
-Release
-```
-
-No implementation should begin before the corresponding documentation is complete.
-
----
-
-# Development Phases
-
-## Phase 00
-
-Project Planning
-
----
-
-## Phase 01
-
-Framework Bootstrap
-
----
-
-## Phase 02
-
-Core Framework
-
----
-
-## Phase 03
-
-Database Layer
-
----
-
-## Phase 04
-
-Field Engine
-
----
-
-## Phase 05
-
-Administration UI
-
----
-
-## Phase 06
-
-Visual Field Builder
-
----
-
-## Phase 07
-
-Advanced Fields
-
----
-
-## Phase 08
-
-API Layer
-
----
-
-## Phase 09
-
-Integrations
-
----
-
-## Phase 10
-
-Testing & Quality Assurance
-
----
-
-## Phase 11
-
-Release Preparation
+> Some filenames keep older numbers; **trust the Phase column** and [ADR-0026](../adr/ADR-0026-complete-framework-ecosystem.md).
 
 ---
 
 # Overall Development Flow
 
 ```text
-Planning
-
-↓
-
-Bootstrap
-
-↓
-
-Core
-
-↓
-
-Database
-
-↓
-
-Field Engine
-
-↓
-
-Admin UI
-
-↓
-
-Field Builder
-
-↓
-
-Advanced Fields
-
-↓
-
-API
-
-↓
-
-Integrations
-
-↓
-
-Testing
-
-↓
-
-Release
+… → WordPress Adapter → Admin UI → Visual Builder
+  → GraphQL → CLI → Extension SDK → Code Generator
+  → Testing, QA & Performance → Developer Doc Generator → v1.0 Stable
 ```
 
 ---
 
-# Responsibilities
+# Related
 
-The roadmap provides guidance for:
-
-- Maintainers
-- Contributors
-- Reviewers
-- Architects
-- Documentation writers
-
-It defines the expected order of implementation and helps coordinate project development.
-
----
-
-# Best Practices
-
-- Complete one phase before beginning the next.
-- Avoid parallel architectural changes across multiple phases.
-- Update documentation before implementation.
-- Review progress at the completion of each phase.
-- Preserve roadmap history as the project evolves.
-
----
-
-# Summary
-
-The OpenMeta roadmap transforms the project vision into a structured implementation strategy, ensuring every architectural component is delivered in a logical, maintainable, and well-documented sequence.
+- [ROADMAP.md](../../ROADMAP.md)
+- [release-milestones.md](./release-milestones.md)
+- [packages/BLUEPRINTS.md](../../packages/BLUEPRINTS.md)
+- [packages/TESTING.md](../../packages/TESTING.md)
