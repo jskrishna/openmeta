@@ -48,19 +48,20 @@ Current Focus:
 - ✅ **Phase 09 — WordPress Adapter** (`v0.8.0-alpha`)
 - ✅ **Phase 10 — Admin UI** (`v0.9.0-alpha`)
 - ✅ **Phase 11 — Visual Builder** (`v0.10.0-beta`)
-- ⏳ **Phase 12 — GraphQL Package** (`v0.11.0-beta`) ← next
-- ⏳ Phase 13 — CLI & Developer Tools
-- ⏳ Phase 14 — Extension SDK
-- ⏳ Phase 15 — Code Generator
-- ⏳ Phase 16 — Testing, QA & Performance (also continuous gate)
-- ⏳ Phase 17 — Developer Documentation Generator
-- ⏳ Phase 18 — **v1.0.0** Stable
+- ✅ **Phase 12 — Extension SDK** (`v0.11.0-beta`)
+- ✅ **Phase 13 — GraphQL Package** (`v0.12.0-beta`)
+- ⏳ **Phase 14 — CLI & Developer Tools** (`v0.13.0-beta`) ← next
+- ⏳ Phase 15 — Code Generator (`v0.14.0-beta`)
+- ⏳ Phase 16 — Testing, QA & Performance (continuous gate)
+- ⏳ Phase 17 — Documentation Generator (`v0.15.0-beta`)
+- ⏳ Phase 18 — Marketplace & Package Manager (`v0.16.0-beta`, optional)
+- ⏳ Phase 19 — **v1.0.0** Stable
 
-Post-REST order (Accepted — [ADR-0024](docs/adr/ADR-0024-post-rest-phase-order.md), ecosystem — [ADR-0026](docs/adr/ADR-0026-complete-framework-ecosystem.md)):
+Post-REST order (Accepted — [ADR-0024](docs/adr/ADR-0024-post-rest-phase-order.md); DX-first sequence — [ADR-0027](docs/adr/ADR-0027-dx-first-roadmap.md), supersedes [ADR-0026](docs/adr/ADR-0026-complete-framework-ecosystem.md)):
 
 ```text
-WordPress Adapter → Admin UI → Visual Builder → GraphQL → CLI
-  → Extension SDK → Code Generator → Testing & Performance → Developer Doc Generator → v1.0
+WordPress Adapter → Admin UI → Visual Builder → Extension SDK → GraphQL → CLI
+  → Code Generator → Testing & Performance → Documentation Generator → Marketplace (optional) → v1.0
 ```
 
 ### Package roadmap after Core
@@ -119,17 +120,17 @@ Visual Builder ✅
 ↓
 
 v0.11.0-beta
-GraphQL Package  ← next
+Extension SDK ✅
 
 ↓
 
 v0.12.0-beta
-CLI & Developer Tools
+GraphQL Package ✅
 
 ↓
 
 v0.13.0-beta
-Extension SDK
+CLI & Developer Tools  ← next
 
 ↓
 
@@ -139,7 +140,12 @@ Code Generator
 ↓
 
 v0.15.0-beta
-Developer Documentation Generator
+Documentation Generator
+
+↓
+
+v0.16.0-beta
+Marketplace & Package Manager (optional)
 
 ↓
 
@@ -334,42 +340,42 @@ See [docs/roadmap/phase-10-visual-builder.md](docs/roadmap/phase-10-visual-build
 
 ---
 
-## Phase 12 — GraphQL Package
+## Phase 12 — Extension SDK
 
-Status: ⏳ Next (`v0.11.0-beta`)
+Status: ✅ Completed (`v0.11.0-beta`, `packages/extensions`)
 
 Objectives
 
-- GraphQL schema / resolvers on Field Engine contracts
-- Reuse Security + Validation; host mount via adapter
+- Extension manifest, discovery, dependency resolution, compatibility, lifecycle ✅
+- Resource registration + events; third-party plugins without inverting dependencies ✅
 
-See [docs/roadmap/phase-12-graphql.md](docs/roadmap/phase-12-graphql.md).
+See [docs/roadmap/phase-15-sdk-extensions.md](docs/roadmap/phase-15-sdk-extensions.md) · [packages/extensions/SPEC.md](packages/extensions/SPEC.md).
 
 ---
 
-## Phase 13 — CLI & Developer Tools
+## Phase 13 — GraphQL Package
 
-Status: ⏳ Planned (`v0.12.0-beta`)
+Status: ✅ Completed (`v0.12.0-beta`, `packages/graphql`)
 
 Objectives
 
-- `openmeta` CLI over Core container
-- Inspect, migrate, health commands (WP-optional)
+- Framework-independent GraphQL abstraction layer (schema, types, queries, mutations, resolvers) ✅
+- Reuse Security + Validation; introspection/SDL; no server, no business logic ✅
+
+See [docs/roadmap/phase-12-graphql.md](docs/roadmap/phase-12-graphql.md) · [packages/graphql/SPEC.md](packages/graphql/SPEC.md).
+
+---
+
+## Phase 14 — CLI & Developer Tools
+
+Status: ⏳ Next (`v0.13.0-beta`, `packages/cli`)
+
+Objectives
+
+- `openmeta` console over Core container: registry, discovery, input/output, prompts, tasks
+- Environment inspector, logger, events; representative commands (WP-optional)
 
 See [docs/roadmap/phase-13-cli.md](docs/roadmap/phase-13-cli.md).
-
----
-
-## Phase 14 — Extension SDK
-
-Status: ⏳ Planned (`v0.13.0-beta`)
-
-Objectives
-
-- Extension manifest, module loader, public SDK façade
-- Third-party plugins without inverting dependencies
-
-See [docs/roadmap/phase-15-sdk-extensions.md](docs/roadmap/phase-15-sdk-extensions.md).
 
 ---
 
@@ -388,7 +394,7 @@ See [docs/roadmap/phase-15-code-generator.md](docs/roadmap/phase-15-code-generat
 
 ## Phase 16 — Testing, QA & Performance
 
-Status: ⏳ Ongoing + pre-v1.0 hardening
+Status: ⏳ Continuous gate + pre-v1.0 hardening
 
 Objectives
 
@@ -400,7 +406,7 @@ See [docs/roadmap/phase-14-testing.md](docs/roadmap/phase-14-testing.md) · [pac
 
 ---
 
-## Phase 17 — Developer Documentation Generator
+## Phase 17 — Documentation Generator
 
 Status: ⏳ Planned (`v0.15.0-beta`)
 
@@ -413,13 +419,24 @@ See [docs/roadmap/phase-16-documentation-generator.md](docs/roadmap/phase-16-doc
 
 ---
 
-## Phase 18 — Stable v1.0 Release
+## Phase 18 — Marketplace & Package Manager (Optional)
+
+Status: ⏳ Planned (`v0.16.0-beta`, optional)
+
+Objectives
+
+- Extension discovery/distribution surface over the Extension SDK
+- Package publish/install flows; optional — does not gate v1.0
+
+---
+
+## Phase 19 — Stable v1.0 Release
 
 Status: ⏳ Planned
 
 Objectives
 
-- SemVer-stable public contracts (GraphQL, CLI, SDK, codegen, docs)
+- SemVer-stable public contracts (SDK, GraphQL, CLI, codegen, docs)
 - Migration notes + production checklist
 
 See [docs/roadmap/phase-18-releases.md](docs/roadmap/phase-18-releases.md).
@@ -428,7 +445,7 @@ See [docs/roadmap/phase-18-releases.md](docs/roadmap/phase-18-releases.md).
 
 ## Legacy phase notes (superseded numbering)
 
-Older roadmap sections are **superseded** by [ADR-0024](docs/adr/ADR-0024-post-rest-phase-order.md), [ADR-0025](docs/adr/ADR-0025-extended-roadmap-to-v1.md), and [ADR-0026](docs/adr/ADR-0026-complete-framework-ecosystem.md). Trust **phase numbers in this file + release-milestones.md**.
+Older roadmap sections are **superseded** by [ADR-0024](docs/adr/ADR-0024-post-rest-phase-order.md), [ADR-0025](docs/adr/ADR-0025-extended-roadmap-to-v1.md), [ADR-0026](docs/adr/ADR-0026-complete-framework-ecosystem.md), and — authoritative for phase numbering — [ADR-0027](docs/adr/ADR-0027-dx-first-roadmap.md). Trust **phase numbers in this file + release-milestones.md**.
 
 ---
 
@@ -445,11 +462,12 @@ Older roadmap sections are **superseded** by [ADR-0024](docs/adr/ADR-0024-post-r
 ✓ v0.8.0-alpha — WordPress Adapter
 ✓ v0.9.0-alpha — Admin UI
 ✓ v0.10.0-beta — Visual Builder
-⏳ v0.11.0-beta — GraphQL Package
-□ v0.12.0-beta — CLI & Developer Tools
-□ v0.13.0-beta — Extension SDK
+✓ v0.11.0-beta — Extension SDK
+✓ v0.12.0-beta — GraphQL Package
+⏳ v0.13.0-beta — CLI & Developer Tools
 □ v0.14.0-beta — Code Generator
-□ v0.15.0-beta — Developer Documentation Generator
+□ v0.15.0-beta — Documentation Generator
+□ v0.16.0-beta — Marketplace & Package Manager (optional)
 □ v1.0.0 — Stable
 ```
 
@@ -459,7 +477,7 @@ Full exit criteria: [docs/roadmap/release-milestones.md](docs/roadmap/release-mi
 
 # Release Strategy
 
-Versioned release plan (authoritative — Phase 18):
+Versioned release plan (authoritative — [ADR-0027](docs/adr/ADR-0027-dx-first-roadmap.md), Stable at Phase 19):
 
 ```text
 v0.1.0-alpha → Core
@@ -472,11 +490,12 @@ v0.7.0-alpha → REST API
 v0.8.0-alpha → WordPress Adapter
 v0.9.0-alpha → Admin UI
 v0.10.0-beta → Visual Builder
-v0.11.0-beta → GraphQL Package
-v0.12.0-beta → CLI & Developer Tools
-v0.13.0-beta → Extension SDK
+v0.11.0-beta → Extension SDK
+v0.12.0-beta → GraphQL Package
+v0.13.0-beta → CLI & Developer Tools
 v0.14.0-beta → Code Generator
-v0.15.0-beta → Developer Documentation Generator
+v0.15.0-beta → Documentation Generator
+v0.16.0-beta → Marketplace & Package Manager (optional)
 v1.0.0       → Stable
 ```
 

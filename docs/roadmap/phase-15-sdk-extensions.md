@@ -31,7 +31,7 @@ OpenMeta becomes extensible like Laravel packages or Symfony bundles: authors sh
 
 | Surface | Role |
 | ------- | ---- |
-| `packages/sdk` (or `core` Extension spine) | Manifest, loader, author-facing API |
+| `packages/extensions` (Extension SDK, namespace `OpenMeta\Extensions`) | Manifest, discovery, lifecycle, resources, author-facing API |
 | `packages/wordpress` | WP plugin discovery + activation lifecycle |
 | Existing providers | Extensions register via `ServiceProvider` pattern |
 

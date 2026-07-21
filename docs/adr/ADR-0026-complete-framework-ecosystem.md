@@ -4,7 +4,7 @@
 
 # Status
 
-Accepted
+Superseded by [ADR-0027](ADR-0027-dx-first-roadmap.md) for phase numbering (SDK→12, GraphQL→13, CLI→14, Marketplace→18, v1.0→Phase 19). The ecosystem scope below remains valid; only the phase order changed.
 
 ---
 
