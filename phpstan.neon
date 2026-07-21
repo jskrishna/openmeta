@@ -32,6 +32,8 @@ parameters:
         - packages/graphql/tests
         - packages/cli/src
         - packages/cli/tests
+        - packages/generator/src
+        - packages/generator/tests
     excludePaths:
         - */vendor/*
         - */node_modules/*

@@ -1,0 +1,22 @@
+<?php
+
+declare(strict_types=1);
+
+namespace {{ namespace }};
+
+use OpenMeta\Core\Contracts\ContainerInterface;
+use OpenMeta\Core\Providers\ServiceProvider;
+
+/**
+ * {{ class }} extension.
+ */
+final class {{ class }} extends ServiceProvider
+{
+    public function register(ContainerInterface $container): void
+    {
+    }
+
+    public function boot(ContainerInterface $container): void
+    {
+    }
+}

@@ -1,0 +1,22 @@
+<?php
+
+declare(strict_types=1);
+
+namespace {{ namespace }};
+
+use OpenMeta\GraphQL\Types\ObjectType;
+use OpenMeta\GraphQL\Types\TypeBuilder;
+use OpenMeta\GraphQL\Types\TypeReference;
+
+/**
+ * {{ class }} GraphQL type.
+ */
+final class {{ class }}
+{
+    public function build(): ObjectType
+    {
+        return TypeBuilder::object('{{ class }}')
+            ->field('id', TypeReference::named('ID')->nonNull())
+            ->build();
+    }
+}
