@@ -5,5 +5,5 @@ Architecture First · Documentation First · Package Based
 
 That’s the product. Specs and `.cursor/rules/*` are the law.
 
-Post-REST train: WordPress Adapter → Admin → Builder → GraphQL → CLI → Testing → v1.0  
-([ADR-0024](../../docs/adr/ADR-0024-post-rest-phase-order.md)).
+Post-REST train: WordPress → Admin → Builder → GraphQL → CLI → Extension SDK → Code Generator → Testing & Performance → Developer Doc Generator → v1.0  
+([ADR-0024](../../docs/adr/ADR-0024-post-rest-phase-order.md), [ADR-0026](../../docs/adr/ADR-0026-complete-framework-ecosystem.md)).

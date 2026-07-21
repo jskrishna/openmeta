@@ -28,6 +28,8 @@ Phase 14 — Testing & QA
 Phase 15 — v1.0 Release
 ```
 
+> **Superseded (tail only):** Phases 15–17 are extended in [ADR-0025](ADR-0025-extended-roadmap-to-v1.md) — SDK (15), Documentation Generator (16), Stable v1.0 (17). ADR-0024 remains authoritative for Phases 09–14.
+
 Rationale:
 
 - Mount the WordPress adapter **before** production Admin/Builder so screens and canvas use real bridges (hooks, caps, REST mount) instead of inventing parallel stacks.

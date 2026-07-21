@@ -138,3 +138,5 @@ Architecture Decision Records preserve the reasoning behind OpenMeta's architect
 | --- | ----- |
 | [ADR-0023](./ADR-0023-database-dal-no-active-record.md) | Database DAL (no Active Record) |
 | [ADR-0024](./ADR-0024-post-rest-phase-order.md) | Post-REST phase order (framework-first) |
+| [ADR-0025](./ADR-0025-extended-roadmap-to-v1.md) | Extended roadmap — SDK, doc generator, v1.0 (superseded tail by ADR-0026) |
+| [ADR-0026](./ADR-0026-complete-framework-ecosystem.md) | Complete framework ecosystem — SDK, codegen, docgen, v1.0 at Phase 18 |

@@ -32,8 +32,8 @@ AI-assisted development stays predictable. Reviews stay easy. Each package can b
 | 10 | Builder ✅ | Visual Builder → Canvas → Components → Drag & Drop → Templates → Conditions | [SPEC](./builder/SPEC.md) |
 | 11 | Wordpress ✅ | Plugin Bootstrap → Hooks → Filters → Admin Pages → Capabilities → Gutenberg → REST mount | [SPEC](./wordpress/SPEC.md) |
 
-> **Production train after REST** ([ADR-0024](../docs/adr/ADR-0024-post-rest-phase-order.md)):  
-> WordPress Adapter → Admin → Builder → GraphQL → CLI → Testing → v1.0.  
+> **Production train after REST** ([ADR-0024](../docs/adr/ADR-0024-post-rest-phase-order.md), [ADR-0026](../docs/adr/ADR-0026-complete-framework-ecosystem.md)):  
+> WordPress → Admin → Builder → GraphQL → CLI → Extension SDK → Code Generator → Testing & Performance → Developer Doc Generator → v1.0.  
 > Spine packages may already exist; Phase 09+ work hardens them in that order.
 
 ## Rule
@@ -43,6 +43,6 @@ AI-assisted development stays predictable. Reviews stay easy. Each package can b
 3. One package at a time against its SPEC only  
 4. After each package: **[Phase 10 — Testing gate](./TESTING.md)** (Unit → Integration → WP Compatibility → Performance)  
 5. Ship by **[Release Plan](../docs/roadmap/release-milestones.md)** (`v0.1` → `v1.0`)  
-   Post-REST order: WordPress → Admin → Builder → GraphQL → CLI → Testing → v1.0 ([ADR-0024](../docs/adr/ADR-0024-post-rest-phase-order.md))
+   Post-REST order: WordPress → Admin → Builder → GraphQL → CLI → Extension SDK → Code Generator → Testing → Developer Doc Generator → v1.0 ([ADR-0024](../docs/adr/ADR-0024-post-rest-phase-order.md), [ADR-0026](../docs/adr/ADR-0026-complete-framework-ecosystem.md))
 
 Template: [SPEC.TEMPLATE.md](./SPEC.TEMPLATE.md)

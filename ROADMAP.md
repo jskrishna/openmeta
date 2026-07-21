@@ -30,7 +30,7 @@ Core Bootstrap (v0.1.0-alpha)
 ████████████████████████████████████████ 100%
 
 Implementation (WP Adapter → … → v1.0)
-███░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ~20%
+████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ~40%
 
 Testing (continuous five-layer gate)
 ████████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ~30%
@@ -39,29 +39,33 @@ Stable Release (v1.0.0)
 □□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□ 0%
 ```
 
-Foundation (Core → REST) is in place. Next production train: **WordPress Adapter**.
+Foundation through **Visual Builder** (`v0.10`) is complete.
 Current Focus:
 
 - ✅ Phase 01.5 — Cursor rules (`.cursor/rules` + `context`)
 - ✅ Project Architecture + Documentation
 - ✅ Foundation train through **REST** (`v0.1`–`v0.7`)
-- ⏳ **Phase 09 — WordPress Adapter** (`v0.8.0-alpha`) ← next
-- ⏳ Phase 10 — Admin UI
-- ⏳ Phase 11 — Visual Builder
-- ⏳ Phase 12 — GraphQL
-- ⏳ Phase 13 — CLI
-- ⏳ Phase 14 — Testing & QA (also continuous gate)
-- ⏳ Phase 15 — **v1.0.0** Stable
+- ✅ **Phase 09 — WordPress Adapter** (`v0.8.0-alpha`)
+- ✅ **Phase 10 — Admin UI** (`v0.9.0-alpha`)
+- ✅ **Phase 11 — Visual Builder** (`v0.10.0-beta`)
+- ⏳ **Phase 12 — GraphQL Package** (`v0.11.0-beta`) ← next
+- ⏳ Phase 13 — CLI & Developer Tools
+- ⏳ Phase 14 — Extension SDK
+- ⏳ Phase 15 — Code Generator
+- ⏳ Phase 16 — Testing, QA & Performance (also continuous gate)
+- ⏳ Phase 17 — Developer Documentation Generator
+- ⏳ Phase 18 — **v1.0.0** Stable
 
-Post-REST order (Accepted — [ADR-0024](docs/adr/ADR-0024-post-rest-phase-order.md)):
+Post-REST order (Accepted — [ADR-0024](docs/adr/ADR-0024-post-rest-phase-order.md), ecosystem — [ADR-0026](docs/adr/ADR-0026-complete-framework-ecosystem.md)):
 
 ```text
-WordPress Adapter → Admin UI → Visual Builder → GraphQL → CLI → Testing & QA → v1.0
+WordPress Adapter → Admin UI → Visual Builder → GraphQL → CLI
+  → Extension SDK → Code Generator → Testing & Performance → Developer Doc Generator → v1.0
 ```
 
 ### Package roadmap after Core
 
-Authoritative version train: [docs/roadmap/release-milestones.md](docs/roadmap/release-milestones.md) · [phase-15-releases.md](docs/roadmap/phase-15-releases.md).
+Authoritative version train: [docs/roadmap/release-milestones.md](docs/roadmap/release-milestones.md) · [phase-18-releases.md](docs/roadmap/phase-18-releases.md).
 
 ```text
 v0.1.0-alpha
@@ -100,27 +104,42 @@ REST (framework HTTP) ✅
 ↓
 
 v0.8.0-alpha
-WordPress Adapter ⏳
+WordPress Adapter ✅
 
 ↓
 
 v0.9.0-alpha
-Admin UI
+Admin UI ✅
 
 ↓
 
 v0.10.0-beta
-Visual Builder
+Visual Builder ✅
 
 ↓
 
 v0.11.0-beta
-GraphQL
+GraphQL Package  ← next
 
 ↓
 
 v0.12.0-beta
-CLI
+CLI & Developer Tools
+
+↓
+
+v0.13.0-beta
+Extension SDK
+
+↓
+
+v0.14.0-beta
+Code Generator
+
+↓
+
+v0.15.0-beta
+Developer Documentation Generator
 
 ↓
 
@@ -274,7 +293,7 @@ See [docs/roadmap/phase-08-api.md](docs/roadmap/phase-08-api.md) · [packages/re
 
 ## Phase 09 — WordPress Adapter
 
-Status: ⏳ Next (`v0.8.0-alpha`)
+Status: ✅ Completed (`v0.8.0-alpha`)
 
 Objectives
 
@@ -289,7 +308,7 @@ See [docs/roadmap/phase-11-wordpress-integration.md](docs/roadmap/phase-11-wordp
 
 ## Phase 10 — Admin UI
 
-Status: ⏳ Planned (`v0.9.0-alpha`)
+Status: ✅ Completed (`v0.9.0-alpha`)
 
 Objectives
 
@@ -303,74 +322,113 @@ See [docs/roadmap/phase-09-admin.md](docs/roadmap/phase-09-admin.md) (historical
 
 ## Phase 11 — Visual Builder
 
-Status: ⏳ Planned (`v0.10.0-beta`)
+Status: ✅ Completed (`v0.10.0-beta`)
 
 Objectives
 
-- Canvas, drag-and-drop, templates, conditions, preview
-- Save pipeline through Fields + Validation + Security (nonce/caps)
+- Low-code configuration engine: canvas, schema, history, templates, conditions
+- Orchestrates Fields + Validation + Security — no UI rendering in package
 - Admin slot via WordPress adapter
 
-See [docs/roadmap/phase-10-visual-builder.md](docs/roadmap/phase-10-visual-builder.md) (historical filename; **Phase = 11**).
+See [docs/roadmap/phase-10-visual-builder.md](docs/roadmap/phase-10-visual-builder.md) · [packages/builder/SPEC.md](packages/builder/SPEC.md).
 
 ---
 
-## Phase 12 — GraphQL
+## Phase 12 — GraphQL Package
 
-Status: ⏳ Planned (`v0.11.0-beta`)
+Status: ⏳ Next (`v0.11.0-beta`)
 
 Objectives
 
-- GraphQL type maps / resolvers on Field Engine contracts
+- GraphQL schema / resolvers on Field Engine contracts
 - Reuse Security + Validation; host mount via adapter
 
 See [docs/roadmap/phase-12-graphql.md](docs/roadmap/phase-12-graphql.md).
 
 ---
 
-## Phase 13 — CLI
+## Phase 13 — CLI & Developer Tools
 
 Status: ⏳ Planned (`v0.12.0-beta`)
 
 Objectives
 
-- Developer CLI over Core container
-- Inspect / migrate / health commands (WP-optional)
+- `openmeta` CLI over Core container
+- Inspect, migrate, health commands (WP-optional)
 
 See [docs/roadmap/phase-13-cli.md](docs/roadmap/phase-13-cli.md).
 
 ---
 
-## Phase 14 — Testing & QA
+## Phase 14 — Extension SDK
+
+Status: ⏳ Planned (`v0.13.0-beta`)
+
+Objectives
+
+- Extension manifest, module loader, public SDK façade
+- Third-party plugins without inverting dependencies
+
+See [docs/roadmap/phase-15-sdk-extensions.md](docs/roadmap/phase-15-sdk-extensions.md).
+
+---
+
+## Phase 15 — Code Generator
+
+Status: ⏳ Planned (`v0.14.0-beta`)
+
+Objectives
+
+- `make:*` scaffolding for extensions, field types, tests
+- Convention-enforced stubs (PSR-12, dependency rules)
+
+See [docs/roadmap/phase-15-code-generator.md](docs/roadmap/phase-15-code-generator.md).
+
+---
+
+## Phase 16 — Testing, QA & Performance
 
 Status: ⏳ Ongoing + pre-v1.0 hardening
 
 Objectives
 
 - Five-layer gate on every package
+- Performance baselines: boot, GraphQL, CLI, builder save, codegen
 - Matrix compliance before Stable
 
 See [docs/roadmap/phase-14-testing.md](docs/roadmap/phase-14-testing.md) · [packages/TESTING.md](packages/TESTING.md).
 
 ---
 
-## Phase 15 — v1.0 Release
+## Phase 17 — Developer Documentation Generator
+
+Status: ⏳ Planned (`v0.15.0-beta`)
+
+Objectives
+
+- CLI-driven docs from SPEC, PHPDoc, manifests, hooks catalog
+- Generated reference ships with Stable
+
+See [docs/roadmap/phase-16-documentation-generator.md](docs/roadmap/phase-16-documentation-generator.md).
+
+---
+
+## Phase 18 — Stable v1.0 Release
 
 Status: ⏳ Planned
 
 Objectives
 
-- SemVer-stable public contracts
+- SemVer-stable public contracts (GraphQL, CLI, SDK, codegen, docs)
 - Migration notes + production checklist
 
-See [docs/roadmap/phase-15-releases.md](docs/roadmap/phase-15-releases.md).
+See [docs/roadmap/phase-18-releases.md](docs/roadmap/phase-18-releases.md).
 
 ---
 
 ## Legacy phase notes (superseded numbering)
 
-Older roadmap sections that listed Admin → Builder → Integrations → Testing → Release as Phases 05–11, or Admin before WordPress after REST, are **superseded** by [ADR-0024](docs/adr/ADR-0024-post-rest-phase-order.md). Keep historical `docs/roadmap/phase-*.md` files for content; trust **phase numbers in this file + release-milestones.md**.- Versioning
-- Migration guides
+Older roadmap sections are **superseded** by [ADR-0024](docs/adr/ADR-0024-post-rest-phase-order.md), [ADR-0025](docs/adr/ADR-0025-extended-roadmap-to-v1.md), and [ADR-0026](docs/adr/ADR-0026-complete-framework-ecosystem.md). Trust **phase numbers in this file + release-milestones.md**.
 
 ---
 
@@ -378,51 +436,30 @@ Older roadmap sections that listed Admin → Builder → Integrations → Testin
 
 ```text
 ✓ v0.1.0-alpha — Core
-
-↓
-
 ✓ v0.2.0-alpha — Support
-
-↓
-
 ✓ v0.3.0-alpha — Validation
-
-↓
-
 ✓ v0.4.0-alpha — Security
-
-↓
-
 ✓ v0.5.0-alpha — Database
-
-↓
-
 ✓ v0.6.0-alpha — Field Engine
-
-↓
-
 ✓ v0.7.0-alpha — REST API
-
-↓
-
-✓ v0.8.0-alpha — Admin
-
-↓
-
-✓ v0.9.0-beta — Builder
-
-↓
-
+✓ v0.8.0-alpha — WordPress Adapter
+✓ v0.9.0-alpha — Admin UI
+✓ v0.10.0-beta — Visual Builder
+⏳ v0.11.0-beta — GraphQL Package
+□ v0.12.0-beta — CLI & Developer Tools
+□ v0.13.0-beta — Extension SDK
+□ v0.14.0-beta — Code Generator
+□ v0.15.0-beta — Developer Documentation Generator
 □ v1.0.0 — Stable
 ```
 
-Full exit criteria: [docs/roadmap/release-milestones.md](docs/roadmap/release-milestones.md) · [phase-13-releases.md](docs/roadmap/phase-13-releases.md).
+Full exit criteria: [docs/roadmap/release-milestones.md](docs/roadmap/release-milestones.md) · [phase-18-releases.md](docs/roadmap/phase-18-releases.md).
 
 ---
 
 # Release Strategy
 
-Versioned release plan (authoritative — Phase 13):
+Versioned release plan (authoritative — Phase 18):
 
 ```text
 v0.1.0-alpha → Core
@@ -432,8 +469,14 @@ v0.4.0-alpha → Security
 v0.5.0-alpha → Database
 v0.6.0-alpha → Field Engine
 v0.7.0-alpha → REST API
-v0.8.0-alpha → Admin
-v0.9.0-beta  → Builder
+v0.8.0-alpha → WordPress Adapter
+v0.9.0-alpha → Admin UI
+v0.10.0-beta → Visual Builder
+v0.11.0-beta → GraphQL Package
+v0.12.0-beta → CLI & Developer Tools
+v0.13.0-beta → Extension SDK
+v0.14.0-beta → Code Generator
+v0.15.0-beta → Developer Documentation Generator
 v1.0.0       → Stable
 ```
 
@@ -522,4 +565,4 @@ docs/adr/
 
 # Summary
 
-The OpenMeta roadmap defines a structured, architecture-driven path from planning to **v1.0**. OpenMeta is a **PHP framework** with a **WordPress-first adapter**. After REST, the train is WordPress Adapter → Admin → Builder → GraphQL → CLI → Testing & QA → Stable ([ADR-0024](docs/adr/ADR-0024-post-rest-phase-order.md)).
+The OpenMeta roadmap defines a structured, architecture-driven path from planning to **v1.0**. OpenMeta is a **complete PHP framework ecosystem** with a **WordPress-first adapter**. After REST: WordPress → Admin → Builder → GraphQL → CLI → Extension SDK → Code Generator → Testing & Performance → Developer Doc Generator → Stable ([ADR-0024](docs/adr/ADR-0024-post-rest-phase-order.md), [ADR-0026](docs/adr/ADR-0026-complete-framework-ecosystem.md)).
