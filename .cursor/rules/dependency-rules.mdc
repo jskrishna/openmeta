@@ -1,0 +1,89 @@
+---
+description: "Rule 3 — Package dependency order; Cursor must NEVER violate this graph"
+alwaysApply: true
+---
+
+# Rule 3 — Dependency rules
+
+**Very important.** Cursor must **never** violate this order.  
+A package may depend only on packages **above** it (upstream). It must **never** depend on packages **below** it (downstream).
+
+## Canonical order (never invert)
+
+```text
+Core
+  ↓
+Support
+  ↓
+Validation
+  ↓
+Security
+  ↓
+Database
+  ↓
+Fields
+  ↓
+API
+  ↓
+Admin
+  ↓
+Builder
+```
+
+Read top → bottom as **implementation / dependency direction**: lower packages may use upper ones; upper packages must not import lower ones.
+
+Examples:
+
+- ✅ `Fields` may use `Database`, `Validation`, `Security`, `Support`, `Core`
+- ✅ `API` may use `Fields` (+ upstream)
+- ✅ `Admin` may use `API` contracts only if SPEC allows — prefer Fields/Security/UI; never own field engine
+- ❌ `Core` must not import `Support`, `Fields`, `API`, …
+- ❌ `Database` must not import `Fields` or `API`
+- ❌ `Fields` must not import `API`, `Admin`, or `Builder`
+- ❌ `API` must not import `Admin` or `Builder`
+- ❌ `Admin` must not import `Builder` internals
+- ❌ `Builder` must not redefine Fields / Validation / Database engines
+
+## UI & Wordpress (same rule)
+
+In this monorepo they fit **without** breaking the chain:
+
+```text
+… → Fields → API
+              ↘
+               UI → Admin → Builder
+                            ↘
+                             Wordpress (glue; mounts others; no domain engines)
+```
+
+- `UI` is above `Admin` (Admin may use UI; UI must not use Admin/Builder/Fields storage).
+- `Wordpress` is outermost glue — bridges only; never invert (don’t put field logic in wordpress that Core should own).
+
+Detail map: `.cursor/context/project.md` · each package SPEC **Dependency Rules**.
+
+## Hard bans (summary)
+
+| Package | Must not depend on |
+| ------- | ------------------ |
+| `core` | Any other OpenMeta package |
+| `support` | validation, security, database, fields, api, ui, admin, builder, wordpress |
+| `validation` | security*, database, fields, api, ui, admin, builder, wordpress |
+| `security` | database, fields, api, ui, admin, builder, wordpress |
+| `database` | fields, api, ui, admin, builder, wordpress |
+| `fields` | api, ui, admin, builder, wordpress |
+| `api` | ui, admin, builder, wordpress |
+| `ui` | admin, builder, fields storage, api, wordpress |
+| `admin` | builder, wordpress internals, raw `$wpdb` |
+| `builder` | wordpress internals; field-type engine; GraphQL server |
+| `wordpress` | reimplementing fields/validation/database — bridges only |
+
+\* Prefer Validation not depending on Security; Security may use Support/Core only.
+
+## Practice
+
+1. Before any `use OpenMeta\...` across packages → check this order.
+2. New dependency edge → **update SPEC first**, then code.
+3. Depend on **public contracts / façades**, not another package’s private internals.
+4. If a “convenient” import would point **uphill** on the diagram → **stop**. Redesign or ask.
+
+**Violating this graph = broken architecture.** Do not ship it.

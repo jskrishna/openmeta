@@ -26,22 +26,92 @@ The project is built using an **Architecture First** and **Documentation First**
 Architecture & Documentation
 ████████████████████████████████████████ 100%
 
-Implementation
-□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□ 0%
+Core Bootstrap (v0.1.0-alpha)
+████████████████████████████████████████ 100%
 
-Testing
-□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□ 0%
+Implementation (Support → Builder)
+██░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ~10%
 
-Stable Release
+Testing (Core suite + CI)
+████████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ~30%
+
+Stable Release (v1.0.0)
 □□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□ 0%
 ```
 
 Current Focus:
 
+- ✅ Phase 01.5 — Cursor rules (`.cursor/rules` + `context`)
 - ✅ Project Architecture
 - ✅ Documentation
-- ⏳ Framework Bootstrap
-- ⏳ Core Development
+- ✅ `v0.1.0-alpha` — Core
+- ✅ `v0.2.0-alpha` — Support
+- ✅ `v0.3.0-alpha` — Validation
+- ✅ `v0.4.0-alpha` — Security
+- ✅ `v0.5.0-alpha` — Database
+- ✅ `v0.6.0-alpha` — Field Engine ⭐
+- ✅ `v0.7.0-alpha` — REST API
+- ✅ `v0.8.0-alpha` — Admin (+ UI)
+- ✅ `v0.9.0-beta` — Builder (+ WordPress)
+- ✅ Phase 12 — Testing (five-layer gate)
+- ✅ Phase 13 — Release train documented
+- ⏳ **v1.0.0** — Stable
+
+### Package roadmap after Core
+
+Authoritative version train: [docs/roadmap/release-milestones.md](docs/roadmap/release-milestones.md) · [phase-13-releases.md](docs/roadmap/phase-13-releases.md).
+
+```text
+v0.1.0-alpha
+Core ✅
+
+↓
+
+v0.2.0-alpha
+Support ✅
+
+↓
+
+v0.3.0-alpha
+Validation ✅
+
+↓
+
+v0.4.0-alpha
+Security ✅
+
+↓
+
+v0.5.0-alpha
+Database ✅
+
+↓
+
+v0.6.0-alpha
+Field Engine ✅
+
+↓
+
+v0.7.0-alpha
+REST API ✅
+
+↓
+
+v0.8.0-alpha
+Admin ✅
+
+↓
+
+v0.9.0-beta
+Builder ✅
+
+↓
+
+v1.0.0
+Stable ⏳
+```
+
+Track each train with a **GitHub milestone + project board** — see [`.github/MILESTONES.md`](.github/MILESTONES.md).
 
 ---
 
@@ -64,30 +134,123 @@ Deliverables
 
 ## Phase 01 — Bootstrap
 
-Status: ⏳ Planned
+Status: ✅ Completed (`v0.1.0-alpha`)
 
 Objectives
 
 - Repository setup
 - Development environment
 - Build configuration
-- Continuous Integration
-- Initial framework bootstrap
+- Continuous Integration (Composer → PHPStan → PHPCS → PHPUnit)
+- Initial framework bootstrap (Application, Kernel, Container, Config, Providers)
 
 ---
 
 ## Phase 02 — Core Framework
 
-Status: ⏳ Planned
+Status: ✅ Completed (`packages/core`, `v0.1.0-alpha`)
 
 Objectives
 
-- Core services
-- Configuration
-- Dependency management
-- Event system
-- Extension infrastructure
+- Core services ✅
+- Configuration ✅
+- Dependency management (Container) ✅
+- Event system ✅
+- Extension infrastructure (Service Providers) ✅
+- Bootstrap + Contracts + Exceptions ✅
+- Exit: boots, unit tests green, **no WordPress dependency** ✅
 
+See [docs/roadmap/phase-02-core.md](docs/roadmap/phase-02-core.md).
+
+---
+
+## Phase 02b — Support Package
+
+Status: ✅ Completed (`packages/support`)
+
+Objectives
+
+- Arr, Str, Collections, Path, Filesystem ✅
+- Env, UUID, Reflection, Helpers, Traits ✅
+- Exit: zero business logic, pure utilities only ✅
+
+See [docs/roadmap/phase-03-support.md](docs/roadmap/phase-03-support.md).
+
+---
+
+## Phase 02c — Validation Package
+
+Status: ✅ Completed (`packages/validation`)
+
+Objectives
+
+- Validator, Rules, Messages, ErrorBag, Exceptions ✅
+- Exit: validate arrays + objects; custom rules ✅
+
+See [docs/roadmap/phase-04-validation.md](docs/roadmap/phase-04-validation.md).
+
+---
+
+## Phase 02d — Security Package
+
+Status: ✅ Completed (`packages/security`)
+
+Objectives
+
+- Sanitization, Escaping, Permissions, Capabilities, Nonce ✅
+- Exit: independent package, no UI ✅
+
+See [docs/roadmap/phase-05-security.md](docs/roadmap/phase-05-security.md).
+
+---
+
+## Phase 03 — Database Layer
+
+Status: ✅ Completed (`packages/database`, `v0.3.0-alpha`)
+
+Objectives
+
+- Connection, Schema, Migration, Repository, Query, Storage, Relationships ✅
+- Exit: CRUD, migrations, repository abstraction ✅
+
+See [docs/roadmap/phase-06-database.md](docs/roadmap/phase-06-database.md).
+
+---
+
+## Phase 04 — Field Engine
+
+Status: ✅ Completed (`packages/fields`, `v0.4.0-alpha`)
+
+Objectives
+
+- Registry, Base Field, built-in types, Validation, Storage, Rendering ✅
+- Exit: register / save / validate / render ✅
+
+See [docs/roadmap/phase-07-fields.md](docs/roadmap/phase-07-fields.md).
+
+---
+
+## Phase 05 — REST API
+
+Status: ✅ Completed (`packages/api`, `v0.5.0-alpha`)
+
+Objectives
+
+- Routes, Controllers, Resources, Authentication, Authorization ✅
+
+See [docs/roadmap/phase-08-api.md](docs/roadmap/phase-08-api.md).
+
+---
+
+## Phase 06 — Admin UI
+
+Status: ✅ Completed (`packages/ui` + `packages/admin`, `v0.6.0-alpha`)
+
+Objectives
+
+- Dashboard, Menus, Settings, Forms, Tables, Components ✅
+
+See [docs/roadmap/phase-09-admin.md](docs/roadmap/phase-09-admin.md).
 ---
 
 ## Phase 03 — Database Layer
@@ -222,101 +385,72 @@ Objectives
 # Milestones
 
 ```text
-✓ Architecture Complete
+✓ v0.1.0-alpha — Core
 
 ↓
 
-✓ Documentation Complete
+✓ v0.2.0-alpha — Support
 
 ↓
 
-□ Bootstrap
+✓ v0.3.0-alpha — Validation
 
 ↓
 
-□ Core Framework
+✓ v0.4.0-alpha — Security
 
 ↓
 
-□ Database Layer
+✓ v0.5.0-alpha — Database
 
 ↓
 
-□ Field Engine
+✓ v0.6.0-alpha — Field Engine
 
 ↓
 
-□ Administration UI
+✓ v0.7.0-alpha — REST API
 
 ↓
 
-□ Field Builder
+✓ v0.8.0-alpha — Admin
 
 ↓
 
-□ Advanced Fields
+✓ v0.9.0-beta — Builder
 
 ↓
 
-□ API Layer
-
-↓
-
-□ Integrations
-
-↓
-
-□ Testing
-
-↓
-
-□ Alpha Release
-
-↓
-
-□ Beta Release
-
-↓
-
-□ Release Candidate
-
-↓
-
-□ Stable v1.0
+□ v1.0.0 — Stable
 ```
+
+Full exit criteria: [docs/roadmap/release-milestones.md](docs/roadmap/release-milestones.md) · [phase-13-releases.md](docs/roadmap/phase-13-releases.md).
 
 ---
 
 # Release Strategy
 
-The project will progress through the following release stages:
+Versioned release plan (authoritative — Phase 13):
 
 ```text
-Planning
+v0.1.0-alpha → Core
+v0.2.0-alpha → Support
+v0.3.0-alpha → Validation
+v0.4.0-alpha → Security
+v0.5.0-alpha → Database
+v0.6.0-alpha → Field Engine
+v0.7.0-alpha → REST API
+v0.8.0-alpha → Admin
+v0.9.0-beta  → Builder
+v1.0.0       → Stable
+```
 
-↓
+Details: [docs/roadmap/release-milestones.md](docs/roadmap/release-milestones.md). Process: [docs/development/release-process.md](docs/development/release-process.md).
 
-Development
+Maturity lifecycle:
 
-↓
-
-Alpha
-
-↓
-
-Beta
-
-↓
-
-Release Candidate
-
-↓
-
-Stable Release
-
-↓
-
-Maintenance
+```text
+Planning → Development → Alpha trains → Beta → Stable → Maintenance
 ```
 
 ---

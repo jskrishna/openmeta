@@ -1,0 +1,23 @@
+{
+    "name": "openmeta/support",
+    "version": "0.2.0-alpha",
+    "description": "OpenMeta shared utilities \u2014 collections, Arr, Str, paths, filesystem, env, UUID, reflection, helpers, traits.",
+    "type": "library",
+    "license": "GPL-2.0-or-later",
+    "require": {
+        "php": ">=8.3",
+        "openmeta/core": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "OpenMeta\\Support\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "OpenMeta\\Support\\Tests\\": "tests/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

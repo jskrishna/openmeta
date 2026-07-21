@@ -95,11 +95,15 @@ Monitor
 
 Every release should verify:
 
-- All tests pass
+- All tests pass (`composer ci` + `composer test:phase12`)
 - Documentation is complete
 - Security checks succeed
 - Performance targets are met
 - Quality gates are satisfied
+- CHANGELOG section exists for the version
+- GitHub milestone closed ([`.github/MILESTONES.md`](../../.github/MILESTONES.md))
+
+Authoritative train: [release-milestones.md](../roadmap/release-milestones.md) (Phase 13).
 
 ---
 

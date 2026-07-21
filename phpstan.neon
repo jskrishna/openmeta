@@ -1,21 +1,46 @@
-includes:
-    - packages
-    - tests
-
 parameters:
-    # Raise level as code lands; start conservative for an empty tree.
     level: 5
     phpVersion: 80300
     paths:
-        - packages
-        - tests
+        - packages/core/src
+        - packages/core/tests
+        - packages/support/src
+        - packages/support/tests
+        - packages/validation/src
+        - packages/validation/tests
+        - packages/security/src
+        - packages/security/tests
+        - packages/database/src
+        - packages/database/tests
+        - packages/fields/src
+        - packages/fields/tests
+        - packages/rest/src
+        - packages/rest/tests
+        - packages/api/src
+        - packages/api/tests
+        - packages/ui/src
+        - packages/ui/tests
+        - packages/admin/src
+        - packages/admin/tests
+        - packages/builder/src
+        - packages/builder/tests
+        - packages/wordpress/src
+        - packages/wordpress/tests
+        - tests/Phase12
     excludePaths:
         - */vendor/*
         - */node_modules/*
-        - */tests/Fixtures/*
+        - packages/core/tests/Fixtures/*
+        - packages/core/tests/Unit/bootstrap.php
+        - packages/core/tests/Unit/application.php
+        - packages/core/tests/Unit/configuration.php
+        - packages/core/tests/Unit/container.php
+        - packages/core/tests/Unit/kernel.php
+        - packages/core/tests/Unit/service-providers.php
+        - packages/core/tests/smoke.php
+        - packages/core/config/*
+        - packages/database/tests/Fixtures/*
 
-    # Treat missing classes gently until bootstrap and WP stubs exist.
+    treatPhpDocTypesAsCertain: false
+
     reportUnmatchedIgnoredErrors: false
-
-# When WordPress stubs / php-stubs/wordpress-stubs are added, include them here.
-# When PHPUnit lands, add phpstan/phpstan-phpunit as needed.

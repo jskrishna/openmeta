@@ -40,6 +40,9 @@ openmeta/
 ├── docs/
 ├── examples/
 ├── packages/
+├── tests/
+├── bin/
+├── scripts/
 ├── tools/
 ├── website/
 │
@@ -185,25 +188,48 @@ Future structure:
 
 ```text
 packages/
-
-core/
-
-blocks/
-
-graphql/
-
-react/
-
-sdk/
-
-cli/
-
-ai/
+│
+├── core/
+├── admin/
+├── api/
+├── database/
+├── fields/
+├── builder/
+├── ui/
+├── validation/
+├── security/
+└── support/
 ```
 
 Every package should have a clearly defined responsibility.
 
 No package should depend on implementation details of another package.
+
+---
+
+# tests/
+
+Purpose:
+
+Automated test suites (unit, integration, fixtures).
+
+---
+
+# bin/
+
+Purpose:
+
+Executable CLI entrypoints (thin wrappers over package logic).
+
+---
+
+# scripts/
+
+Purpose:
+
+Maintainer automation scripts for day-to-day repository tasks.
+
+Distinct from `tools/`, which holds structured generators and release tooling.
 
 ---
 
@@ -331,6 +357,24 @@ Examples live inside:
 
 ```text
 examples/
+```
+
+Tests live inside:
+
+```text
+tests/
+```
+
+CLI entrypoints live inside:
+
+```text
+bin/
+```
+
+Maintainer scripts live inside:
+
+```text
+scripts/
 ```
 
 Development utilities live inside:

@@ -154,10 +154,12 @@ The monorepo separates documentation, packages, tooling, and examples.
 ```text
 .github/          CI, issue templates, community config
 docs/             Architecture, guides, ADRs, roadmap
-packages/         Framework packages (core, graphql, react, …)
+packages/         Domain packages (core, fields, api, …)
 tests/            Automated tests
 examples/         Sample integrations and usage
-tools/            Generators, migration helpers, scripts
+bin/              CLI / executable entrypoints
+scripts/          Maintainer automation scripts
+tools/            Generators, migration helpers, release tooling
 website/          Project site / docs site assets
 ```
 
@@ -172,13 +174,16 @@ Packages isolate major capabilities so they can evolve independently while shari
 ```text
 packages/
 
-core/       Bootstrap, container, events, shared contracts
-blocks/     Gutenberg / block editor integrations
-react/      Shared React UI components
-graphql/    GraphQL schema and resolvers
-sdk/        Public developer SDK surfaces
-cli/        Command-line tooling
-ai/         Experimental AI-assisted features
+core/         Bootstrap, container, events, shared contracts
+admin/        WordPress admin screens and app shell
+api/          REST and GraphQL public API layer
+database/     Schema, migrations, repositories, storage
+fields/       Field registry, types, lifecycle
+builder/      Visual field / schema builder
+ui/           Shared React / UI component library
+validation/   Validation rules and error contracts
+security/     Capabilities, nonces, authorization helpers
+support/      Shared helpers and utilities
 ```
 
 Only documented public APIs should be consumed by extensions and third-party code.
@@ -276,17 +281,22 @@ Each module should expose a narrow public surface and remain replaceable for tes
 
 # Database Architecture
 
+OpenMeta ships a **Database Abstraction Layer (DAL)** — **no Active Record** ([ADR-0023](docs/adr/ADR-0023-database-dal-no-active-record.md)).
+
+```text
+Application → Repository → Query Builder → Connection → Driver → Database Engine
+```
+
 Storage follows a layered strategy so domain code does not depend on raw SQL or WordPress meta details.
 
 Responsibilities:
 
-- Storage abstraction and repositories
-- Schema management and migrations
-- Relationship persistence
-- Indexing strategy
-- Clear boundaries for custom tables vs post meta usage
+- Connection manager + driver contracts (memory / PDO now; WP adapter later)
+- Query builder, repositories, schema, migrations
+- Relationship batch loaders, transactions, pagination, metadata
+- Clear boundaries for custom tables vs post meta (meta strategy via future WP driver)
 
-See ADR-0006 and `docs/database/` for the full storage model.
+See ADR-0006, `packages/database/SPEC.md`, and `docs/database/` for the storage model.
 
 ---
 
@@ -341,13 +351,15 @@ Rendering must respect location rules, conditional logic, capabilities, and esca
 
 # Validation Engine
 
-Validation is applied before persistence and again at API boundaries when required.
+Validation is a **core shared service**, not a feature of Fields or APIs.
+
+It is applied before persistence and again at API / form / builder boundaries when required. Downstream packages (Database schema checks, Field definitions, form submissions, REST requests, Admin settings, Builder configuration, Import/Export, plugin extensions) **must reuse** `@openmeta/validation` — they must not ship parallel validators.
 
 Responsibilities:
 
 - Built-in validation rules
-- Custom validation callbacks
-- Structured error reporting
+- Custom validation callbacks / registry extensions
+- Structured error reporting (`ErrorBag` / `ValidationResult`)
 - Consistent messages for UI and API consumers
 
 Invalid data must never be silently persisted.
@@ -489,15 +501,24 @@ Public behavior should be covered before release candidates. See ADR-0018 and `d
 
 # Future Packages
 
-Planned packages:
+Current domain packages:
 
 - OpenMeta Core
-- OpenMeta Blocks
-- OpenMeta GraphQL
-- OpenMeta React
-- OpenMeta CLI
-- OpenMeta SDK
-- OpenMeta AI
+- OpenMeta Admin
+- OpenMeta API
+- OpenMeta Database
+- OpenMeta Fields
+- OpenMeta Builder
+- OpenMeta UI
+- OpenMeta Validation
+- OpenMeta Security
+- OpenMeta Support
+
+Deferred / exploratory packages (not in the monorepo yet):
+
+- Gutenberg Blocks integration
+- Standalone Developer SDK
+- AI-assisted modeling
 
 Package boundaries may refine during bootstrap, but public contracts should remain stable once released.
 

@@ -1,0 +1,68 @@
+---
+description: Mandatory Cursor AI cycle for every OpenMeta phase — never start with raw code.
+alwaysApply: true
+---
+
+# Cursor AI workflow (every phase)
+
+**Kabhi direct code generation se start mat karna.** Har phase / package slice isi order me:
+
+```text
+1. Read relevant docs
+        ↓
+2. Review related ADRs
+        ↓
+3. Generate architecture (against SPEC / blueprint)
+        ↓
+4. Implement code
+        ↓
+5. Generate unit tests (+ Phase 12 layers as needed)
+        ↓
+6. Run PHPStan
+        ↓
+7. Run PHPCS
+        ↓
+8. Run PHPUnit
+        ↓
+9. Fix issues
+        ↓
+10. Update docs if needed
+        ↓
+11. Commit (only when the user asks)
+```
+
+## Start gate (before any `src/` edits)
+
+1. **Docs:** package `README.md` + `SPEC.md`, `packages/BLUEPRINTS.md`, `packages/TESTING.md`, related `docs/` (architecture, roadmap phase).
+2. **ADRs:** `docs/adr/` — especially anything that constrains the package (WP-first, package boundaries, etc.).
+3. **Architecture:** map spine from SPEC (Responsibilities / Must not / Dependency Rules). Prefer a short plan or sketch before coding. If SPEC is missing or conflicted, stop and resolve docs first.
+
+## Implement gate
+
+- One package (or one SPEC spine) at a time; respect **Must not** and dependency direction.
+- Prefer additive APIs; do not delete public contracts without deprecation.
+- Do not invent drive-by markdown or features outside the phase request.
+
+## Quality gate (before claiming done)
+
+```bash
+php composer.phar phpstan
+php composer.phar phpcs
+php composer.phar phpunit
+# or: php composer.phar ci
+```
+
+Fix failures; re-run until green. Then update SPEC status / README / roadmap only if the phase changed truth.
+
+## Commit gate
+
+- **Commit only when the user explicitly asks** (step 11).
+- Never push / force-push unless asked.
+- Follow repo commit message style; no secrets in commits.
+
+## Anti-patterns
+
+- ❌ Jumping straight to generating PHP/JS
+- ❌ Skipping SPEC / ADR when they exist
+- ❌ Declaring a phase done with red CI
+- ❌ Committing or pushing unprompted

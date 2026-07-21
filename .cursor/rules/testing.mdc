@@ -1,0 +1,93 @@
+---
+description: "Rule 5 — Every feature: Unit → Integration → PHPStan → PHPCS; no merge until green"
+alwaysApply: true
+---
+
+# Rule 5 — Testing
+
+**No merge until green.** Every feature follows this gate — no exceptions for “small” changes.
+
+```text
+Every feature
+        ↓
+Unit Test
+        ↓
+Integration Test
+        ↓
+PHPStan
+        ↓
+PHPCS
+        ↓
+Green → only then done / merge-ready
+```
+
+## 1. Unit test
+
+- Cover the new/changed public behavior in isolation.
+- Location: `packages/<name>/tests/Unit/` (or existing package test layout + Phase 12 Unit folder).
+- No full WordPress boot when avoidable.
+
+## 2. Integration test
+
+- Cover the feature across collaborators (provider boot, registry+types, controller+resource, save pipeline, etc.).
+- Location: `packages/<name>/tests/Integration/` (or package integration tests).
+- Critical path must be green.
+
+## 3. PHPStan
+
+```bash
+php composer.phar phpstan
+```
+
+Fix every error. Do not hide real issues with ignore comments.
+
+## 4. PHPCS
+
+```bash
+php composer.phar phpcs
+```
+
+PSR-12 must pass. Fix formatting/structure findings.
+
+## Preferred one-shot
+
+```bash
+php composer.phar ci
+# = PHPStan → PHPCS → PHPUnit
+```
+
+Also run the package suite when scoped:
+
+```bash
+php composer.phar test:<package>
+```
+
+## Phase 12 (every package, ongoing)
+
+Beyond Unit + Integration, packages keep the five-layer gate green:
+
+```text
+Unit → Integration → WordPress → Performance → Security
+```
+
+Contract: `packages/TESTING.md` · matrix: `tests/Phase12/MatrixComplianceTest.php`  
+`php composer.phar test:phase12`
+
+## Definition of done
+
+| Check | Required |
+| ----- | -------- |
+| Unit tests for the feature | ✅ |
+| Integration tests for the feature | ✅ |
+| PHPStan clean | ✅ |
+| PHPCS clean | ✅ |
+| PHPUnit (affected / `ci`) green | ✅ |
+
+## Anti-patterns
+
+- ❌ “Tests later” / merge with red CI  
+- ❌ Only manual smoke, no PHPUnit  
+- ❌ PHPStan/PHPCS skipped because “types are obvious”  
+- ❌ Claiming a package complete while Phase 12 layers are missing  
+
+**Red CI = not merge-ready. Fix first.**

@@ -1,98 +1,90 @@
-# Phase 02 — Core Framework
+# Phase 02 — Core Package Bootstrap
+
+> Scope: **`packages/core` only.** Effort guide: 1–2 days.
 
 ---
 
-# Purpose
+## Purpose
 
-Phase 02 implements the foundational services and architectural components that define the OpenMeta framework.
-
----
-
-# Goals
-
-- Core architecture
-- Service registration
-- Configuration management
-- Dependency management
-- Event system
-- Extension interfaces
-- Lifecycle management
+Implement the minimum working framework runtime — every later package plugs into this spine. No database, fields, API, admin, builder, or WordPress bootstrap.
 
 ---
 
-# Scope
+## Deliverables
 
-Includes:
+| Component | Location | Status |
+| --------- | -------- | ------ |
+| Application | `src/Application/` | ✅ |
+| Container | `src/Container/` | ✅ |
+| Kernel | `src/Kernel/` | ✅ |
+| Service Provider | `src/Providers/` | ✅ |
+| Configuration | `src/Config/` + `config/` | ✅ |
+| Event Dispatcher | `src/Events/` | ✅ |
+| Bootstrap | `src/Bootstrap/` | ✅ |
+| Exceptions | `src/Exceptions/` | ✅ |
+| Contracts | `src/Contracts/` | ✅ |
 
-- Core services
-- Framework initialization
-- Service container
-- Module loading
-- Configuration layer
-- Extension infrastructure
-- Error handling
-
----
-
-# Deliverables
-
-- Functional framework core
-- Service architecture
-- Module lifecycle
-- Extension points
-- Core infrastructure
+Contract: [`packages/core/SPEC.md`](../../packages/core/SPEC.md).
 
 ---
 
-# Dependencies
-
-- Phase 00
-- Phase 01
-
----
-
-# Success Criteria
-
-- Core services operational
-- Modules initialize correctly
-- Extension system functional
-- Architecture matches documentation
-
----
-
-# Architecture
+## Boot sequence
 
 ```text
-Bootstrap
+Load Config
+    ↓
+Create Container
+    ↓
+Register Core Services
+    ↓
+Register Providers
+    ↓
+Boot Providers
+    ↓
+Application Ready  (+ FrameworkBooted)
+```
 
-↓
+```php
+use OpenMeta\Core\Bootstrap\Bootstrap;
 
-Core Services
-
-↓
-
-Configuration
-
-↓
-
-Modules
-
-↓
-
-Extensions
+$app = Bootstrap::run($configOverrides, $providers);
+$app->isBooted(); // true
 ```
 
 ---
 
-# Best Practices
+## Exit Criteria
 
-- Keep the core lightweight.
-- Avoid feature-specific logic.
-- Prioritize modularity.
-- Maintain clear architectural boundaries.
+| Criterion | Status |
+| --------- | ------ |
+| Framework successfully boots | ✅ smoke + `Bootstrap::run` |
+| Unit tests pass | ✅ `composer test:core` / `composer ci` |
+| No WordPress dependency yet | ✅ Core requires PHP `>=8.3` only |
 
 ---
 
-# Summary
+## Verify
 
-Phase 02 establishes the core runtime architecture that supports every subsystem within OpenMeta.
+```bash
+composer test:core
+composer ci
+```
+
+---
+
+## Dependencies
+
+- Phase 00 (Planning)
+- Phase 01 (Workspace Setup)
+
+---
+
+## Next
+
+**v0.2.0-alpha** — Support → Validation → Security ([release plan](./release-milestones.md)).
+
+---
+
+## Summary
+
+Phase 02 delivers `@openmeta/core` (`v0.1.0-alpha`): a WordPress-free bootable runtime with Application, Container, Kernel, Providers, Config, Events, Bootstrap, Exceptions, and Contracts.

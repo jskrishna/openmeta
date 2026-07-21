@@ -1,0 +1,91 @@
+---
+description: "Rule 4 — Architecture changes must update docs, ADR, and package README automatically"
+alwaysApply: true
+---
+
+# Rule 4 — Documentation
+
+**Whenever architecture changes, documentation updates are mandatory — not optional.**
+
+```text
+Architecture change (code / SPEC / boundaries)
+        ↓
+Update docs
+        ↓
+Update ADR if needed
+        ↓
+Update package README
+        ↓
+(SPEC status / roadmap if truth changed)
+```
+
+Do this **in the same change set** as the code. Do not leave docs for “later.”
+
+## When this rule fires
+
+Any of:
+
+- New/removed package boundary or dependency edge  
+- New public contract, module spine, or Must not  
+- Bootstrap / layering / WP integration behavior change  
+- Breaking or deprecating a public API  
+- Security, persistence, or extension-point design change  
+
+If you only rename privately with zero external behavior → light touch (PHPDoc / changelog note) is enough.
+
+## 1. Update docs
+
+Touch the relevant sources of truth:
+
+| Change type | Update |
+| ----------- | ------ |
+| Package behavior / spine | `packages/<name>/SPEC.md` |
+| Cross-cutting design | `ARCHITECTURE.md` and/or `docs/architecture/*` |
+| Roadmap / train | `ROADMAP.md`, `docs/roadmap/*` |
+| How-to / guides | matching `docs/**` section |
+| Release notes | `CHANGELOG.md` when user is cutting a version |
+
+SPEC remains the **implementation contract**. Keep Responsibilities / Must not / Dependency Rules accurate.
+
+## 2. Update ADR if needed
+
+Create or amend under `docs/adr/` when the change is a **decision** (not a routine feature):
+
+- New architectural choice or rejected alternative  
+- Contradicts an Accepted ADR → new ADR (don’t silently overwrite history)  
+- WP-first, package boundaries, storage, API style, security model, etc.
+
+ADR not required for tiny bugfixes that don’t change design.
+
+## 3. Update package README
+
+For every package you touched architecturally:
+
+- `packages/<name>/README.md` — purpose, spine blurb, status, how to test  
+- Keep it short; deep detail stays in SPEC  
+
+If multiple packages’ public story changed → update each affected README.
+
+## Also update (when truth changed)
+
+- `packages/BLUEPRINTS.md` status row  
+- `.cursor/context/project.md` / `roadmap.md` if map or train shifted  
+- Phase prompt in `.ai/prompts/` only if phase scope itself changed  
+
+## Read order (before code)
+
+1. Package `SPEC.md` + `README.md`  
+2. `ARCHITECTURE.md` + `docs/adr/`  
+3. `.cursor/context/project.md` + `roadmap.md`  
+4. Related `docs/`  
+
+Unclear docs → **stop and ask**. Never guess architecture.
+
+## Anti-patterns
+
+- ❌ Ship code that changes boundaries without SPEC/README updates  
+- ❌ “Docs in a follow-up PR” for architecture changes  
+- ❌ Quietly contradicting an Accepted ADR  
+- ❌ Inventing unsolicited guide pages unrelated to the change  
+
+**No architecture change is done until docs + ADR (if needed) + package README match the code.**

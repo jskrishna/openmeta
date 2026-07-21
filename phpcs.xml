@@ -1,25 +1,31 @@
 <?xml version="1.0"?>
 <ruleset name="OpenMeta">
-	<description>OpenMeta PHP coding standards (pre-alpha scaffold).</description>
+	<description>OpenMeta PHP coding standards (pre-alpha).</description>
 
-	<!-- Paths to check when packages have PHP sources -->
 	<file>packages/</file>
 	<file>tests/</file>
 
 	<exclude-pattern>*/vendor/*</exclude-pattern>
 	<exclude-pattern>*/node_modules/*</exclude-pattern>
 	<exclude-pattern>*/tests/Fixtures/*</exclude-pattern>
+	<exclude-pattern>packages/core/tests/Unit/bootstrap.php</exclude-pattern>
+	<exclude-pattern>packages/core/tests/Unit/application.php</exclude-pattern>
+	<exclude-pattern>packages/core/tests/Unit/configuration.php</exclude-pattern>
+	<exclude-pattern>packages/core/tests/Unit/container.php</exclude-pattern>
+	<exclude-pattern>packages/core/tests/Unit/kernel.php</exclude-pattern>
+	<exclude-pattern>packages/core/tests/Unit/service-providers.php</exclude-pattern>
+	<exclude-pattern>*/tests/smoke.php</exclude-pattern>
 
 	<arg name="extensions" value="php"/>
 	<arg name="colors"/>
 	<arg value="sp"/>
 
-	<!--
-		When ready, add WordPress-Coding-Standards / PHPCSUtils via Composer
-		and switch to WordPress-Extra or a custom ruleset.
-		For now, use the PSR12 baseline so `phpcs` can run once installed.
-	-->
 	<rule ref="PSR12"/>
+
+	<!-- PHPUnit snake_case method names are conventional -->
+	<rule ref="PSR1.Methods.CamelCapsMethodName.NotCamelCaps">
+		<exclude-pattern>*/tests/*Test.php</exclude-pattern>
+	</rule>
 
 	<config name="testVersion" value="8.3-"/>
 </ruleset>

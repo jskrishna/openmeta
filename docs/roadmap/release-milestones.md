@@ -1,188 +1,110 @@
-# Release Milestones
+# Release Plan
+
+Versioned path from Core Bootstrap to stable **v1.0.0**.
+
+**Phase 13** is the authoritative release train. Related: [ROADMAP.md](../../ROADMAP.md), [phase-13-releases.md](./phase-13-releases.md), [release-process.md](../development/release-process.md), [`.github/MILESTONES.md`](../../.github/MILESTONES.md), [packages/TESTING.md](../../packages/TESTING.md).
 
 ---
 
-# Purpose
-
-This document defines the major release milestones of OpenMeta from initial development through long-term maintenance.
-
-Each milestone represents a measurable stage in project maturity.
-
----
-
-# Goals
-
-- Establish predictable releases
-- Track project progress
-- Coordinate contributors
-- Prepare production releases
-
----
-
-# Release Lifecycle
+## Release train
 
 ```text
-Planning
+v0.1.0-alpha
+Core
 
 ↓
 
-Development
+v0.2.0-alpha
+Support
 
 ↓
 
-Alpha
+v0.3.0-alpha
+Validation
 
 ↓
 
-Beta
+v0.4.0-alpha
+Security
 
 ↓
 
-Release Candidate
+v0.5.0-alpha
+Database
 
 ↓
 
-Stable Release
+v0.6.0-alpha
+Field Engine
 
 ↓
 
-Maintenance
+v0.7.0-alpha
+REST API
+
+↓
+
+v0.8.0-alpha
+Admin
+
+↓
+
+v0.9.0-beta
+Builder
+
+↓
+
+v1.0.0
+Stable
 ```
 
 ---
 
-# Milestones
+## Version → packages
 
-## Milestone 1
+Coding order still applies inside each train. Packages not named in the version title ship as **prerequisites** so dependents stay buildable.
 
-Planning Complete
+| Version | Theme | Primary package | Also required before exit |
+| ------- | ----- | --------------- | ------------------------- |
+| **v0.1.0-alpha** | Core | `core` | — |
+| **v0.2.0-alpha** | Support | `support` | — |
+| **v0.3.0-alpha** | Validation | `validation` | — |
+| **v0.4.0-alpha** | Security | `security` | — |
+| **v0.5.0-alpha** | Database | `database` | Phase 12 gate on Connection → Relations |
+| **v0.6.0-alpha** | Field Engine | `fields` | Built-in types + validate→save→load |
+| **v0.7.0-alpha** | REST API | `api` | AuthN/AuthZ + Resources |
+| **v0.8.0-alpha** | Admin | `admin` | `ui` kit + screens smoke |
+| **v0.9.0-beta** | Builder | `builder` | `wordpress` plugin mount + Phase 12 gates |
+| **v1.0.0** | Stable | — | Freeze APIs; migration notes; production readiness |
 
-Deliverables
-
-- Documentation
-- Architecture
-- ADRs
-
----
-
-## Milestone 2
-
-Bootstrap Complete
-
-Deliverables
-
-- Project structure
-- Development environment
-- CI
+Status today: **v0.1–v0.9** spines ✅ · next **v1.0.0** Stable.
 
 ---
 
-## Milestone 3
+## Exit criteria (every train)
 
-Core Complete
-
-Deliverables
-
-- Core framework
-- Configuration
-- Services
+1. Package SPEC(s) for that train implemented (Must not respected).
+2. **Phase 12** testing gate: Unit → Integration → WordPress → Performance → Security ([TESTING.md](../../packages/TESTING.md)).
+3. `composer ci` green.
+4. CHANGELOG entry for the version.
+5. GitHub milestone closed for the train.
 
 ---
 
-## Milestone 4
+## Maturity stages
 
-Feature Complete
+| Stage | Versions | Intent |
+| ----- | -------- | ------ |
+| **Alpha** | `v0.1`–`v0.8` | One spine package per train; APIs may shift |
+| **Beta** | `v0.9.0-beta` | Builder + installable WP surface; community soak |
+| **Stable** | `v1.0.0` | SemVer-stable public contracts; support policy starts |
 
-Deliverables
-
-- Field Engine
-- Admin UI
-- APIs
-- Integrations
-
----
-
-## Milestone 5
-
-Alpha Release
-
-Objectives
-
-- Internal testing
-- Initial feedback
-- Architecture validation
+Do not skip trains. Do not claim a version “done” without its Phase 12 gates (or explicit N/A in SPEC).
 
 ---
 
-## Milestone 6
+## Lifecycle
 
-Beta Release
-
-Objectives
-
-- Feature complete
-- Community testing
-- Documentation review
-
----
-
-## Milestone 7
-
-Release Candidate
-
-Objectives
-
-- Bug fixes
-- Performance optimization
-- Security review
-
----
-
-## Milestone 8
-
-Stable Release
-
-Objectives
-
-- Production ready
-- Documentation complete
-- Public availability
-
----
-
-## Milestone 9
-
-Maintenance
-
-Objectives
-
-- Bug fixes
-- Security updates
-- Minor improvements
-
----
-
-# Responsibilities
-
-Each milestone should include:
-
-- Documentation review
-- Architecture review
-- Testing
-- Approval
-- Release validation
-
----
-
-# Best Practices
-
-- Do not skip milestones.
-- Complete exit criteria before advancing.
-- Keep releases predictable.
-- Communicate milestone progress.
-
----
-
-# Summary
-
-Release milestones provide a structured progression from project planning to stable production releases while maintaining quality throughout the OpenMeta lifecycle.
+```text
+Planning → Development → Alpha trains → Beta → Stable → Maintenance
+```

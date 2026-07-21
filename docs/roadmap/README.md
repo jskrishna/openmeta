@@ -10,6 +10,8 @@ Unlike feature lists, this roadmap organizes development into structured archite
 
 The roadmap acts as the primary execution plan for the OpenMeta project.
 
+**Versioned release train:** [release-milestones.md](./release-milestones.md) (`v0.1.0-alpha` → `v1.0.0`).
+
 ---
 
 # Goals

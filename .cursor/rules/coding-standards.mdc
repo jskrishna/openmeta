@@ -1,0 +1,98 @@
+---
+description: "Rule 2 — PSR-12, strict types, PHPDoc, naming, folders/files, constructor DI, interfaces first"
+alwaysApply: true
+---
+
+# Rule 2 — Coding standards
+
+Sources: `docs/development/coding-standards.md`, `naming-conventions.md`, `phpcs.xml`, `.editorconfig`.  
+Gate: `php composer.phar ci` (PHPStan → PHPCS → PHPUnit).
+
+## PSR-12
+
+- Follow **PSR-12** for all PHP (enforced by PHPCS).
+- PHP **≥ 8.3**.
+- Indentation: **tabs** for `.php` (see `.editorconfig`); one class per file.
+- Braces, visibility, and import order per PSR-12; no closing `?>` tag.
+- Keep lines readable; don’t fight the linter — fix what PHPCS reports.
+
+## Strict types
+
+- Every PHP file starts with:
+
+```php
+<?php
+
+declare(strict_types=1);
+```
+
+- Use typed properties, parameter types, and return types.
+- Prefer `mixed` only when unavoidable; narrow with PHPDoc array shapes.
+
+## PHPDoc
+
+- Document **public** contracts (classes, methods, interfaces).
+- Use precise generics/shapes: `list<string>`, `array<string, mixed>`, `@param`, `@return`, `@throws`.
+- Don’t restate the obvious (`@param string $name Name of the thing`) — document intent, units, and invariants.
+- Mark deprecations with `@deprecated` + replacement.
+
+## Naming conventions
+
+| Kind | Convention | Example |
+| ---- | ---------- | ------- |
+| Namespace | `OpenMeta\<Package>\...` | `OpenMeta\Fields\Registry` |
+| Class | PascalCase, noun | `FieldRegistry`, `RestKernel` |
+| Interface | PascalCase + `Interface` suffix | `ContainerInterface` |
+| Exception | PascalCase + `Exception` | `AuthorizationException` |
+| Method / function | camelCase, verb phrase | `register()`, `make()` |
+| Property / variable | camelCase | `$fieldEngine` |
+| Constant | UPPER_SNAKE | `Permission::MANAGE_FIELDS` |
+| Config / env keys | snake_case or dotted | `database.default` |
+| WP hooks (when used) | `openmeta_*` prefix | `openmeta_ready` |
+
+Names must be descriptive and unambiguous — no 1–2 letter identifiers in public API.
+
+## Folder naming
+
+```text
+packages/<package>/          # lowercase package id: core, fields, wordpress
+  src/                       # PSR-4 root for OpenMeta\<Package>\
+    Contracts/               # or domain folders: Container/, Rest/, …
+    Exceptions/
+  tests/
+    Unit|Integration|WordPress|Performance|Security/
+  resources/                 # optional assets
+  README.md
+  SPEC.md
+```
+
+- Folder names under `src/` are **PascalCase** matching the sub-namespace (`Rest/`, `DragDrop/`).
+- Do **not** rename packages or invent parallel trees outside this layout.
+- Never move files across packages to “make imports easier.”
+
+## File naming
+
+- **One** public class/interface/enum per file.
+- Filename = short class name + `.php` → `Container.php`, `ContainerInterface.php`.
+- Tests: `*Test.php` (PHPUnit); test case bases: `*TestCase.php` (excluded from suites as today).
+- No `class.inc.php` or lowercase `foo_bar.php` for classes.
+
+## Constructor injection
+
+- Inject collaborators via the **constructor**; promote to `private readonly` (or typed props) when possible.
+- Wire graphs in **ServiceProviders** (`singleton` / `bind`) — consumers don’t `new` deep collaborator trees.
+- Avoid setter injection and static service locators in domain code.
+- No static mutable registries unless SPEC requires and it’s documented.
+
+## Interfaces first
+
+- When SPEC defines a public contract → create the **interface** before (or with) the implementation.
+- Type-hint interfaces in constructors and method signatures; bind interface → concrete in the provider.
+- Don’t depend on foreign package **internals** — only their public contracts / façades.
+- Prefer small role interfaces over large “god” interfaces (ISP).
+
+## Also required
+
+- Prefer `final` classes unless extension is an explicit extension point.
+- Escape output / authorize via `@openmeta/security` — not ad-hoc helpers.
+- Match the existing package’s patterns before inventing a new style.

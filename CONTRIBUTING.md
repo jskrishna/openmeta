@@ -80,6 +80,8 @@ OpenMeta/
 ├── packages/
 ├── tests/
 ├── examples/
+├── bin/
+├── scripts/
 ├── tools/
 ├── website/
 ├── README.md
