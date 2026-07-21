@@ -14,13 +14,28 @@
   },
   "require-dev": {
     "phpstan/phpstan": "^2.0",
+    "phpunit/phpunit": "^11.0",
     "squizlabs/php_codesniffer": "^3.10"
   },
   "scripts": {
     "phpcs": "phpcs",
     "phpstan": "phpstan analyse --memory-limit=1G",
-    "test": "php packages/core/tests/smoke.php",
-    "test:core": "php packages/core/tests/smoke.php"
+    "phpunit": "phpunit --configuration phpunit.xml",
+    "ci": [
+      "@phpstan",
+      "@phpcs",
+      "@phpunit"
+    ],
+    "workspace": [
+      "@ci"
+    ],
+    "test": [
+      "@test:core"
+    ],
+    "test:core": [
+      "phpunit --configuration phpunit.xml --testsuite core",
+      "php packages/core/tests/smoke.php"
+    ]
   },
   "autoload": {
     "psr-4": {
@@ -31,7 +46,11 @@
     "psr-4": {
       "OpenMeta\\Core\\Tests\\": "packages/core/tests/",
       "OpenMeta\\Tests\\": "tests/"
-    }
+    },
+    "exclude-from-classmap": [
+      "/packages/core/tests/",
+      "/tests/"
+    ]
   },
   "config": {
     "sort-packages": true,

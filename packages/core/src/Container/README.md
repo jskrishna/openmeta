@@ -1,20 +1,22 @@
 # Container/
 
-**Role:** Dependency injection container.
+Dependency injection container — framework heart. Implements `Contracts\ContainerInterface`.
 
-## Planned responsibilities
+## Supported
 
-- Bind interface → implementation
-- Resolve services (singleton / transient as designed)
-- Support test rebinding
+| Feature | API |
+| ------- | --- |
+| Bind | `bind($id, $concrete, $shared = false)` |
+| Singleton | `singleton($id, $concrete)` |
+| Instance | `instance($id, $object)` |
+| Resolve | `resolve($id)` / `get($id)` |
+| Aliases | `alias($abstract, $alias)` |
 
-## Non-responsibilities
+## Future (not implemented)
 
-- Service locator abuse from random domain classes
-- Knowing about fields/storage
+- Auto-resolution (constructor injection via reflection)
+- Deferred services (lazy provider loading)
 
-## Milestone
+## Code
 
-**v0.1 — in scope.**
-
-See [docs/architecture/service-container.md](../../../../docs/architecture/service-container.md) and [dependency-injection.md](../../../../docs/architecture/dependency-injection.md).
+- `Container.php`

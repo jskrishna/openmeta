@@ -5,12 +5,16 @@ declare(strict_types=1);
 namespace OpenMeta\Core\Container;
 
 use Closure;
-use RuntimeException;
+use OpenMeta\Core\Contracts\ContainerInterface;
+use OpenMeta\Core\Exceptions\BindingResolutionException;
 
 /**
- * Minimal service container for the core spine.
+ * Dependency injection container — framework heart.
+ *
+ * Supported: bind, singleton, resolve, aliases.
+ * Planned (not implemented): auto-resolution, deferred services.
  */
-final class Container
+final class Container implements ContainerInterface
 {
     /** @var array<string, mixed> */
     private array $bindings = [];
@@ -20,6 +24,9 @@ final class Container
 
     /** @var array<string, object> */
     private array $instances = [];
+
+    /** @var array<string, string> alias => abstract */
+    private array $aliases = [];
 
     public function bind(string $id, mixed $concrete, bool $shared = false): void
     {
@@ -45,23 +52,45 @@ final class Container
         $this->bindings[$id] = $instance;
     }
 
+    public function alias(string $abstract, string $alias): void
+    {
+        if ($abstract === $alias) {
+            throw new BindingResolutionException(
+                sprintf('Cannot alias [%s] to itself.', $abstract)
+            );
+        }
+
+        $this->aliases[$alias] = $abstract;
+    }
+
     public function has(string $id): bool
     {
+        $id = $this->getAlias($id);
+
         return isset($this->bindings[$id]) || isset($this->instances[$id]);
     }
 
     public function get(string $id): mixed
     {
+        return $this->resolve($id);
+    }
+
+    public function resolve(string $id): mixed
+    {
+        $id = $this->getAlias($id);
+
         if (isset($this->instances[$id])) {
             return $this->instances[$id];
         }
 
         if (! isset($this->bindings[$id])) {
-            throw new RuntimeException(sprintf('Service [%s] is not bound in the container.', $id));
+            throw new BindingResolutionException(
+                sprintf('Service [%s] is not bound in the container.', $id)
+            );
         }
 
         $concrete = $this->bindings[$id];
-        $resolved = $this->resolve($concrete);
+        $resolved = $this->build($concrete, $id);
 
         if (isset($this->shared[$id]) && is_object($resolved)) {
             $this->instances[$id] = $resolved;
@@ -70,7 +99,39 @@ final class Container
         return $resolved;
     }
 
-    private function resolve(mixed $concrete): mixed
+    /**
+     * Follow alias chain to the concrete abstract id.
+     *
+     * @throws BindingResolutionException On circular aliases
+     */
+    private function getAlias(string $id): string
+    {
+        if (! isset($this->aliases[$id])) {
+            return $id;
+        }
+
+        $seen = [];
+
+        while (isset($this->aliases[$id])) {
+            if (isset($seen[$id])) {
+                throw new BindingResolutionException(
+                    sprintf('Circular alias detected for [%s].', $id)
+                );
+            }
+
+            $seen[$id] = true;
+            $id = $this->aliases[$id];
+        }
+
+        return $id;
+    }
+
+    /**
+     * Build a concrete binding value.
+     *
+     * Auto-resolution of constructor dependencies is intentionally deferred.
+     */
+    private function build(mixed $concrete, string $resolvingId): mixed
     {
         if ($concrete instanceof Closure) {
             return $concrete($this);
@@ -80,10 +141,26 @@ final class Container
             return $concrete;
         }
 
-        if (is_string($concrete) && class_exists($concrete)) {
-            return new $concrete();
+        if (is_string($concrete)) {
+            if ($concrete !== $resolvingId && $this->isBoundTarget($concrete)) {
+                return $this->resolve($concrete);
+            }
+
+            if (class_exists($concrete)) {
+                // Future: auto-resolution via reflection / constructor injection.
+                return new $concrete();
+            }
         }
 
-        throw new RuntimeException('Cannot resolve the given container binding.');
+        throw new BindingResolutionException(
+            sprintf('Cannot resolve binding for [%s].', $resolvingId)
+        );
+    }
+
+    private function isBoundTarget(string $id): bool
+    {
+        $id = $this->getAlias($id);
+
+        return isset($this->bindings[$id]) || isset($this->instances[$id]);
     }
 }

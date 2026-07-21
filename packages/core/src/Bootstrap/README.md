@@ -1,21 +1,33 @@
 # Bootstrap/
 
-**Role:** Bridge from WordPress plugin load into the OpenMeta kernel.
+Canonical framework bootstrap sequence (no WordPress logic).
 
-## Planned responsibilities
+## Sequence
 
-- Plugin main-file / early load hook
-- PHP / WP requirement checks
-- Create container, load config, hand off to `Kernel`
-- Fail gracefully when requirements are unmet
+```text
+Load Config
+    ↓
+Create Container
+    ↓
+Register Core Services
+    ↓
+Register Providers
+    ↓
+Boot Providers
+    ↓
+Application Ready
+```
 
-## Non-responsibilities
+## Code
 
-- Registering field types or REST routes
-- Heavy business logic in the plugin entry file
+| File | Role |
+| ---- | ---- |
+| `Bootstrap.php` | `Bootstrap::run()` — executes the sequence |
+| `Bootstrapper.php` | Alias → `Bootstrap::run()` |
 
-## Milestone
+```php
+use OpenMeta\Core\Bootstrap\Bootstrap;
 
-**v0.1 (`0.1.0-alpha`) — shipped.** Kernel bootstrap spine is implemented.
-
-See [docs/architecture/plugin-bootstrap.md](../../../../docs/architecture/plugin-bootstrap.md).
+$app = Bootstrap::run($config, [$providers]);
+// or Application::boot(...) / Bootstrapper::boot(...)
+```

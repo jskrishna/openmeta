@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/phpunit.xsd"
+         bootstrap="vendor/autoload.php"
+         colors="true"
+         cacheDirectory=".phpunit.cache"
+         executionOrder="depends,defects"
+         requireCoverageMetadata="false"
+         beStrictAboutOutputDuringTests="true"
+         failOnRisky="true"
+         failOnWarning="true"
+         defaultTestSuite="ci">
+    <testsuites>
+        <testsuite name="ci">
+            <directory suffix="Test.php">packages/core/tests</directory>
+            <exclude>packages/core/tests/Fixtures</exclude>
+            <exclude>packages/core/tests/CoreTestCase.php</exclude>
+        </testsuite>
+        <testsuite name="core">
+            <directory suffix="Test.php">packages/core/tests</directory>
+            <exclude>packages/core/tests/Fixtures</exclude>
+            <exclude>packages/core/tests/CoreTestCase.php</exclude>
+        </testsuite>
+    </testsuites>
+    <source>
+        <include>
+            <directory>packages/core/src</directory>
+        </include>
+    </source>
+</phpunit>

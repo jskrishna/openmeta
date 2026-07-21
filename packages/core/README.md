@@ -1,25 +1,28 @@
-# `@openmeta/core`
+# `@openmeta/core` — Bootstrap v0.1.0-alpha
 
-> Milestone **v0.1.0-alpha** — core spine only.
+> Minimum working framework. **No** database, fields, API, or WordPress integration.
+
+**Status: ✅ Complete** — `v0.1.0-alpha` · [SPEC.md](./SPEC.md) · Release train: [phase-13](../../docs/roadmap/phase-13-releases.md)
+
+**Blueprint:** [SPEC.md](./SPEC.md) · Prompt: [`.ai/prompts/phase-02-core-bootstrap.md`](../../.ai/prompts/phase-02-core-bootstrap.md)
 
 ---
 
-## Spine
+## Goal
 
 ```text
 Application
- ↓
-Container
- ↓
-Service Provider
- ↓
+    ↓
 Kernel
- ↓
-Bootstrap
+    ↓
+Container
+    ↓
+Service Providers
+    ↓
+Configuration
+    ↓
+Framework Booted ✅
 ```
-
-**In scope:** Application, Container, Service Provider, Kernel, Bootstrap  
-**Out of scope:** Database, Fields, REST, GraphQL, Admin, Builder
 
 ---
 
@@ -27,46 +30,61 @@ Bootstrap
 
 ```php
 use OpenMeta\Core\Bootstrap\Bootstrap;
+// or: use OpenMeta\Core\Application\Application;
 
-$app = Bootstrap::init([
-    MyServiceProvider::class,
-]);
+$app = Bootstrap::run(
+    ['app' => ['name' => 'OpenMeta']],
+    [AppServiceProvider::class],
+);
 
-$app->isBooted();      // true
-$app->container();     // Container
-$app->get(Some::class);
+$app->isBooted(); // true
+$app->config()->get('app.name');
+$app->container();
+$app->kernel();
 ```
 
-`Bootstrap::init()` builds the container, creates the kernel + application, registers/boots providers, returns `Application`.
+### Bootstrap sequence
+
+```text
+Load Config → Create Container → Register Core Services
+→ Register Providers → Boot Providers → Application Ready
+```
+
+`Application::boot()` / `Bootstrapper::boot()` alias `Bootstrap::run()`.
 
 ---
 
-## Public APIs
+## First classes
 
-| API | Location |
-| --- | -------- |
-| `Bootstrap::init(array $providers): Application` | `Bootstrap\Bootstrap` |
-| `Bootstrap::VERSION` | `0.1.0-alpha` |
-| `Application` | `Application\Application` |
-| `Container::bind / singleton / instance / get / has` | `Container\Container` |
-| `Kernel::boot / isBooted / container / addProvider` | `Kernel\Kernel` |
-| `ServiceProviderInterface::register / boot` | `ServiceProvider\ServiceProviderInterface` |
+| Class | Role |
+| ----- | ---- |
+| `Application` | Ready app + step methods used by Bootstrap |
+| `Bootstrap` | **Bootstrap sequence** runner |
+| `Kernel` | Bootstrap → Initialize → Ready (providers inside Initialize) |
+| `Container` | DI |
+| `ServiceProvider` | Provider base / contract |
+| `ConfigRepository` | Configuration |
+| `EventDispatcher` | Events (`FrameworkBooted`) |
+| `Bootstrapper` | Alias of `Bootstrap::run()` |
 
-Namespace: `OpenMeta\Core\`
+Docs: [docs/](./docs/) · Build order after this: [docs/build-order.md](./docs/build-order.md)
 
 ---
 
-## Dependencies
+## Out of scope (this milestone)
 
-- PHP 8.3+
-- No other OpenMeta packages
-- WordPress not required for this spine
+- Database / storage
+- Fields
+- REST / GraphQL
+- Admin / Builder / WordPress screens
 
 ---
 
 ## Smoke test
 
 ```bash
-composer install
+composer dump-autoload
 composer test:core
 ```
+
+Expected: `OK Core Bootstrap v0.1.0-alpha — Framework Booted`

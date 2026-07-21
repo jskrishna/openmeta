@@ -1,20 +1,21 @@
 # Config/
 
-**Role:** Configuration loading and read access.
+Configuration repository + file loading.
 
-## Planned responsibilities
+## Files
 
-- Ship defaults for core
-- Merge overrides (options / filters / constants — per config system docs)
-- `get` / `has` (and similar) accessors for kernel and providers
+| Path | Role |
+| ---- | ---- |
+| `ConfigRepository.php` | Dot-notation get / set / has / all / merge |
+| `ConfigLoader.php` | Load `*.php` files from a directory |
+| `Repository.php` | Deprecated alias of `ConfigRepository` |
 
-## Non-responsibilities
+## Default config (`packages/core/config/`)
 
-- Persisting settings UI
-- Feature-flag product logic beyond simple config keys
+| File | Key prefix | Notes |
+| ---- | ---------- | ----- |
+| `app.php` | `app.*` | name, env, version, debug |
+| `database.php` | `database.*` | Placeholder — no DB in Core Bootstrap |
+| `api.php` | `api.*` | Placeholder — no API in Core Bootstrap |
 
-## Milestone
-
-**v0.1 — in scope.**
-
-See [docs/core/configuration-system.md](../../../../docs/core/configuration-system.md).
+Runtime overrides merge over these defaults via `ConfigRepository::load($path, $overrides)` / `Bootstrapper::boot($overrides)`.

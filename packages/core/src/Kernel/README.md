@@ -1,20 +1,26 @@
 # Kernel/
 
-**Role:** Orchestrate boot order after Bootstrap.
+Lifecycle manager only — no WordPress logic.
 
-## Planned responsibilities
+## Lifecycle
 
-- Run provider `register()` then `boot()` in defined order
-- Expose boot state
-- Coordinate early lifecycle without domain features
+```text
+Bootstrap
+    ↓
+Initialize   ← Register → Boot (service providers)
+    ↓
+Ready
+```
 
-## Non-responsibilities
+| Phase | Method | Role |
+| ----- | ------ | ---- |
+| **Bootstrap** | `bootstrap()` | Prepare kernel; accept providers |
+| **Initialize** | `initialize()` | Register then boot all providers |
+| **Ready** | `ready()` | Kernel ready for Application use |
 
-- Implementing feature modules themselves
-- HTTP routing
+Full run: `run()` → Bootstrap → Initialize → Ready.
 
-## Milestone
+## Code
 
-**v0.1 — in scope.**
-
-See [docs/core/application-lifecycle.md](../../../../docs/core/application-lifecycle.md).
+- `Kernel.php`
+- `KernelPhase.php`
