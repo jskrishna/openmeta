@@ -4,7 +4,7 @@ Versioned path from Core Bootstrap to stable **v1.0.0**.
 
 **Phase 19** is the authoritative release freeze ([ADR-0027](../adr/ADR-0027-dx-first-roadmap.md)). Related: [ROADMAP.md](../../ROADMAP.md), [phase-18-releases.md](./phase-18-releases.md), [ADR-0024](../adr/ADR-0024-post-rest-phase-order.md), [ADR-0026](../adr/ADR-0026-complete-framework-ecosystem.md) (superseded numbering), [release-process.md](../development/release-process.md), [`.github/MILESTONES.md`](../../.github/MILESTONES.md).
 
-Post-REST phase order (Accepted, DX-first — ADR-0027): WordPress Adapter → Admin → Builder → Extension SDK → GraphQL → CLI → Code Generator → Testing & Performance → Documentation Generator → Marketplace (optional) → v1.0.
+Post-REST phase order (Accepted — DX-first [ADR-0027](../adr/ADR-0027-dx-first-roadmap.md), final tail [ADR-0028](../adr/ADR-0028-final-release-tail.md)): WordPress Adapter → Admin → Builder → Extension SDK → GraphQL → CLI → Code Generator → Testing & Performance → Documentation Platform → Release Engineering → v1.0. Marketplace deferred post-1.0.
 
 ---
 
@@ -82,12 +82,12 @@ Code Generator
 ↓
 
 v0.15.0-beta
-Documentation Generator
+Documentation Platform & API Docs
 
 ↓
 
 v0.16.0-beta
-Marketplace & Package Manager (optional)
+Release Engineering & Package Distribution
 
 ↓
 
@@ -117,11 +117,11 @@ Phase 16 (Testing, QA & Performance) is a **continuous gate** on every train and
 | **v0.12.0-beta** | GraphQL | `graphql` | Framework-independent schema/resolvers; reuse Security + Validation |
 | **v0.13.0-beta** | CLI & Developer Tools | `cli` | Console app + registry/discovery/tasks over Core container |
 | **v0.14.0-beta** | Code Generator | codegen / CLI `make:*` | Scaffold extension, field, tests |
-| **v0.15.0-beta** | Documentation Generator | docgen / CLI `docs:*` | Generated reference + hooks catalog |
-| **v0.16.0-beta** | Marketplace & Package Manager (optional) | marketplace | Extension distribution over the SDK |
+| **v0.15.0-beta** | Documentation Platform & API Docs | docs generator / CLI `docs:*` | Dev + API + architecture docs, examples, tutorials |
+| **v0.16.0-beta** | Release Engineering & Distribution | release tooling / CI | Composer publish, GitHub Releases, SemVer automation, signing, BC checks |
 | **v1.0.0** | Stable | — | Phases 14–17 green; Phase 16 gate; API freeze |
 
-Status today: **through GraphQL (`v0.12`) ✅** · next **`v0.13` CLI & Developer Tools**.
+Status today: **through Code Generator (`v0.14`) ✅ + Phase 16 QA infrastructure ✅** · next **`v0.15` Documentation Platform**.
 
 ---
 

@@ -2,18 +2,9 @@ name: Docs
 
 on:
   push:
-    branches: [main]
-    paths:
-      - "docs/**"
-      - "website/**"
-      - "README.md"
-      - ".github/workflows/docs.yml"
+    branches: [main, develop]
   pull_request:
-    paths:
-      - "docs/**"
-      - "website/**"
-      - "README.md"
-      - ".github/workflows/docs.yml"
+    branches: [main, develop]
   workflow_dispatch:
 
 concurrency:
@@ -22,14 +13,30 @@ concurrency:
 
 jobs:
   docs:
-    name: Build docs
+    name: Documentation
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: shivammathur/setup-php@v2
         with:
-          node-version: "20"
-          cache: npm
-      - name: Placeholder
-        run: |
-          echo "Docs/website build + link check will run here once website/ exists."
+          php-version: "8.3"
+          coverage: none
+      - uses: ramsey/composer-install@v3
+
+      - name: Generate API docs + search index + sitemap
+        run: php bin/openmeta docs:build
+
+      - name: Validate documentation (links, markdown)
+        # Non-blocking while legacy docs links are cleaned up; ratchet to
+        # required once `docs:validate` is clean.
+        continue-on-error: true
+        run: php bin/openmeta docs:validate
+
+      - name: Upload generated docs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: documentation
+          path: |
+            docs/reference/api
+            docs/assets
