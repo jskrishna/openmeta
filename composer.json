@@ -38,10 +38,9 @@
       "@test:fields",
       "@test:rest",
       "@test:api",
+      "@test:wordpress",
       "@test:ui",
-      "@test:admin",
-      "@test:builder",
-      "@test:wordpress"
+      "@test:admin"
     ],
     "test:core": [
       "phpunit --configuration phpunit.xml --testsuite core",
@@ -76,9 +75,6 @@
     ],
     "test:admin": [
       "phpunit --configuration phpunit.xml --testsuite admin"
-    ],
-    "test:builder": [
-      "phpunit --configuration phpunit.xml --testsuite builder"
     ]
   },
   "autoload": {
@@ -91,10 +87,9 @@
       "OpenMeta\\Fields\\": "packages/fields/src/",
       "OpenMeta\\Rest\\": "packages/rest/src/",
       "OpenMeta\\Api\\": "packages/api/src/",
+      "OpenMeta\\Wordpress\\": "packages/wordpress/src/",
       "OpenMeta\\Ui\\": "packages/ui/src/",
-      "OpenMeta\\Admin\\": "packages/admin/src/",
-      "OpenMeta\\Builder\\": "packages/builder/src/",
-      "OpenMeta\\Wordpress\\": "packages/wordpress/src/"
+      "OpenMeta\\Admin\\": "packages/admin/src/"
     }
   },
   "autoload-dev": {
@@ -107,10 +102,9 @@
       "OpenMeta\\Fields\\Tests\\": "packages/fields/tests/",
       "OpenMeta\\Rest\\Tests\\": "packages/rest/tests/",
       "OpenMeta\\Api\\Tests\\": "packages/api/tests/",
+      "OpenMeta\\Wordpress\\Tests\\": "packages/wordpress/tests/",
       "OpenMeta\\Ui\\Tests\\": "packages/ui/tests/",
       "OpenMeta\\Admin\\Tests\\": "packages/admin/tests/",
-      "OpenMeta\\Builder\\Tests\\": "packages/builder/tests/",
-      "OpenMeta\\Wordpress\\Tests\\": "packages/wordpress/tests/",
       "OpenMeta\\Tests\\": "tests/"
     },
     "exclude-from-classmap": [
@@ -122,10 +116,9 @@
       "/packages/fields/tests/",
       "/packages/rest/tests/",
       "/packages/api/tests/",
+      "/packages/wordpress/tests/",
       "/packages/ui/tests/",
       "/packages/admin/tests/",
-      "/packages/builder/tests/",
-      "/packages/wordpress/tests/",
       "/tests/"
     ]
   },
