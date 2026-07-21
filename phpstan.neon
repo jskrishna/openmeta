@@ -28,6 +28,8 @@ parameters:
         - packages/builder/tests
         - packages/extensions/src
         - packages/extensions/tests
+        - packages/graphql/src
+        - packages/graphql/tests
     excludePaths:
         - */vendor/*
         - */node_modules/*

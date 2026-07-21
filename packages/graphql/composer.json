@@ -1,0 +1,29 @@
+{
+    "name": "openmeta/graphql",
+    "version": "0.12.0-beta",
+    "description": "OpenMeta GraphQL abstraction layer — framework-independent schema, type, query, mutation, and resolver registries exposing OpenMeta services. Not a GraphQL server.",
+    "type": "library",
+    "license": "GPL-2.0-or-later",
+    "require": {
+        "php": ">=8.3",
+        "openmeta/core": "*",
+        "openmeta/support": "*",
+        "openmeta/validation": "*",
+        "openmeta/security": "*",
+        "openmeta/database": "*",
+        "openmeta/fields": "*",
+        "openmeta/rest": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "OpenMeta\\GraphQL\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "OpenMeta\\GraphQL\\Tests\\": "tests/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
