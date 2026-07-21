@@ -26,6 +26,16 @@
             "@phpcs",
             "@phpunit"
         ],
+        "qa": [
+            "@ci",
+            "@bc:check"
+        ],
+        "bench": "php quality/benchmarks/run.php",
+        "bc:check": "php quality/tools/bc-check.php",
+        "bc:update": "php quality/tools/bc-check.php --update",
+        "coverage": "phpunit --configuration phpunit.xml --coverage-clover quality/coverage/clover.xml --coverage-text",
+        "coverage:check": "php quality/tools/coverage-check.php quality/coverage/clover.xml 70",
+        "release:validate": "php quality/tools/release-validate.php",
         "workspace": [
             "@ci"
         ],
@@ -99,6 +109,9 @@
         ],
         "test:generator": [
             "phpunit --configuration phpunit.xml --testsuite generator"
+        ],
+        "test:e2e": [
+            "phpunit --configuration phpunit.xml --testsuite e2e"
         ]
     },
     "autoload": {

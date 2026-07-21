@@ -395,15 +395,16 @@ See [docs/roadmap/phase-15-code-generator.md](docs/roadmap/phase-15-code-generat
 
 ## Phase 16 — Testing, QA & Performance
 
-Status: ⏳ Continuous gate + pre-v1.0 hardening
+Status: ✅ Infrastructure delivered · continuous gate + pre-v1.0 hardening
 
 Objectives
 
-- Five-layer gate on every package
-- Performance baselines: boot, GraphQL, CLI, builder save, codegen
-- Matrix compliance before Stable
+- Five-layer gate on every package ✅
+- Benchmark suite (boot, container, fields, validation, GraphQL, serialization) + reports ✅
+- CI: coverage, security audit, secret scan, dependency review, benchmarks ✅
+- Backward-compatibility checker + release validation gate + release checklist ✅
 
-See [docs/roadmap/phase-14-testing.md](docs/roadmap/phase-14-testing.md) · [packages/TESTING.md](packages/TESTING.md).
+See [quality/README.md](quality/README.md) · [quality/PERFORMANCE.md](quality/PERFORMANCE.md) · [docs/development/release-checklist.md](docs/development/release-checklist.md) · [packages/TESTING.md](packages/TESTING.md).
 
 ---
 

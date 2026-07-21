@@ -1,0 +1,5903 @@
+{
+    "OpenMeta\\Admin\\Admin": {
+        "methods": {
+            "__construct": 4,
+            "application": 0,
+            "dashboard": 0,
+            "menus": 0,
+            "pages": 0,
+            "renderPage": 1,
+            "renderScreen": 1,
+            "screens": 0,
+            "settings": 0,
+            "store": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Admin\\AdminServiceProvider": {
+        "methods": {
+            "boot": 1,
+            "register": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Admin\\Application\\AdminApplication": {
+        "methods": {
+            "__construct": 13,
+            "assets": 0,
+            "components": 0,
+            "dashboard": 0,
+            "form": 1,
+            "gate": 0,
+            "layouts": 0,
+            "modals": 0,
+            "navigation": 0,
+            "notices": 0,
+            "pages": 0,
+            "settings": 0,
+            "store": 0,
+            "table": 1,
+            "themes": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Admin\\Assets\\AssetRegistry": {
+        "methods": {
+            "all": 0,
+            "forScreen": 1,
+            "script": 2,
+            "style": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Admin\\Cards\\CardComponent": {
+        "methods": {
+            "render": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Admin\\Components\\ComponentDescriptor": {
+        "methods": {
+            "__construct": 1,
+            "toArray": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Admin\\Components\\ComponentRegistry": {
+        "methods": {
+            "has": 1,
+            "register": 2,
+            "render": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Admin\\Contracts\\ComponentRegistryInterface": {
+        "methods": {
+            "register": 2,
+            "render": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Admin\\Contracts\\LayoutInterface": {
+        "methods": {
+            "id": 0,
+            "render": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Admin\\Contracts\\LayoutManagerInterface": {
+        "methods": {
+            "has": 1,
+            "render": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Admin\\Contracts\\PageManagerInterface": {
+        "methods": {
+            "get": 1,
+            "has": 1,
+            "register": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Admin\\Contracts\\RenderableComponentInterface": {
+        "methods": {
+            "render": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Admin\\Dashboard\\Dashboard": {
+        "methods": {
+            "registerWidget": 2,
+            "render": 0,
+            "widgetIds": 0
+        },
+        "constants": [
+            "SCREEN_ID"
+        ]
+    },
+    "OpenMeta\\Admin\\Events\\ComponentRendered": {
+        "methods": {
+            "__construct": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Admin\\Events\\FormSubmitted": {
+        "methods": {
+            "__construct": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Admin\\Events\\ModalOpened": {
+        "methods": {
+            "__construct": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Admin\\Events\\PageLoaded": {
+        "methods": {
+            "__construct": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Admin\\Events\\TableLoaded": {
+        "methods": {
+            "__construct": 3
+        },
+        "constants": []
+    },
+    "OpenMeta\\Admin\\Exceptions\\AdminException": {
+        "methods": [],
+        "constants": []
+    },
+    "OpenMeta\\Admin\\Forms\\AdminForm": {
+        "methods": {
+            "__construct": 3,
+            "errorNotice": 1,
+            "id": 0,
+            "render": 0,
+            "submit": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Admin\\Forms\\FormBuilder": {
+        "methods": {
+            "__construct": 2,
+            "field": 3,
+            "fieldModel": 4,
+            "group": 2,
+            "id": 0,
+            "readonly": 0,
+            "render": 0,
+            "section": 2,
+            "submit": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Admin\\Layouts\\DashboardGridLayout": {
+        "methods": {
+            "id": 0,
+            "render": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Admin\\Layouts\\FullWidthLayout": {
+        "methods": {
+            "id": 0,
+            "render": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Admin\\Layouts\\LayoutManager": {
+        "methods": {
+            "__construct": 0,
+            "has": 1,
+            "register": 1,
+            "render": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Admin\\Layouts\\SidebarLayout": {
+        "methods": {
+            "id": 0,
+            "render": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Admin\\Layouts\\SplitLayout": {
+        "methods": {
+            "id": 0,
+            "render": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Admin\\Layouts\\WizardLayout": {
+        "methods": {
+            "id": 0,
+            "render": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Admin\\Menus\\MenuItem": {
+        "methods": {
+            "__construct": 4
+        },
+        "constants": []
+    },
+    "OpenMeta\\Admin\\Menus\\MenuRegistry": {
+        "methods": {
+            "add": 1,
+            "all": 0,
+            "children": 1,
+            "get": 1,
+            "has": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Admin\\Modals\\ModalManager": {
+        "methods": {
+            "__construct": 0,
+            "open": 1,
+            "registerAlert": 3,
+            "registerConfirmation": 3,
+            "registerForm": 3,
+            "registerWizard": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Admin\\Navigation\\Breadcrumb": {
+        "methods": {
+            "__construct": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Admin\\Navigation\\MenuGroup": {
+        "methods": {
+            "__construct": 2,
+            "add": 1,
+            "itemIds": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Admin\\Navigation\\NavigationManager": {
+        "methods": {
+            "__construct": 1,
+            "addBreadcrumb": 1,
+            "breadcrumbs": 0,
+            "groups": 0,
+            "menus": 0,
+            "registerGroup": 1,
+            "renderBreadcrumbs": 0,
+            "topLevel": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Admin\\Notices\\NoticeManager": {
+        "methods": {
+            "error": 1,
+            "flush": 0,
+            "info": 1,
+            "render": 0,
+            "success": 1,
+            "warning": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Admin\\Pages\\Page": {
+        "methods": {
+            "__construct": 3,
+            "actions": 0,
+            "content": 0,
+            "footer": 0,
+            "sidebar": 0,
+            "toolbar": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Admin\\Pages\\PageManager": {
+        "methods": {
+            "all": 0,
+            "get": 1,
+            "has": 1,
+            "register": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Admin\\Panels\\Panel": {
+        "methods": {
+            "__construct": 2,
+            "render": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Admin\\Screens\\Screen": {
+        "methods": {
+            "__construct": 4
+        },
+        "constants": []
+    },
+    "OpenMeta\\Admin\\Screens\\ScreenRegistry": {
+        "methods": {
+            "all": 0,
+            "get": 1,
+            "has": 1,
+            "register": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Admin\\Settings\\SettingsRegistry": {
+        "methods": {
+            "all": 0,
+            "get": 1,
+            "has": 1,
+            "section": 3
+        },
+        "constants": []
+    },
+    "OpenMeta\\Admin\\Settings\\SettingsStore": {
+        "methods": {
+            "__construct": 0,
+            "all": 0,
+            "get": 1,
+            "putMany": 1,
+            "set": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Admin\\Support\\ScreenContext": {
+        "methods": {
+            "__construct": 1,
+            "actions": 0,
+            "content": 0,
+            "footer": 0,
+            "sidebar": 0,
+            "toolbar": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Admin\\Tables\\AdminTable": {
+        "methods": {
+            "__construct": 2,
+            "page": 0,
+            "perPage": 0,
+            "render": 0,
+            "total": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Admin\\Tables\\TableBuilder": {
+        "methods": {
+            "__construct": 1,
+            "bulkAction": 2,
+            "column": 2,
+            "paginator": 1,
+            "render": 0,
+            "rowAction": 2,
+            "rows": 1,
+            "search": 1,
+            "sort": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Admin\\Tabs\\TabGroup": {
+        "methods": {
+            "active": 1,
+            "render": 0,
+            "tab": 3
+        },
+        "constants": []
+    },
+    "OpenMeta\\Admin\\Themes\\ThemeManager": {
+        "methods": {
+            "__construct": 1,
+            "cssVariables": 0,
+            "theme": 0,
+            "wrap": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Admin\\Toolbar\\Toolbar": {
+        "methods": {
+            "action": 2,
+            "filter": 2,
+            "render": 0,
+            "search": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Admin\\Widgets\\DashboardWidget": {
+        "methods": {
+            "__construct": 3,
+            "render": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Api\\ApiServiceProvider": {
+        "methods": {
+            "boot": 1,
+            "register": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Api\\Auth\\AuthenticatorInterface": {
+        "methods": {
+            "authenticate": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Api\\Auth\\TokenAuthenticator": {
+        "methods": {
+            "__construct": 0,
+            "authenticate": 2,
+            "issue": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Api\\Auth\\WordPressAuthenticator": {
+        "methods": {
+            "authenticate": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Api\\Authz\\Authorizer": {
+        "methods": {
+            "__construct": 1,
+            "authorize": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Api\\Exceptions\\ApiException": {
+        "methods": {
+            "__construct": 1,
+            "codeKey": 0,
+            "status": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Api\\Exceptions\\AuthenticationException": {
+        "methods": {
+            "__construct": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Api\\Exceptions\\AuthorizationException": {
+        "methods": {
+            "__construct": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Api\\Exceptions\\NotFoundException": {
+        "methods": {
+            "__construct": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Api\\Rest\\Controllers\\Controller": {
+        "methods": [],
+        "constants": []
+    },
+    "OpenMeta\\Api\\Rest\\Controllers\\FieldValueController": {
+        "methods": {
+            "__construct": 1,
+            "health": 1,
+            "show": 1,
+            "update": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Api\\Rest\\Request": {
+        "methods": {
+            "__construct": 2,
+            "attribute": 1,
+            "body": 0,
+            "header": 1,
+            "headers": 0,
+            "input": 1,
+            "method": 0,
+            "path": 0,
+            "query": 0,
+            "user": 0,
+            "withAttributes": 1,
+            "withUser": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Api\\Rest\\Resources\\FieldValueResource": {
+        "methods": {
+            "__construct": 4,
+            "toArray": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Api\\Rest\\Resources\\JsonResource": {
+        "methods": {
+            "__construct": 1,
+            "toArray": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Api\\Rest\\Resources\\ResourceCollection": {
+        "methods": {
+            "__construct": 1,
+            "toArray": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Api\\Rest\\Resources\\ResourceInterface": {
+        "methods": {
+            "toArray": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Api\\Rest\\Response": {
+        "methods": {
+            "__construct": 1,
+            "body": 0,
+            "error": 2,
+            "headers": 0,
+            "json": 0,
+            "status": 0,
+            "toArray": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Api\\Rest\\RestKernel": {
+        "methods": {
+            "__construct": 4,
+            "handle": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Api\\Rest\\Routes\\Route": {
+        "methods": {
+            "__construct": 3,
+            "action": 0,
+            "authRequired": 0,
+            "match": 2,
+            "method": 0,
+            "path": 0,
+            "permissions": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Api\\Rest\\Routes\\RouteRegistrar": {
+        "methods": {
+            "register": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Api\\Rest\\Routes\\Router": {
+        "methods": {
+            "add": 1,
+            "delete": 2,
+            "get": 2,
+            "match": 1,
+            "post": 2,
+            "put": 2,
+            "routes": 0
+        },
+        "constants": [
+            "NAMESPACE"
+        ]
+    },
+    "OpenMeta\\Builder\\App\\VisualBuilder": {
+        "methods": [],
+        "constants": [
+            "SCREEN_ID"
+        ]
+    },
+    "OpenMeta\\Builder\\Application\\BuilderApplication": {
+        "methods": {
+            "__construct": 16,
+            "addComponent": 1,
+            "canvas": 0,
+            "clipboard": 0,
+            "conditions": 0,
+            "discard": 0,
+            "dragDrop": 0,
+            "generatePreview": 0,
+            "history": 0,
+            "inspector": 0,
+            "layouts": 0,
+            "library": 0,
+            "preview": 0,
+            "properties": 0,
+            "registry": 0,
+            "removeComponent": 1,
+            "save": 1,
+            "saved": 0,
+            "schema": 0,
+            "sessionState": 0,
+            "templates": 0,
+            "updateComponent": 1
+        },
+        "constants": [
+            "SCREEN_ID"
+        ]
+    },
+    "OpenMeta\\Builder\\Builder": {
+        "methods": {
+            "__construct": 1,
+            "application": 0,
+            "canvas": 0,
+            "history": 0,
+            "registry": 0,
+            "schema": 0,
+            "sessionState": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Builder\\BuilderServiceProvider": {
+        "methods": {
+            "boot": 1,
+            "register": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Builder\\Canvas\\Canvas": {
+        "methods": {
+            "__construct": 0,
+            "add": 1,
+            "count": 0,
+            "find": 1,
+            "fromArray": 1,
+            "move": 2,
+            "nodes": 0,
+            "remove": 1,
+            "replace": 1,
+            "replaceNodes": 1,
+            "select": 1,
+            "selected": 0,
+            "selectedId": 0,
+            "selection": 0,
+            "setWorkspace": 1,
+            "toArray": 0,
+            "workspace": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Builder\\Canvas\\CanvasNode": {
+        "methods": {
+            "__construct": 3,
+            "fromArray": 1,
+            "toArray": 0,
+            "withCondition": 1,
+            "withSettings": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Builder\\Canvas\\Workspace": {
+        "methods": {
+            "__construct": 0,
+            "fromArray": 1,
+            "gridEnabled": 0,
+            "gridSize": 0,
+            "panX": 0,
+            "panY": 0,
+            "snap": 1,
+            "snapEnabled": 0,
+            "toArray": 0,
+            "withPan": 2,
+            "withZoom": 1,
+            "zoom": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Builder\\Clipboard\\ClipboardManager": {
+        "methods": {
+            "clear": 0,
+            "copy": 1,
+            "cut": 1,
+            "hasContent": 0,
+            "mode": 0,
+            "paste": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Builder\\Conditions\\ConditionBuilder": {
+        "methods": {
+            "__construct": 1,
+            "and": 1,
+            "equals": 2,
+            "evaluate": 2,
+            "notEmpty": 1,
+            "visibleNodes": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Builder\\Contracts\\ComponentRegistryInterface": {
+        "methods": {
+            "all": 0,
+            "categories": 0,
+            "get": 1,
+            "has": 1,
+            "inCategory": 1,
+            "register": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Builder\\Contracts\\HistoryManagerInterface": {
+        "methods": {
+            "beginTransaction": 0,
+            "canRedo": 0,
+            "canUndo": 0,
+            "commitTransaction": 0,
+            "record": 1,
+            "redo": 0,
+            "rollbackTransaction": 0,
+            "undo": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Builder\\Contracts\\PreviewEngineInterface": {
+        "methods": {
+            "generate": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Builder\\Contracts\\SchemaManagerInterface": {
+        "methods": {
+            "build": 0,
+            "export": 0,
+            "import": 1,
+            "load": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Builder\\DragDrop\\DragDrop": {
+        "methods": {
+            "__construct": 2,
+            "dropNew": 3,
+            "move": 3,
+            "moveSelected": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Builder\\DragDrop\\DragSource": {
+        "methods": {
+            "__construct": 2,
+            "toArray": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Builder\\DragDrop\\DropTarget": {
+        "methods": {
+            "__construct": 2,
+            "accepts": 1,
+            "toArray": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Builder\\DragDrop\\DropValidator": {
+        "methods": {
+            "__construct": 1,
+            "validate": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Builder\\Events\\ComponentAdded": {
+        "methods": {
+            "__construct": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Builder\\Events\\ComponentRemoved": {
+        "methods": {
+            "__construct": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Builder\\Events\\ComponentUpdated": {
+        "methods": {
+            "__construct": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Builder\\Events\\LayoutChanged": {
+        "methods": {
+            "__construct": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Builder\\Events\\PreviewGenerated": {
+        "methods": {
+            "__construct": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Builder\\Events\\SchemaSaved": {
+        "methods": {
+            "__construct": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Builder\\Events\\TemplateImported": {
+        "methods": {
+            "__construct": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Builder\\Exceptions\\BuilderException": {
+        "methods": [],
+        "constants": []
+    },
+    "OpenMeta\\Builder\\History\\HistoryManager": {
+        "methods": {
+            "__construct": 2,
+            "beginTransaction": 0,
+            "canRedo": 0,
+            "canUndo": 0,
+            "commitTransaction": 0,
+            "record": 1,
+            "redo": 0,
+            "rollbackTransaction": 0,
+            "undo": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Builder\\History\\HistorySnapshot": {
+        "methods": {
+            "__construct": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Builder\\History\\HistoryTransaction": {
+        "methods": {
+            "isEmpty": 0,
+            "push": 1,
+            "snapshots": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Builder\\Inspector\\InspectorPanel": {
+        "methods": {
+            "__construct": 1,
+            "describe": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Builder\\Layouts\\LayoutEngine": {
+        "methods": {
+            "all": 0,
+            "get": 1,
+            "has": 1,
+            "load": 1,
+            "nest": 2,
+            "register": 1,
+            "toArray": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Builder\\Layouts\\LayoutNode": {
+        "methods": {
+            "__construct": 2,
+            "fromArray": 1,
+            "toArray": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Builder\\Layouts\\LayoutType": {
+        "methods": {
+            "cases": 0,
+            "from": 1,
+            "tryFrom": 1
+        },
+        "constants": [
+            "Column",
+            "Container",
+            "Row",
+            "Section"
+        ]
+    },
+    "OpenMeta\\Builder\\Library\\BlockLibrary": {
+        "methods": {
+            "__construct": 3,
+            "catalog": 0,
+            "favorite": 1,
+            "unfavorite": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Builder\\Preview\\PreviewEngine": {
+        "methods": {
+            "__construct": 2,
+            "generate": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Builder\\Preview\\PreviewResult": {
+        "methods": {
+            "__construct": 3,
+            "toArray": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Builder\\Properties\\PropertyEditor": {
+        "methods": {
+            "apply": 2,
+            "applyCondition": 2,
+            "definitionFor": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Builder\\Registry\\ComponentDescriptor": {
+        "methods": {
+            "__construct": 3,
+            "resolve": 0,
+            "toArray": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Builder\\Registry\\ComponentRegistry": {
+        "methods": {
+            "all": 0,
+            "categories": 0,
+            "get": 1,
+            "has": 1,
+            "inCategory": 1,
+            "register": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Builder\\Schema\\SchemaBuilder": {
+        "methods": {
+            "__construct": 2,
+            "build": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Builder\\Schema\\SchemaManager": {
+        "methods": {
+            "__construct": 5,
+            "build": 0,
+            "canvas": 0,
+            "export": 0,
+            "import": 1,
+            "load": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Builder\\Schema\\SchemaVersion": {
+        "methods": [],
+        "constants": [
+            "CURRENT",
+            "SUPPORTED"
+        ]
+    },
+    "OpenMeta\\Builder\\Selection\\SelectionManager": {
+        "methods": {
+            "clear": 0,
+            "ids": 0,
+            "isSelected": 1,
+            "nodes": 1,
+            "primary": 1,
+            "primaryId": 0,
+            "select": 2,
+            "toggle": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Builder\\Serialization\\SchemaImporter": {
+        "methods": {
+            "__construct": 1,
+            "validate": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Builder\\Serialization\\SchemaMigrator": {
+        "methods": {
+            "migrate": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Builder\\Serialization\\SchemaSerializer": {
+        "methods": {
+            "export": 1,
+            "import": 1,
+            "validate": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Builder\\Support\\IdGenerator": {
+        "methods": {
+            "node": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Builder\\Templates\\TemplateManager": {
+        "methods": {
+            "__construct": 2,
+            "apply": 2,
+            "import": 1,
+            "registry": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Builder\\Templates\\TemplateRegistry": {
+        "methods": {
+            "apply": 2,
+            "categories": 0,
+            "export": 1,
+            "has": 1,
+            "ids": 0,
+            "import": 1,
+            "list": 0,
+            "preview": 1,
+            "register": 3
+        },
+        "constants": []
+    },
+    "OpenMeta\\Cli\\Application\\ConsoleApplication": {
+        "methods": {
+            "__construct": 3,
+            "register": 1,
+            "registry": 0,
+            "run": 1
+        },
+        "constants": [
+            "DEFAULT_COMMAND"
+        ]
+    },
+    "OpenMeta\\Cli\\CliServiceProvider": {
+        "methods": {
+            "boot": 1,
+            "register": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Cli\\Commands\\Command": {
+        "methods": {
+            "definition": 0,
+            "description": 0,
+            "name": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Cli\\Commands\\DoctorCommand": {
+        "methods": {
+            "__construct": 1,
+            "execute": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Cli\\Commands\\HelpCommand": {
+        "methods": {
+            "__construct": 1,
+            "definition": 0,
+            "execute": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Cli\\Commands\\InfoCommand": {
+        "methods": {
+            "__construct": 1,
+            "definition": 0,
+            "execute": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Cli\\Commands\\ListCommand": {
+        "methods": {
+            "__construct": 1,
+            "execute": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Cli\\Commands\\MakeCommandCommand": {
+        "methods": {
+            "__construct": 1,
+            "definition": 0,
+            "execute": 2
+        },
+        "constants": [
+            "STUB"
+        ]
+    },
+    "OpenMeta\\Cli\\Commands\\VersionCommand": {
+        "methods": {
+            "execute": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Cli\\Configuration\\Configuration": {
+        "methods": {
+            "__construct": 0,
+            "all": 0,
+            "get": 1,
+            "has": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Cli\\Configuration\\ConfigurationLoader": {
+        "methods": {
+            "__construct": 1,
+            "fromArray": 1,
+            "fromJsonFile": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Cli\\Contracts\\CommandInterface": {
+        "methods": {
+            "definition": 0,
+            "description": 0,
+            "execute": 2,
+            "name": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Cli\\Contracts\\CommandProviderInterface": {
+        "methods": {
+            "commands": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Cli\\Contracts\\CommandRegistryInterface": {
+        "methods": {
+            "descriptions": 0,
+            "get": 1,
+            "has": 1,
+            "names": 0,
+            "register": 1,
+            "registerLazy": 3
+        },
+        "constants": []
+    },
+    "OpenMeta\\Cli\\Contracts\\ConsoleApplicationInterface": {
+        "methods": {
+            "register": 1,
+            "registry": 0,
+            "run": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Cli\\Contracts\\InputInterface": {
+        "methods": {
+            "argument": 1,
+            "arguments": 0,
+            "hasArgument": 1,
+            "hasOption": 1,
+            "option": 1,
+            "options": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Cli\\Contracts\\LoggerInterface": {
+        "methods": {
+            "debug": 1,
+            "error": 1,
+            "info": 1,
+            "warning": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Cli\\Contracts\\OutputFormatterInterface": {
+        "methods": {
+            "addStyle": 2,
+            "format": 2,
+            "isDecorated": 0,
+            "setDecorated": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Cli\\Contracts\\OutputInterface": {
+        "methods": {
+            "comment": 1,
+            "error": 1,
+            "info": 1,
+            "json": 1,
+            "setVerbosity": 1,
+            "success": 1,
+            "table": 2,
+            "verbosity": 0,
+            "warning": 1,
+            "write": 1,
+            "writeln": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Cli\\Contracts\\PromptInterface": {
+        "methods": {
+            "ask": 1,
+            "choice": 2,
+            "confirm": 1,
+            "secret": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Cli\\Contracts\\TaskInterface": {
+        "methods": {
+            "description": 0,
+            "name": 0,
+            "run": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Cli\\Contracts\\TaskRunnerInterface": {
+        "methods": {
+            "has": 1,
+            "names": 0,
+            "register": 1,
+            "run": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Cli\\Discovery\\CommandDiscovery": {
+        "methods": {
+            "__construct": 1,
+            "fromProviders": 1,
+            "register": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Cli\\Environment\\EnvironmentCheck": {
+        "methods": {
+            "__construct": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Cli\\Environment\\EnvironmentInspector": {
+        "methods": {
+            "checks": 0,
+            "extensions": 0,
+            "hasExtension": 1,
+            "isWritable": 1,
+            "meetsMinimumPhp": 0,
+            "packageStatus": 0,
+            "phpVersion": 0,
+            "report": 0
+        },
+        "constants": [
+            "MINIMUM_PHP",
+            "PACKAGES",
+            "REQUIRED_EXTENSIONS"
+        ]
+    },
+    "OpenMeta\\Cli\\Events\\CommandFailed": {
+        "methods": {
+            "__construct": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Cli\\Events\\CommandFinished": {
+        "methods": {
+            "__construct": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Cli\\Events\\CommandStarted": {
+        "methods": {
+            "__construct": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Cli\\Exceptions\\CliException": {
+        "methods": [],
+        "constants": []
+    },
+    "OpenMeta\\Cli\\Exceptions\\CommandNotFoundException": {
+        "methods": {
+            "named": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Cli\\Exceptions\\InvalidInputException": {
+        "methods": {
+            "missingArgument": 1,
+            "optionNeedsValue": 1,
+            "unknownOption": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Cli\\Exceptions\\TaskNotFoundException": {
+        "methods": {
+            "named": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Cli\\Input\\ArgumentDefinition": {
+        "methods": {
+            "__construct": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Cli\\Input\\Input": {
+        "methods": {
+            "__construct": 0,
+            "argument": 1,
+            "arguments": 0,
+            "hasArgument": 1,
+            "hasOption": 1,
+            "option": 1,
+            "options": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Cli\\Input\\InputDefinition": {
+        "methods": {
+            "addArgument": 1,
+            "addOption": 1,
+            "arguments": 0,
+            "hasOption": 1,
+            "option": 1,
+            "optionByShortcut": 1,
+            "options": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Cli\\Input\\InputParser": {
+        "methods": {
+            "parse": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Cli\\Input\\OptionDefinition": {
+        "methods": {
+            "__construct": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Cli\\Logging\\ConsoleLogger": {
+        "methods": {
+            "__construct": 1,
+            "debug": 1,
+            "error": 1,
+            "info": 1,
+            "warning": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Cli\\Output\\BufferedOutput": {
+        "methods": {
+            "content": 0,
+            "fetch": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Cli\\Output\\ConsoleOutput": {
+        "methods": {
+            "__construct": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Cli\\Output\\Output": {
+        "methods": {
+            "__construct": 1,
+            "comment": 1,
+            "error": 1,
+            "formatter": 0,
+            "info": 1,
+            "json": 1,
+            "setVerbosity": 1,
+            "success": 1,
+            "table": 2,
+            "verbosity": 0,
+            "warning": 1,
+            "write": 1,
+            "writeln": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Cli\\Output\\OutputFormatter": {
+        "methods": {
+            "__construct": 0,
+            "addStyle": 2,
+            "format": 2,
+            "isDecorated": 0,
+            "setDecorated": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Cli\\Output\\ProgressBar": {
+        "methods": {
+            "__construct": 2,
+            "advance": 0,
+            "finish": 0,
+            "render": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Cli\\Output\\TableRenderer": {
+        "methods": {
+            "render": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Cli\\Output\\Verbosity": {
+        "methods": {
+            "allows": 1,
+            "cases": 0,
+            "from": 1,
+            "tryFrom": 1
+        },
+        "constants": [
+            "Debug",
+            "Normal",
+            "Quiet",
+            "Verbose"
+        ]
+    },
+    "OpenMeta\\Cli\\Prompts\\Prompt": {
+        "methods": {
+            "__construct": 1,
+            "ask": 1,
+            "choice": 2,
+            "confirm": 1,
+            "secret": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Cli\\Registry\\CommandRegistry": {
+        "methods": {
+            "descriptions": 0,
+            "get": 1,
+            "has": 1,
+            "names": 0,
+            "register": 1,
+            "registerLazy": 3
+        },
+        "constants": []
+    },
+    "OpenMeta\\Cli\\Support\\ConsoleErrorHandler": {
+        "methods": {
+            "render": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Cli\\Support\\ExitCode": {
+        "methods": [],
+        "constants": [
+            "FAILURE",
+            "INVALID",
+            "SUCCESS"
+        ]
+    },
+    "OpenMeta\\Cli\\Support\\StubGenerator": {
+        "methods": {
+            "__construct": 1,
+            "exists": 1,
+            "generate": 3,
+            "render": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Cli\\Tasks\\CallableTask": {
+        "methods": {
+            "__construct": 3,
+            "description": 0,
+            "name": 0,
+            "run": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Cli\\Tasks\\TaskRunner": {
+        "methods": {
+            "all": 0,
+            "has": 1,
+            "names": 0,
+            "register": 1,
+            "run": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Core\\Application\\Application": {
+        "methods": {
+            "boot": 0,
+            "bootProviders": 0,
+            "config": 0,
+            "container": 0,
+            "createContainer": 0,
+            "defaultConfigPath": 0,
+            "events": 0,
+            "get": 1,
+            "has": 1,
+            "isBooted": 0,
+            "kernel": 0,
+            "loadConfig": 0,
+            "ready": 0,
+            "registerCoreServices": 0,
+            "registerProviders": 0,
+            "runKernel": 0,
+            "startKernel": 0,
+            "version": 0
+        },
+        "constants": [
+            "VERSION"
+        ]
+    },
+    "OpenMeta\\Core\\Bootstrap\\Bootstrap": {
+        "methods": {
+            "init": 0,
+            "run": 0
+        },
+        "constants": [
+            "VERSION"
+        ]
+    },
+    "OpenMeta\\Core\\Bootstrap\\Bootstrapper": {
+        "methods": {
+            "boot": 0,
+            "defaultConfigPath": 0
+        },
+        "constants": [
+            "VERSION"
+        ]
+    },
+    "OpenMeta\\Core\\Config\\ConfigLoader": {
+        "methods": {
+            "load": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Core\\Config\\ConfigRepository": {
+        "methods": {
+            "__construct": 0,
+            "all": 0,
+            "get": 1,
+            "has": 1,
+            "load": 1,
+            "merge": 1,
+            "set": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Core\\Config\\Repository": {
+        "methods": [],
+        "constants": []
+    },
+    "OpenMeta\\Core\\Container\\Container": {
+        "methods": {
+            "alias": 2,
+            "bind": 2,
+            "get": 1,
+            "has": 1,
+            "instance": 2,
+            "resolve": 1,
+            "singleton": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Core\\Contracts\\ApplicationInterface": {
+        "methods": {
+            "config": 0,
+            "container": 0,
+            "events": 0,
+            "get": 1,
+            "has": 1,
+            "isBooted": 0,
+            "kernel": 0,
+            "version": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Core\\Contracts\\BootstrapperInterface": {
+        "methods": {
+            "boot": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Core\\Contracts\\ConfigRepositoryInterface": {
+        "methods": {
+            "all": 0,
+            "get": 1,
+            "has": 1,
+            "set": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Core\\Contracts\\ContainerInterface": {
+        "methods": {
+            "alias": 2,
+            "bind": 2,
+            "get": 1,
+            "has": 1,
+            "instance": 2,
+            "resolve": 1,
+            "singleton": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Core\\Contracts\\EventDispatcherInterface": {
+        "methods": {
+            "dispatch": 1,
+            "listen": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Core\\Contracts\\KernelInterface": {
+        "methods": {
+            "addProvider": 1,
+            "boot": 0,
+            "bootProviders": 0,
+            "bootstrap": 0,
+            "container": 0,
+            "initialize": 0,
+            "isBooted": 0,
+            "isReady": 0,
+            "phase": 0,
+            "providers": 0,
+            "ready": 0,
+            "registerProviders": 0,
+            "run": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Core\\Contracts\\ServiceProviderInterface": {
+        "methods": {
+            "boot": 1,
+            "register": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Core\\Events\\EventDispatcher": {
+        "methods": {
+            "dispatch": 1,
+            "listen": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Core\\Events\\EventDispatcherInterface": {
+        "methods": [],
+        "constants": []
+    },
+    "OpenMeta\\Core\\Events\\FrameworkBooted": {
+        "methods": {
+            "__construct": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Core\\Exceptions\\BindingResolutionException": {
+        "methods": [],
+        "constants": []
+    },
+    "OpenMeta\\Core\\Exceptions\\OpenMetaException": {
+        "methods": [],
+        "constants": []
+    },
+    "OpenMeta\\Core\\Kernel\\Kernel": {
+        "methods": {
+            "__construct": 1,
+            "addProvider": 1,
+            "boot": 0,
+            "bootProviders": 0,
+            "bootstrap": 0,
+            "container": 0,
+            "initialize": 0,
+            "isBooted": 0,
+            "isReady": 0,
+            "phase": 0,
+            "providers": 0,
+            "ready": 0,
+            "registerProviders": 0,
+            "run": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Core\\Kernel\\KernelPhase": {
+        "methods": {
+            "cases": 0,
+            "from": 1,
+            "tryFrom": 1
+        },
+        "constants": [
+            "Bootstrap",
+            "Initialize",
+            "Pending",
+            "Ready"
+        ]
+    },
+    "OpenMeta\\Core\\Providers\\ServiceProviderInterface": {
+        "methods": [],
+        "constants": []
+    },
+    "OpenMeta\\Core\\ServiceProvider\\ServiceProviderInterface": {
+        "methods": [],
+        "constants": []
+    },
+    "OpenMeta\\Core\\Support\\Arr": {
+        "methods": {
+            "get": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Database\\Collections\\ResultCollection": {
+        "methods": {
+            "__construct": 0,
+            "all": 0,
+            "count": 0,
+            "first": 0,
+            "getIterator": 0,
+            "isEmpty": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Database\\Configuration\\DatabaseConfig": {
+        "methods": {
+            "__construct": 1,
+            "connection": 1,
+            "fromArray": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Database\\Connections\\ConnectionFactory": {
+        "methods": {
+            "make": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Database\\Connections\\ConnectionManager": {
+        "methods": {
+            "__construct": 2,
+            "add": 2,
+            "connection": 0,
+            "factory": 0,
+            "registry": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Database\\Connections\\ConnectionRegistry": {
+        "methods": {
+            "add": 2,
+            "get": 0,
+            "has": 1,
+            "names": 0,
+            "setDefault": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Database\\Connections\\MemoryConnection": {
+        "methods": {
+            "__construct": 0,
+            "affectingStatement": 1,
+            "beginTransaction": 0,
+            "commit": 0,
+            "createTable": 2,
+            "driver": 0,
+            "dropTable": 1,
+            "hasTable": 1,
+            "lastInsertId": 0,
+            "prefix": 0,
+            "queryCount": 1,
+            "queryDelete": 2,
+            "queryInsert": 2,
+            "querySelect": 1,
+            "queryUpdate": 3,
+            "queryWhereIn": 3,
+            "rollBack": 0,
+            "select": 1,
+            "selectOne": 1,
+            "statement": 1,
+            "table": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Database\\Connections\\PdoConnection": {
+        "methods": {
+            "__construct": 2,
+            "affectingStatement": 1,
+            "beginTransaction": 0,
+            "commit": 0,
+            "driver": 0,
+            "fromConfig": 1,
+            "lastInsertId": 0,
+            "pdo": 0,
+            "prefix": 0,
+            "rollBack": 0,
+            "select": 1,
+            "selectOne": 1,
+            "sqliteMemory": 0,
+            "statement": 1,
+            "table": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Database\\Contracts\\ConnectionInterface": {
+        "methods": {
+            "affectingStatement": 1,
+            "beginTransaction": 0,
+            "commit": 0,
+            "driver": 0,
+            "lastInsertId": 0,
+            "prefix": 0,
+            "rollBack": 0,
+            "select": 1,
+            "selectOne": 1,
+            "statement": 1,
+            "table": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Database\\Contracts\\DriverInterface": {
+        "methods": {
+            "connect": 1,
+            "name": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Database\\Contracts\\MigrationInterface": {
+        "methods": {
+            "down": 1,
+            "name": 0,
+            "up": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Database\\Contracts\\RepositoryInterface": {
+        "methods": {
+            "all": 0,
+            "create": 1,
+            "delete": 1,
+            "find": 1,
+            "query": 0,
+            "update": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Database\\DatabaseServiceProvider": {
+        "methods": {
+            "boot": 1,
+            "register": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Database\\Drivers\\MemoryDriver": {
+        "methods": {
+            "connect": 1,
+            "name": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Database\\Drivers\\TableStorage": {
+        "methods": {
+            "__construct": 2,
+            "all": 0,
+            "delete": 1,
+            "find": 1,
+            "insert": 1,
+            "keyName": 0,
+            "query": 0,
+            "table": 0,
+            "update": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Database\\Events\\ConnectionOpened": {
+        "methods": {
+            "__construct": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Database\\Events\\MigrationCompleted": {
+        "methods": {
+            "__construct": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Database\\Events\\MigrationStarted": {
+        "methods": {
+            "__construct": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Database\\Events\\QueryExecuted": {
+        "methods": {
+            "__construct": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Database\\Events\\TransactionCommitted": {
+        "methods": [],
+        "constants": []
+    },
+    "OpenMeta\\Database\\Events\\TransactionRolledBack": {
+        "methods": [],
+        "constants": []
+    },
+    "OpenMeta\\Database\\Events\\TransactionStarted": {
+        "methods": [],
+        "constants": []
+    },
+    "OpenMeta\\Database\\Exceptions\\ConnectionException": {
+        "methods": [],
+        "constants": []
+    },
+    "OpenMeta\\Database\\Exceptions\\DatabaseException": {
+        "methods": [],
+        "constants": []
+    },
+    "OpenMeta\\Database\\Exceptions\\InvalidDriverException": {
+        "methods": [],
+        "constants": []
+    },
+    "OpenMeta\\Database\\Exceptions\\MigrationException": {
+        "methods": [],
+        "constants": []
+    },
+    "OpenMeta\\Database\\Exceptions\\QueryException": {
+        "methods": [],
+        "constants": []
+    },
+    "OpenMeta\\Database\\Exceptions\\SchemaException": {
+        "methods": [],
+        "constants": []
+    },
+    "OpenMeta\\Database\\Exceptions\\TransactionException": {
+        "methods": [],
+        "constants": []
+    },
+    "OpenMeta\\Database\\Metadata\\ColumnDefinition": {
+        "methods": {
+            "__construct": 2,
+            "toArray": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Database\\Metadata\\SchemaInspector": {
+        "methods": {
+            "driverCapabilities": 1,
+            "fromBlueprint": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Database\\Metadata\\TableDefinition": {
+        "methods": {
+            "__construct": 1,
+            "toArray": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Database\\Migrations\\Migration": {
+        "methods": {
+            "down": 1,
+            "name": 0,
+            "up": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Database\\Migrations\\Migrator": {
+        "methods": {
+            "__construct": 2,
+            "migrate": 1,
+            "ran": 0,
+            "rollback": 1,
+            "status": 1
+        },
+        "constants": [
+            "LEDGER"
+        ]
+    },
+    "OpenMeta\\Database\\Pagination\\CursorPaginator": {
+        "methods": {
+            "__construct": 1,
+            "items": 0,
+            "nextCursor": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Database\\Pagination\\LengthAwarePaginator": {
+        "methods": {
+            "__construct": 4,
+            "currentPage": 0,
+            "items": 0,
+            "lastPage": 0,
+            "perPage": 0,
+            "toArray": 0,
+            "total": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Database\\Query\\QueryBuilder": {
+        "methods": {
+            "__construct": 1,
+            "avg": 1,
+            "count": 0,
+            "delete": 0,
+            "first": 0,
+            "from": 1,
+            "get": 0,
+            "getCollection": 0,
+            "groupBy": 0,
+            "insert": 1,
+            "join": 4,
+            "leftJoin": 4,
+            "limit": 1,
+            "max": 1,
+            "min": 1,
+            "offset": 1,
+            "orWhere": 2,
+            "orderBy": 1,
+            "paginate": 0,
+            "sum": 1,
+            "update": 1,
+            "where": 2,
+            "whereIn": 2,
+            "whereNotNull": 1,
+            "whereNull": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Database\\Relationships\\RelationLoader": {
+        "methods": {
+            "__construct": 1,
+            "belongsTo": 3,
+            "belongsToMany": 5,
+            "hasMany": 3,
+            "oneToMany": 3
+        },
+        "constants": []
+    },
+    "OpenMeta\\Database\\Relationships\\RelationType": {
+        "methods": {
+            "cases": 0,
+            "from": 1,
+            "tryFrom": 1
+        },
+        "constants": [
+            "BelongsTo",
+            "BelongsToMany",
+            "HasMany",
+            "HasOne"
+        ]
+    },
+    "OpenMeta\\Database\\Repositories\\TableRepository": {
+        "methods": {
+            "__construct": 2,
+            "all": 0,
+            "create": 1,
+            "delete": 1,
+            "find": 1,
+            "query": 0,
+            "update": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Database\\Schema\\Blueprint": {
+        "methods": {
+            "__construct": 1,
+            "boolean": 1,
+            "columns": 0,
+            "foreignId": 1,
+            "foreignKeys": 0,
+            "id": 0,
+            "index": 1,
+            "indexes": 0,
+            "integer": 1,
+            "string": 1,
+            "table": 0,
+            "text": 1,
+            "timestamps": 0,
+            "unique": 1,
+            "uniques": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Database\\Schema\\Schema": {
+        "methods": {
+            "__construct": 1,
+            "create": 2,
+            "drop": 1,
+            "hasTable": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Database\\Support\\Identifier": {
+        "methods": {
+            "quote": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Database\\Transactions\\TransactionManager": {
+        "methods": {
+            "__construct": 1,
+            "begin": 0,
+            "commit": 0,
+            "level": 0,
+            "rollBack": 0,
+            "run": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Extensions\\Bootstrap\\BootstrapReport": {
+        "methods": {
+            "__construct": 0,
+            "activatedCount": 0,
+            "wasActivated": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Extensions\\Bootstrap\\ExtensionBootstrapper": {
+        "methods": {
+            "__construct": 4,
+            "bootstrap": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Extensions\\Compatibility\\CompatibilityChecker": {
+        "methods": {
+            "__construct": 1,
+            "check": 2,
+            "isCompatible": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Extensions\\Compatibility\\CompatibilityReport": {
+        "methods": {
+            "__construct": 1,
+            "fromIssues": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Extensions\\Compatibility\\Environment": {
+        "methods": {
+            "__construct": 2,
+            "detect": 1,
+            "hasPhpExtension": 1,
+            "installedVersion": 1,
+            "withInstalled": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Extensions\\Contracts\\CompatibilityCheckerInterface": {
+        "methods": {
+            "check": 2,
+            "isCompatible": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Extensions\\Contracts\\DependencyResolverInterface": {
+        "methods": {
+            "resolve": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Extensions\\Contracts\\DiscoveryInterface": {
+        "methods": {
+            "discover": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Extensions\\Contracts\\ExtensionInterface": {
+        "methods": {
+            "id": 0,
+            "isActive": 0,
+            "manifest": 0,
+            "state": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Extensions\\Contracts\\ExtensionManagerInterface": {
+        "methods": {
+            "activate": 1,
+            "bootstrap": 1,
+            "deactivate": 1,
+            "disable": 1,
+            "discover": 0,
+            "flags": 0,
+            "install": 1,
+            "registry": 0,
+            "resources": 0,
+            "uninstall": 1,
+            "update": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Extensions\\Contracts\\ExtensionRegistryInterface": {
+        "methods": {
+            "add": 1,
+            "all": 0,
+            "byState": 1,
+            "find": 1,
+            "get": 1,
+            "has": 1,
+            "remove": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Extensions\\Contracts\\FeatureFlagsInterface": {
+        "methods": {
+            "all": 0,
+            "disable": 1,
+            "enable": 1,
+            "isEnabled": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Extensions\\Contracts\\LifecycleManagerInterface": {
+        "methods": {
+            "activate": 1,
+            "deactivate": 1,
+            "disable": 1,
+            "install": 1,
+            "uninstall": 1,
+            "update": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Extensions\\Contracts\\ManifestInterface": {
+        "methods": {
+            "assets": 0,
+            "author": 0,
+            "commands": 0,
+            "configuration": 0,
+            "dependencies": 0,
+            "description": 0,
+            "featureFlags": 0,
+            "license": 0,
+            "maximumCoreVersion": 0,
+            "minimumCoreVersion": 0,
+            "name": 0,
+            "packageId": 0,
+            "permissions": 0,
+            "providers": 0,
+            "requirements": 0,
+            "toArray": 0,
+            "vendor": 0,
+            "version": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Extensions\\Contracts\\ResourceLoaderInterface": {
+        "methods": {
+            "all": 0,
+            "forExtension": 1,
+            "ofType": 1,
+            "register": 3
+        },
+        "constants": []
+    },
+    "OpenMeta\\Extensions\\Contracts\\ServiceProviderLoaderInterface": {
+        "methods": {
+            "isLoaded": 1,
+            "load": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Extensions\\Contracts\\VersionComparatorInterface": {
+        "methods": {
+            "compare": 2,
+            "satisfies": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Extensions\\Discovery\\ComposerDiscovery": {
+        "methods": {
+            "__construct": 3,
+            "discover": 0
+        },
+        "constants": [
+            "EXTENSION_TYPE"
+        ]
+    },
+    "OpenMeta\\Extensions\\Discovery\\DiscoveryManager": {
+        "methods": {
+            "__construct": 0,
+            "addSource": 1,
+            "discover": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Extensions\\Discovery\\ManualDiscovery": {
+        "methods": {
+            "__construct": 0,
+            "add": 1,
+            "discover": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Extensions\\Events\\ExtensionActivated": {
+        "methods": {
+            "__construct": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Extensions\\Events\\ExtensionDeactivated": {
+        "methods": {
+            "__construct": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Extensions\\Events\\ExtensionDisabled": {
+        "methods": {
+            "__construct": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Extensions\\Events\\ExtensionInstalled": {
+        "methods": {
+            "__construct": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Extensions\\Events\\ExtensionRemoved": {
+        "methods": {
+            "__construct": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Extensions\\Events\\ExtensionUpdated": {
+        "methods": {
+            "__construct": 3
+        },
+        "constants": []
+    },
+    "OpenMeta\\Extensions\\Exceptions\\DependencyException": {
+        "methods": {
+            "circular": 1,
+            "missing": 2,
+            "versionMismatch": 3
+        },
+        "constants": []
+    },
+    "OpenMeta\\Extensions\\Exceptions\\ExtensionNotFoundException": {
+        "methods": {
+            "forId": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Extensions\\Exceptions\\ExtensionsException": {
+        "methods": [],
+        "constants": []
+    },
+    "OpenMeta\\Extensions\\Exceptions\\IncompatibleExtensionException": {
+        "methods": {
+            "forIssues": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Extensions\\Exceptions\\InvalidManifestException": {
+        "methods": {
+            "invalidField": 2,
+            "invalidJson": 1,
+            "missingField": 1,
+            "unreadable": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Extensions\\Exceptions\\InvalidVersionException": {
+        "methods": {
+            "emptyVersion": 0,
+            "invalidConstraint": 1,
+            "invalidVersion": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Extensions\\Exceptions\\LifecycleException": {
+        "methods": {
+            "alreadyInstalled": 1,
+            "illegalTransition": 3
+        },
+        "constants": []
+    },
+    "OpenMeta\\Extensions\\ExtensionsServiceProvider": {
+        "methods": {
+            "register": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Extensions\\Lifecycle\\ExtensionState": {
+        "methods": {
+            "cases": 0,
+            "from": 1,
+            "isActive": 0,
+            "tryFrom": 1
+        },
+        "constants": [
+            "Active",
+            "Disabled",
+            "Installed"
+        ]
+    },
+    "OpenMeta\\Extensions\\Manager\\ExtensionManager": {
+        "methods": {
+            "__construct": 6,
+            "activate": 1,
+            "bootstrap": 1,
+            "deactivate": 1,
+            "disable": 1,
+            "discover": 0,
+            "flags": 0,
+            "install": 1,
+            "registry": 0,
+            "resources": 0,
+            "uninstall": 1,
+            "update": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Extensions\\Manifest\\Dependency": {
+        "methods": {
+            "__construct": 1,
+            "isRequired": 0,
+            "toArray": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Extensions\\Manifest\\Manifest": {
+        "methods": {
+            "__construct": 4,
+            "assets": 0,
+            "author": 0,
+            "commands": 0,
+            "configuration": 0,
+            "dependencies": 0,
+            "description": 0,
+            "featureFlags": 0,
+            "license": 0,
+            "maximumCoreVersion": 0,
+            "minimumCoreVersion": 0,
+            "name": 0,
+            "packageId": 0,
+            "permissions": 0,
+            "providers": 0,
+            "requirements": 0,
+            "toArray": 0,
+            "vendor": 0,
+            "version": 0,
+            "withVersion": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Extensions\\Manifest\\ManifestFactory": {
+        "methods": {
+            "fromArray": 1,
+            "fromJson": 1
+        },
+        "constants": [
+            "REQUIRED_FIELDS"
+        ]
+    },
+    "OpenMeta\\Extensions\\Manifest\\Requirements": {
+        "methods": {
+            "__construct": 0,
+            "requiresWordpress": 0,
+            "toArray": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Extensions\\Providers\\ServiceProviderLoader": {
+        "methods": {
+            "isLoaded": 1,
+            "load": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Extensions\\Registry\\Extension": {
+        "methods": {
+            "__construct": 1,
+            "id": 0,
+            "isActive": 0,
+            "manifest": 0,
+            "replaceManifest": 1,
+            "state": 0,
+            "transitionTo": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Extensions\\Registry\\ExtensionRegistry": {
+        "methods": {
+            "add": 1,
+            "all": 0,
+            "byState": 1,
+            "find": 1,
+            "get": 1,
+            "has": 1,
+            "remove": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Extensions\\Resources\\ResourceLoader": {
+        "methods": {
+            "all": 0,
+            "asset": 2,
+            "component": 2,
+            "field": 2,
+            "forExtension": 1,
+            "menu": 2,
+            "middleware": 2,
+            "migration": 2,
+            "ofType": 1,
+            "page": 2,
+            "register": 3,
+            "route": 2,
+            "template": 2,
+            "widget": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Extensions\\Resources\\ResourceRegistration": {
+        "methods": {
+            "__construct": 3
+        },
+        "constants": []
+    },
+    "OpenMeta\\Extensions\\Resources\\ResourceType": {
+        "methods": {
+            "cases": 0,
+            "from": 1,
+            "tryFrom": 1
+        },
+        "constants": [
+            "Asset",
+            "Component",
+            "Field",
+            "Menu",
+            "Middleware",
+            "Migration",
+            "Page",
+            "Route",
+            "Template",
+            "Widget"
+        ]
+    },
+    "OpenMeta\\Extensions\\Support\\DependencyResolver": {
+        "methods": {
+            "resolve": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Extensions\\Support\\FeatureFlags": {
+        "methods": {
+            "__construct": 0,
+            "all": 0,
+            "disable": 1,
+            "enable": 1,
+            "isEnabled": 1,
+            "seed": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Extensions\\Versioning\\Version": {
+        "methods": {
+            "__toString": 0,
+            "compareTo": 1,
+            "isPrerelease": 0,
+            "of": 3,
+            "parse": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Extensions\\Versioning\\VersionComparator": {
+        "methods": {
+            "compare": 2,
+            "satisfies": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Extensions\\Versioning\\VersionConstraint": {
+        "methods": {
+            "allows": 1,
+            "parse": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Extensions\\Versioning\\VersionManager": {
+        "methods": {
+            "__construct": 1,
+            "all": 0,
+            "forget": 1,
+            "hasUpdate": 2,
+            "installed": 1,
+            "record": 2,
+            "satisfies": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Fields\\Conditions\\Condition": {
+        "methods": {
+            "__construct": 2,
+            "fromArray": 1,
+            "matches": 1,
+            "toArray": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Fields\\Conditions\\ConditionEvaluator": {
+        "methods": {
+            "evaluate": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Fields\\Conditions\\ConditionGroup": {
+        "methods": {
+            "__construct": 2,
+            "and": 1,
+            "fromArray": 1,
+            "matches": 1,
+            "or": 1,
+            "toArray": 0
+        },
+        "constants": [
+            "AND",
+            "OR"
+        ]
+    },
+    "OpenMeta\\Fields\\Conditions\\ConditionOperator": {
+        "methods": {
+            "cases": 0,
+            "from": 1,
+            "tryFrom": 1
+        },
+        "constants": [
+            "Empty",
+            "Equals",
+            "GreaterThan",
+            "In",
+            "LessThan",
+            "NotEmpty",
+            "NotEquals",
+            "NotIn"
+        ]
+    },
+    "OpenMeta\\Fields\\Contracts\\ConditionInterface": {
+        "methods": {
+            "matches": 1,
+            "toArray": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Fields\\Contracts\\FieldDefinitionInterface": {
+        "methods": {
+            "attributes": 0,
+            "conditions": 0,
+            "defaultValue": 0,
+            "description": 0,
+            "id": 0,
+            "isDisabled": 0,
+            "isReadonly": 0,
+            "isRequired": 0,
+            "isVisible": 0,
+            "label": 0,
+            "metadata": 0,
+            "name": 0,
+            "toArray": 0,
+            "toSettings": 0,
+            "type": 0,
+            "validationRules": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Fields\\Contracts\\FieldEngineInterface": {
+        "methods": {
+            "display": 2,
+            "load": 3,
+            "make": 2,
+            "register": 2,
+            "render": 2,
+            "save": 4,
+            "validate": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Fields\\Contracts\\FieldFactoryInterface": {
+        "methods": {
+            "make": 2,
+            "makeFromDefinition": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Fields\\Contracts\\FieldGroupInterface": {
+        "methods": {
+            "conditions": 0,
+            "fields": 0,
+            "groups": 0,
+            "id": 0,
+            "isVisible": 0,
+            "label": 0,
+            "name": 0,
+            "order": 0,
+            "toArray": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Fields\\Contracts\\FieldHydratorInterface": {
+        "methods": {
+            "hydrate": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Fields\\Contracts\\FieldInterface": {
+        "methods": {
+            "cast": 1,
+            "label": 0,
+            "name": 0,
+            "rules": 0,
+            "sanitize": 1,
+            "settings": 0,
+            "toArray": 0,
+            "type": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Fields\\Contracts\\FieldManagerInterface": {
+        "methods": {
+            "create": 1,
+            "delete": 3,
+            "load": 3,
+            "save": 4,
+            "validate": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Fields\\Contracts\\FieldRendererInterface": {
+        "methods": {
+            "display": 2,
+            "render": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Fields\\Contracts\\FieldSerializerInterface": {
+        "methods": {
+            "deserialize": 2,
+            "serialize": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Fields\\Contracts\\FieldStorageInterface": {
+        "methods": {
+            "delete": 3,
+            "load": 3,
+            "save": 4
+        },
+        "constants": []
+    },
+    "OpenMeta\\Fields\\Definitions\\FieldDefinition": {
+        "methods": {
+            "__construct": 3,
+            "attributes": 0,
+            "conditions": 0,
+            "defaultValue": 0,
+            "description": 0,
+            "fromArray": 1,
+            "id": 0,
+            "isDisabled": 0,
+            "isReadonly": 0,
+            "isRequired": 0,
+            "isVisible": 0,
+            "label": 0,
+            "metadata": 0,
+            "name": 0,
+            "toArray": 0,
+            "toSettings": 0,
+            "type": 0,
+            "validationRules": 0,
+            "withConditions": 1,
+            "withDefaultValue": 1,
+            "withLabel": 1,
+            "withRequired": 1,
+            "withValidationRules": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Fields\\Events\\FieldCreated": {
+        "methods": {
+            "__construct": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Fields\\Events\\FieldDeleted": {
+        "methods": {
+            "__construct": 3
+        },
+        "constants": []
+    },
+    "OpenMeta\\Fields\\Events\\FieldLoaded": {
+        "methods": {
+            "__construct": 4
+        },
+        "constants": []
+    },
+    "OpenMeta\\Fields\\Events\\FieldRegistered": {
+        "methods": {
+            "__construct": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Fields\\Events\\FieldSaved": {
+        "methods": {
+            "__construct": 4
+        },
+        "constants": []
+    },
+    "OpenMeta\\Fields\\Events\\FieldValidated": {
+        "methods": {
+            "__construct": 3
+        },
+        "constants": []
+    },
+    "OpenMeta\\Fields\\Exceptions\\FieldException": {
+        "methods": [],
+        "constants": []
+    },
+    "OpenMeta\\Fields\\Exceptions\\InvalidDefinitionException": {
+        "methods": [],
+        "constants": []
+    },
+    "OpenMeta\\Fields\\Exceptions\\InvalidFieldException": {
+        "methods": [],
+        "constants": []
+    },
+    "OpenMeta\\Fields\\Exceptions\\SerializationFailureException": {
+        "methods": [],
+        "constants": []
+    },
+    "OpenMeta\\Fields\\Exceptions\\StorageFailureException": {
+        "methods": [],
+        "constants": []
+    },
+    "OpenMeta\\Fields\\Exceptions\\UnknownFieldTypeException": {
+        "methods": [],
+        "constants": []
+    },
+    "OpenMeta\\Fields\\Exceptions\\ValidationFailedException": {
+        "methods": {
+            "__construct": 1,
+            "errors": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Fields\\Factory\\FieldFactory": {
+        "methods": {
+            "__construct": 1,
+            "make": 2,
+            "makeFromDefinition": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Fields\\FieldEngine": {
+        "methods": {
+            "__construct": 4,
+            "delete": 3,
+            "display": 2,
+            "factory": 0,
+            "load": 3,
+            "make": 2,
+            "manager": 0,
+            "register": 2,
+            "registry": 0,
+            "render": 2,
+            "save": 4,
+            "validate": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Fields\\Field\\Field": {
+        "methods": {
+            "__construct": 1,
+            "cast": 1,
+            "conditions": 0,
+            "description": 0,
+            "id": 0,
+            "isDisabled": 0,
+            "isReadonly": 0,
+            "isRequired": 0,
+            "isVisible": 0,
+            "label": 0,
+            "name": 0,
+            "rules": 0,
+            "sanitize": 1,
+            "setting": 1,
+            "settings": 0,
+            "toArray": 0,
+            "type": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Fields\\FieldsServiceProvider": {
+        "methods": {
+            "boot": 1,
+            "register": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Fields\\GraphQL\\FieldGraphQLTypeMap": {
+        "methods": {
+            "map": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Fields\\Groups\\FieldGroup": {
+        "methods": {
+            "__construct": 2,
+            "conditions": 0,
+            "fields": 0,
+            "fromArray": 1,
+            "groups": 0,
+            "id": 0,
+            "isVisible": 0,
+            "label": 0,
+            "name": 0,
+            "order": 0,
+            "toArray": 0,
+            "withField": 1,
+            "withGroup": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Fields\\Groups\\FieldGroupRegistry": {
+        "methods": {
+            "all": 0,
+            "get": 1,
+            "has": 1,
+            "register": 1,
+            "remove": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Fields\\Hydration\\FieldHydrator": {
+        "methods": {
+            "hydrate": 2,
+            "hydrateMany": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Fields\\Lifecycle\\FieldLifecycle": {
+        "methods": {
+            "__construct": 6,
+            "create": 1,
+            "delete": 3,
+            "load": 3,
+            "phases": 0,
+            "save": 4,
+            "validateConfiguration": 1,
+            "validateValue": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Fields\\Lifecycle\\FieldLifecyclePhase": {
+        "methods": {
+            "cases": 0,
+            "from": 1,
+            "tryFrom": 1
+        },
+        "constants": [
+            "BuildDefinition",
+            "Deserialize",
+            "Hydrate",
+            "Load",
+            "Register",
+            "Render",
+            "Return",
+            "Serialize",
+            "Store",
+            "ValidateConfiguration",
+            "ValidateValue"
+        ]
+    },
+    "OpenMeta\\Fields\\Manager\\FieldManager": {
+        "methods": {
+            "__construct": 1,
+            "create": 1,
+            "delete": 3,
+            "lifecycle": 0,
+            "load": 3,
+            "save": 4,
+            "validate": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Fields\\Registry\\FieldRegistry": {
+        "methods": {
+            "__construct": 0,
+            "alias": 2,
+            "all": 0,
+            "discover": 1,
+            "has": 1,
+            "make": 2,
+            "register": 2,
+            "remove": 1,
+            "resolve": 1,
+            "versions": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Fields\\Rendering\\FieldRenderer": {
+        "methods": {
+            "display": 2,
+            "edit": 2,
+            "render": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Fields\\Rendering\\RendererRegistry": {
+        "methods": {
+            "get": 1,
+            "has": 1,
+            "register": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Fields\\Rest\\FieldRestSerializer": {
+        "methods": {
+            "serialize": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Fields\\Serialization\\ArraySerializer": {
+        "methods": {
+            "deserialize": 2,
+            "serialize": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Fields\\Serialization\\JsonSerializer": {
+        "methods": {
+            "__construct": 0,
+            "deserialize": 2,
+            "serialize": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Fields\\Serialization\\ObjectSerializer": {
+        "methods": {
+            "__construct": 0,
+            "deserialize": 2,
+            "serialize": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Fields\\Serialization\\SerializerRegistry": {
+        "methods": {
+            "get": 1,
+            "has": 1,
+            "register": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Fields\\Storage\\FieldValueStorage": {
+        "methods": {
+            "__construct": 2,
+            "delete": 3,
+            "ensureTable": 0,
+            "load": 3,
+            "save": 4
+        },
+        "constants": [
+            "TABLE"
+        ]
+    },
+    "OpenMeta\\Fields\\Storage\\StorageRegistry": {
+        "methods": {
+            "get": 1,
+            "has": 1,
+            "register": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Fields\\Support\\FieldSettings": {
+        "methods": {
+            "merge": 2,
+            "optionValues": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Fields\\Types\\BooleanField": {
+        "methods": {
+            "cast": 1,
+            "sanitize": 1,
+            "type": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Fields\\Types\\CheckboxField": {
+        "methods": {
+            "cast": 1,
+            "sanitize": 1,
+            "type": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Fields\\Types\\ColorField": {
+        "methods": {
+            "cast": 1,
+            "sanitize": 1,
+            "type": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Fields\\Types\\DateField": {
+        "methods": {
+            "cast": 1,
+            "sanitize": 1,
+            "type": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Fields\\Types\\DateTimeField": {
+        "methods": {
+            "cast": 1,
+            "sanitize": 1,
+            "type": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Fields\\Types\\EmailField": {
+        "methods": {
+            "cast": 1,
+            "sanitize": 1,
+            "type": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Fields\\Types\\FileField": {
+        "methods": {
+            "cast": 1,
+            "sanitize": 1,
+            "type": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Fields\\Types\\GalleryField": {
+        "methods": {
+            "cast": 1,
+            "sanitize": 1,
+            "type": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Fields\\Types\\GroupField": {
+        "methods": {
+            "cast": 1,
+            "sanitize": 1,
+            "type": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Fields\\Types\\HiddenField": {
+        "methods": {
+            "cast": 1,
+            "sanitize": 1,
+            "type": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Fields\\Types\\ImageField": {
+        "methods": {
+            "cast": 1,
+            "sanitize": 1,
+            "type": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Fields\\Types\\MultiSelectField": {
+        "methods": {
+            "cast": 1,
+            "sanitize": 1,
+            "type": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Fields\\Types\\NumberField": {
+        "methods": {
+            "cast": 1,
+            "sanitize": 1,
+            "type": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Fields\\Types\\ObjectField": {
+        "methods": {
+            "cast": 1,
+            "sanitize": 1,
+            "type": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Fields\\Types\\PasswordField": {
+        "methods": {
+            "cast": 1,
+            "sanitize": 1,
+            "type": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Fields\\Types\\RadioField": {
+        "methods": {
+            "cast": 1,
+            "sanitize": 1,
+            "type": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Fields\\Types\\RangeField": {
+        "methods": {
+            "cast": 1,
+            "sanitize": 1,
+            "type": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Fields\\Types\\RelationshipField": {
+        "methods": {
+            "cast": 1,
+            "multiple": 0,
+            "sanitize": 1,
+            "type": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Fields\\Types\\RepeaterField": {
+        "methods": {
+            "cast": 1,
+            "sanitize": 1,
+            "type": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Fields\\Types\\SelectField": {
+        "methods": {
+            "cast": 1,
+            "sanitize": 1,
+            "type": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Fields\\Types\\TextField": {
+        "methods": {
+            "cast": 1,
+            "sanitize": 1,
+            "type": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Fields\\Types\\TextareaField": {
+        "methods": {
+            "cast": 1,
+            "sanitize": 1,
+            "type": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Fields\\Types\\TimeField": {
+        "methods": {
+            "cast": 1,
+            "sanitize": 1,
+            "type": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Fields\\Types\\ToggleField": {
+        "methods": {
+            "cast": 1,
+            "sanitize": 1,
+            "type": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Fields\\Types\\UrlField": {
+        "methods": {
+            "cast": 1,
+            "sanitize": 1,
+            "type": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Fields\\Validation\\FieldValidator": {
+        "methods": {
+            "passes": 2,
+            "validate": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Framework\\Framework": {
+        "methods": {
+            "boot": 0,
+            "providers": 0
+        },
+        "constants": [
+            "VERSION"
+        ]
+    },
+    "OpenMeta\\Generator\\Configuration\\GeneratorConfiguration": {
+        "methods": {
+            "__construct": 0,
+            "withStubPath": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Generator\\Contracts\\ConflictDetectorInterface": {
+        "methods": {
+            "detect": 3
+        },
+        "constants": []
+    },
+    "OpenMeta\\Generator\\Contracts\\FileProcessorInterface": {
+        "methods": {
+            "process": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Generator\\Contracts\\GeneratorInterface": {
+        "methods": {
+            "description": 0,
+            "generate": 2,
+            "key": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Generator\\Contracts\\GeneratorManagerInterface": {
+        "methods": {
+            "addProcessor": 1,
+            "generators": 0,
+            "run": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Generator\\Contracts\\GeneratorRegistryInterface": {
+        "methods": {
+            "all": 0,
+            "get": 1,
+            "has": 1,
+            "keys": 0,
+            "register": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Generator\\Contracts\\PlaceholderResolverInterface": {
+        "methods": {
+            "resolve": 3
+        },
+        "constants": []
+    },
+    "OpenMeta\\Generator\\Contracts\\StubLoaderInterface": {
+        "methods": {
+            "addPath": 1,
+            "has": 1,
+            "load": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Generator\\Contracts\\TemplateEngineInterface": {
+        "methods": {
+            "render": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Generator\\Events\\FileGeneratedEvent": {
+        "methods": {
+            "__construct": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Generator\\Events\\FileSkipped": {
+        "methods": {
+            "__construct": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Generator\\Events\\GenerationCompleted": {
+        "methods": {
+            "__construct": 3
+        },
+        "constants": []
+    },
+    "OpenMeta\\Generator\\Events\\GenerationFailed": {
+        "methods": {
+            "__construct": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Generator\\Events\\GenerationStarted": {
+        "methods": {
+            "__construct": 3
+        },
+        "constants": []
+    },
+    "OpenMeta\\Generator\\Exceptions\\GenerationConflictException": {
+        "methods": {
+            "fileExists": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Generator\\Exceptions\\GeneratorException": {
+        "methods": [],
+        "constants": []
+    },
+    "OpenMeta\\Generator\\Exceptions\\GeneratorNotFoundException": {
+        "methods": {
+            "forKey": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Generator\\Exceptions\\InvalidVariableException": {
+        "methods": {
+            "missing": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Generator\\Exceptions\\ReservedNamespaceException": {
+        "methods": {
+            "forNamespace": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Generator\\Exceptions\\StubNotFoundException": {
+        "methods": {
+            "named": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Generator\\Files\\Conflict": {
+        "methods": {
+            "__construct": 3
+        },
+        "constants": []
+    },
+    "OpenMeta\\Generator\\Files\\ConflictDetector": {
+        "methods": {
+            "__construct": 2,
+            "detect": 3
+        },
+        "constants": []
+    },
+    "OpenMeta\\Generator\\Files\\ConflictType": {
+        "methods": {
+            "cases": 0,
+            "from": 1,
+            "tryFrom": 1
+        },
+        "constants": [
+            "ExistingFile",
+            "NamingCollision",
+            "ReservedNamespace"
+        ]
+    },
+    "OpenMeta\\Generator\\Files\\DirectoryGenerator": {
+        "methods": {
+            "__construct": 1,
+            "ensure": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Generator\\Files\\FileAction": {
+        "methods": {
+            "cases": 0,
+            "from": 1,
+            "tryFrom": 1
+        },
+        "constants": [
+            "Create",
+            "Merge"
+        ]
+    },
+    "OpenMeta\\Generator\\Files\\FileGenerator": {
+        "methods": {
+            "__construct": 1,
+            "exists": 1,
+            "write": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Generator\\Files\\FileStatus": {
+        "methods": {
+            "cases": 0,
+            "from": 1,
+            "tryFrom": 1
+        },
+        "constants": [
+            "Created",
+            "Merged",
+            "Previewed",
+            "Skipped"
+        ]
+    },
+    "OpenMeta\\Generator\\Files\\GeneratedFile": {
+        "methods": {
+            "__construct": 2,
+            "withContents": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Generator\\GeneratorServiceProvider": {
+        "methods": {
+            "boot": 1,
+            "register": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Generator\\Manager\\FileOutcome": {
+        "methods": {
+            "__construct": 2,
+            "wasWritten": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Generator\\Manager\\GenerationOptions": {
+        "methods": {
+            "__construct": 0,
+            "writesToDisk": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Generator\\Manager\\GenerationRequest": {
+        "methods": {
+            "__construct": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Generator\\Manager\\GenerationResult": {
+        "methods": {
+            "__construct": 2,
+            "hasSkips": 0,
+            "skipped": 0,
+            "written": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Generator\\Manager\\GeneratorManager": {
+        "methods": {
+            "__construct": 5,
+            "addProcessor": 1,
+            "generators": 0,
+            "run": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Generator\\Registry\\GeneratorDefinitions": {
+        "methods": {
+            "all": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Generator\\Registry\\GeneratorFactory": {
+        "methods": {
+            "__construct": 4,
+            "defaults": 0,
+            "fromDefinition": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Generator\\Registry\\GeneratorRegistry": {
+        "methods": {
+            "all": 0,
+            "get": 1,
+            "has": 1,
+            "keys": 0,
+            "register": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Generator\\Registry\\TemplateGenerator": {
+        "methods": {
+            "__construct": 5,
+            "description": 0,
+            "generate": 2,
+            "key": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Generator\\Resolvers\\PlaceholderResolver": {
+        "methods": {
+            "resolve": 3
+        },
+        "constants": []
+    },
+    "OpenMeta\\Generator\\Stubs\\StubLoader": {
+        "methods": {
+            "__construct": 1,
+            "addPath": 1,
+            "has": 1,
+            "load": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Generator\\Support\\GeneratorCommand": {
+        "methods": {
+            "__construct": 3,
+            "definition": 0,
+            "execute": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Generator\\Support\\GeneratorCommandProvider": {
+        "methods": {
+            "__construct": 1,
+            "commands": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Generator\\Templates\\TemplateEngine": {
+        "methods": {
+            "render": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\GraphQL\\Contracts\\ErrorHandlerInterface": {
+        "methods": {
+            "handle": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\GraphQL\\Contracts\\FieldAuthorizerInterface": {
+        "methods": {
+            "authorize": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\GraphQL\\Contracts\\GraphQLManagerInterface": {
+        "methods": {
+            "executeMutation": 1,
+            "executeQuery": 1,
+            "introspect": 0,
+            "mutations": 0,
+            "queries": 0,
+            "schema": 0,
+            "sdl": 0,
+            "types": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\GraphQL\\Contracts\\InputValidatorInterface": {
+        "methods": {
+            "validate": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\GraphQL\\Contracts\\MutationRegistryInterface": {
+        "methods": {
+            "all": 0,
+            "get": 1,
+            "has": 1,
+            "register": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\GraphQL\\Contracts\\QueryRegistryInterface": {
+        "methods": {
+            "all": 0,
+            "get": 1,
+            "group": 1,
+            "has": 1,
+            "register": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\GraphQL\\Contracts\\ResolverInterface": {
+        "methods": {
+            "resolve": 3
+        },
+        "constants": []
+    },
+    "OpenMeta\\GraphQL\\Contracts\\ResolverRegistryInterface": {
+        "methods": {
+            "get": 1,
+            "has": 1,
+            "register": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\GraphQL\\Contracts\\SchemaExtensionInterface": {
+        "methods": {
+            "extend": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\GraphQL\\Contracts\\SchemaManagerInterface": {
+        "methods": {
+            "extend": 1,
+            "rebuild": 0,
+            "schema": 0,
+            "version": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\GraphQL\\Contracts\\SubscriptionInterface": {
+        "methods": {
+            "authorize": 2,
+            "topic": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\GraphQL\\Directives\\DirectiveDefinition": {
+        "methods": {
+            "__construct": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\GraphQL\\Directives\\DirectiveRegistry": {
+        "methods": {
+            "all": 0,
+            "get": 1,
+            "has": 1,
+            "register": 1,
+            "registerDefaults": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\GraphQL\\Errors\\DuplicateTypeException": {
+        "methods": {
+            "named": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\GraphQL\\Errors\\ErrorCategory": {
+        "methods": {
+            "cases": 0,
+            "from": 1,
+            "tryFrom": 1
+        },
+        "constants": [
+            "Authorization",
+            "Internal",
+            "Schema",
+            "Validation"
+        ]
+    },
+    "OpenMeta\\GraphQL\\Errors\\ErrorHandler": {
+        "methods": {
+            "handle": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\GraphQL\\Errors\\GraphQLAuthorizationException": {
+        "methods": {
+            "category": 0,
+            "forPermission": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\GraphQL\\Errors\\GraphQLError": {
+        "methods": {
+            "__construct": 1,
+            "toArray": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\GraphQL\\Errors\\GraphQLException": {
+        "methods": {
+            "category": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\GraphQL\\Errors\\GraphQLValidationException": {
+        "methods": {
+            "__construct": 1,
+            "category": 0,
+            "errors": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\GraphQL\\Errors\\SchemaException": {
+        "methods": {
+            "category": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\GraphQL\\Errors\\TypeNotFoundException": {
+        "methods": {
+            "mutation": 1,
+            "named": 1,
+            "query": 1,
+            "resolver": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\GraphQL\\Events\\ErrorRaised": {
+        "methods": {
+            "__construct": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\GraphQL\\Events\\MutationExecuted": {
+        "methods": {
+            "__construct": 3
+        },
+        "constants": []
+    },
+    "OpenMeta\\GraphQL\\Events\\QueryExecuted": {
+        "methods": {
+            "__construct": 3
+        },
+        "constants": []
+    },
+    "OpenMeta\\GraphQL\\Events\\ResolverInvoked": {
+        "methods": {
+            "__construct": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\GraphQL\\Events\\SchemaBuilt": {
+        "methods": {
+            "__construct": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\GraphQL\\GraphQLServiceProvider": {
+        "methods": {
+            "register": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\GraphQL\\Inputs\\InputField": {
+        "methods": {
+            "__construct": 2,
+            "toSdl": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\GraphQL\\Inputs\\InputRegistry": {
+        "methods": {
+            "all": 0,
+            "get": 1,
+            "has": 1,
+            "register": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\GraphQL\\Inputs\\InputType": {
+        "methods": {
+            "__construct": 2,
+            "kind": 0,
+            "rules": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\GraphQL\\Manager\\ExecutionResult": {
+        "methods": {
+            "__construct": 1,
+            "hasErrors": 0,
+            "toArray": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\GraphQL\\Manager\\GraphQLManager": {
+        "methods": {
+            "__construct": 5,
+            "executeMutation": 1,
+            "executeQuery": 1,
+            "introspect": 0,
+            "mutations": 0,
+            "queries": 0,
+            "schema": 0,
+            "sdl": 0,
+            "types": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\GraphQL\\Mutations\\MutationRegistry": {
+        "methods": {
+            "all": 0,
+            "discover": 1,
+            "get": 1,
+            "has": 1,
+            "register": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\GraphQL\\Queries\\QueryRegistry": {
+        "methods": {
+            "all": 0,
+            "discover": 1,
+            "get": 1,
+            "group": 1,
+            "has": 1,
+            "register": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\GraphQL\\Resolvers\\CallableResolver": {
+        "methods": {
+            "__construct": 1,
+            "resolve": 3
+        },
+        "constants": []
+    },
+    "OpenMeta\\GraphQL\\Resolvers\\PropertyResolver": {
+        "methods": {
+            "__construct": 1,
+            "resolve": 3
+        },
+        "constants": []
+    },
+    "OpenMeta\\GraphQL\\Resolvers\\ResolutionContext": {
+        "methods": {
+            "__construct": 0,
+            "attribute": 1,
+            "attributes": 0,
+            "withAttribute": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\GraphQL\\Resolvers\\ResolverRegistry": {
+        "methods": {
+            "get": 1,
+            "has": 1,
+            "register": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\GraphQL\\Scalars\\ScalarRegistry": {
+        "methods": {
+            "all": 0,
+            "get": 1,
+            "has": 1,
+            "isBuiltIn": 1,
+            "register": 1,
+            "registerDefaults": 0
+        },
+        "constants": [
+            "BUILT_IN"
+        ]
+    },
+    "OpenMeta\\GraphQL\\Scalars\\ScalarType": {
+        "methods": {
+            "__construct": 1,
+            "kind": 0,
+            "serialize": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\GraphQL\\Schema\\Schema": {
+        "methods": {
+            "__construct": 3,
+            "hasMutations": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\GraphQL\\Schema\\SchemaBuilder": {
+        "methods": {
+            "build": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\GraphQL\\Schema\\SchemaManager": {
+        "methods": {
+            "__construct": 5,
+            "extend": 1,
+            "rebuild": 0,
+            "registries": 0,
+            "schema": 0,
+            "version": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\GraphQL\\Schema\\SchemaRegistries": {
+        "methods": {
+            "__construct": 9,
+            "isKnownType": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\GraphQL\\Schema\\SchemaRegistry": {
+        "methods": {
+            "get": 1,
+            "has": 1,
+            "latest": 0,
+            "record": 2,
+            "versions": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\GraphQL\\Schema\\SchemaValidator": {
+        "methods": {
+            "validate": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\GraphQL\\Schema\\SchemaVersion": {
+        "methods": {
+            "__construct": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\GraphQL\\Support\\IntrospectionGenerator": {
+        "methods": {
+            "generate": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\GraphQL\\Support\\OperationExecutor": {
+        "methods": {
+            "__construct": 5,
+            "executeMutation": 1,
+            "executeQuery": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\GraphQL\\Support\\SchemaPrinter": {
+        "methods": {
+            "print": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\GraphQL\\Support\\SubscriptionRegistry": {
+        "methods": {
+            "all": 0,
+            "get": 1,
+            "has": 1,
+            "register": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\GraphQL\\Types\\ArgumentDefinition": {
+        "methods": {
+            "__construct": 2,
+            "toSdl": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\GraphQL\\Types\\ObjectType": {
+        "methods": {
+            "__construct": 2,
+            "field": 1,
+            "fieldNames": 0,
+            "kind": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\GraphQL\\Types\\TypeBuilder": {
+        "methods": {
+            "addField": 1,
+            "build": 0,
+            "describe": 1,
+            "field": 2,
+            "implements": 1,
+            "object": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\GraphQL\\Types\\TypeKind": {
+        "methods": {
+            "cases": 0,
+            "from": 1,
+            "tryFrom": 1
+        },
+        "constants": [
+            "Enum",
+            "InputObject",
+            "Interface",
+            "Object",
+            "Scalar",
+            "Union"
+        ]
+    },
+    "OpenMeta\\GraphQL\\Types\\TypeReference": {
+        "methods": {
+            "baseName": 0,
+            "listOf": 0,
+            "named": 1,
+            "nonNull": 0,
+            "toSdl": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\GraphQL\\Unions\\UnionRegistry": {
+        "methods": {
+            "all": 0,
+            "get": 1,
+            "has": 1,
+            "register": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\GraphQL\\Unions\\UnionType": {
+        "methods": {
+            "__construct": 2,
+            "kind": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\GraphQL\\Validation\\RuleInputValidator": {
+        "methods": {
+            "validate": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\GraphQL\\Validation\\ValidationOutcome": {
+        "methods": {
+            "__construct": 1,
+            "fail": 1,
+            "failed": 0,
+            "pass": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Rest\\Authentication\\NullAuthenticator": {
+        "methods": {
+            "authenticate": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Rest\\Authorization\\GateAuthorizer": {
+        "methods": {
+            "__construct": 1,
+            "authorize": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Rest\\Contracts\\AuthenticatorInterface": {
+        "methods": {
+            "authenticate": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Rest\\Contracts\\ExceptionMapperInterface": {
+        "methods": {
+            "map": 1,
+            "supports": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Rest\\Contracts\\MiddlewareInterface": {
+        "methods": {
+            "handle": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Rest\\Contracts\\ResourceInterface": {
+        "methods": {
+            "toArray": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Rest\\Contracts\\RouterInterface": {
+        "methods": {
+            "add": 1,
+            "match": 1,
+            "routes": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Rest\\Contracts\\TransformerInterface": {
+        "methods": {
+            "transform": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Rest\\Controllers\\Controller": {
+        "methods": [],
+        "constants": []
+    },
+    "OpenMeta\\Rest\\Events\\ControllerExecuted": {
+        "methods": {
+            "__construct": 3
+        },
+        "constants": []
+    },
+    "OpenMeta\\Rest\\Events\\ExceptionThrown": {
+        "methods": {
+            "__construct": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Rest\\Events\\RequestReceived": {
+        "methods": {
+            "__construct": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Rest\\Events\\ResponseGenerated": {
+        "methods": {
+            "__construct": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Rest\\Events\\RouteMatched": {
+        "methods": {
+            "__construct": 3
+        },
+        "constants": []
+    },
+    "OpenMeta\\Rest\\Exceptions\\AuthenticationException": {
+        "methods": {
+            "__construct": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Rest\\Exceptions\\AuthorizationException": {
+        "methods": {
+            "__construct": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Rest\\Exceptions\\ExceptionHandler": {
+        "methods": {
+            "handle": 1,
+            "register": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Rest\\Exceptions\\MethodNotAllowedException": {
+        "methods": {
+            "__construct": 0,
+            "allowedMethods": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Rest\\Exceptions\\NotFoundException": {
+        "methods": {
+            "__construct": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Rest\\Exceptions\\RestException": {
+        "methods": {
+            "__construct": 0,
+            "errorCode": 0,
+            "status": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Rest\\Exceptions\\ValidationException": {
+        "methods": {
+            "__construct": 0,
+            "errors": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Rest\\Middleware\\Authenticate": {
+        "methods": {
+            "__construct": 1,
+            "handle": 2,
+            "priority": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Rest\\Middleware\\Authorize": {
+        "methods": {
+            "__construct": 1,
+            "handle": 2,
+            "priority": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Rest\\Middleware\\MiddlewarePriority": {
+        "methods": {
+            "cases": 0,
+            "from": 1,
+            "sort": 1,
+            "tryFrom": 1
+        },
+        "constants": [
+            "High",
+            "Low",
+            "Normal"
+        ]
+    },
+    "OpenMeta\\Rest\\Middleware\\Pipeline": {
+        "methods": {
+            "__construct": 0,
+            "send": 1,
+            "then": 1,
+            "through": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Rest\\Middleware\\ValidateRequest": {
+        "methods": {
+            "__construct": 2,
+            "handle": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Rest\\Pagination\\PaginatedResponse": {
+        "methods": {
+            "make": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Rest\\Pagination\\PaginationMeta": {
+        "methods": {
+            "fromPaginator": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Rest\\Requests\\Request": {
+        "methods": {
+            "__construct": 2,
+            "all": 0,
+            "attribute": 1,
+            "attributes": 0,
+            "cookies": 0,
+            "create": 2,
+            "files": 0,
+            "header": 1,
+            "headers": 0,
+            "input": 1,
+            "json": 0,
+            "method": 0,
+            "path": 0,
+            "query": 0,
+            "queryParam": 1,
+            "route": 1,
+            "user": 0,
+            "withAttributes": 1,
+            "withHeaders": 1,
+            "withUser": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Rest\\Resources\\ErrorResource": {
+        "methods": {
+            "__construct": 1,
+            "toArray": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Rest\\Resources\\JsonResource": {
+        "methods": {
+            "__construct": 1,
+            "toArray": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Rest\\Resources\\PaginatedResource": {
+        "methods": {
+            "__construct": 1,
+            "toArray": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Rest\\Resources\\ResourceCollection": {
+        "methods": {
+            "__construct": 1,
+            "toArray": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Rest\\Responses\\EmptyResponse": {
+        "methods": {
+            "__construct": 0,
+            "body": 0,
+            "toArray": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Rest\\Responses\\ErrorResponse": {
+        "methods": {
+            "__construct": 1,
+            "make": 1,
+            "toArray": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Rest\\Responses\\JsonResponse": {
+        "methods": {
+            "__construct": 0,
+            "make": 0,
+            "toArray": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Rest\\Responses\\Response": {
+        "methods": {
+            "__construct": 0,
+            "body": 0,
+            "content": 0,
+            "cookies": 0,
+            "header": 1,
+            "headers": 0,
+            "status": 0,
+            "toArray": 0,
+            "withHeaders": 1,
+            "withStatus": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Rest\\Responses\\StreamResponse": {
+        "methods": {
+            "__construct": 0,
+            "body": 0,
+            "streamId": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Rest\\RestKernel": {
+        "methods": {
+            "__construct": 7,
+            "handle": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Rest\\RestServiceProvider": {
+        "methods": {
+            "boot": 1,
+            "register": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Rest\\Router\\RouteRegistry": {
+        "methods": {
+            "__construct": 1,
+            "add": 1,
+            "get": 2,
+            "group": 1,
+            "post": 2,
+            "router": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Rest\\Router\\Router": {
+        "methods": {
+            "__construct": 0,
+            "add": 1,
+            "collection": 0,
+            "delete": 2,
+            "discover": 1,
+            "get": 2,
+            "getByName": 1,
+            "group": 1,
+            "match": 1,
+            "options": 2,
+            "patch": 2,
+            "post": 2,
+            "prefix": 1,
+            "put": 2,
+            "routes": 0,
+            "version": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Rest\\Routes\\Route": {
+        "methods": {
+            "__construct": 3,
+            "action": 0,
+            "authRequired": 0,
+            "match": 2,
+            "matchPath": 1,
+            "method": 0,
+            "middleware": 0,
+            "name": 0,
+            "path": 0,
+            "permissions": 0,
+            "with": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Rest\\Routes\\RouteCollection": {
+        "methods": {
+            "add": 1,
+            "all": 0,
+            "getByName": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Rest\\Routes\\RouteGroup": {
+        "methods": {
+            "__construct": 0,
+            "apply": 1,
+            "middleware": 0,
+            "namePrefix": 0,
+            "prefix": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Rest\\Support\\HttpMethod": {
+        "methods": {
+            "cases": 0,
+            "from": 1,
+            "tryFrom": 1,
+            "value": 0
+        },
+        "constants": [
+            "Delete",
+            "Get",
+            "Options",
+            "Patch",
+            "Post",
+            "Put"
+        ]
+    },
+    "OpenMeta\\Rest\\Support\\RequestValidator": {
+        "methods": {
+            "validate": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Rest\\Transformers\\TransformerRegistry": {
+        "methods": {
+            "get": 1,
+            "has": 1,
+            "register": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Security\\Authorization\\Authorizer": {
+        "methods": {
+            "__construct": 1,
+            "allows": 3,
+            "authorizePolicy": 3,
+            "can": 1,
+            "denyUnless": 1,
+            "registerPolicy": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Security\\CSRF\\CsrfTokenManager": {
+        "methods": {
+            "__construct": 2,
+            "current": 0,
+            "generate": 0,
+            "isValid": 1,
+            "rotate": 0,
+            "validate": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Security\\Capabilities\\ArrayCapabilityChecker": {
+        "methods": {
+            "__construct": 0,
+            "can": 1,
+            "grant": 1,
+            "revoke": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Security\\Context\\SecurityContext": {
+        "methods": {
+            "__construct": 0,
+            "hasCapability": 1,
+            "withCapability": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Security\\Contracts\\AuthorizerInterface": {
+        "methods": {
+            "allows": 3,
+            "can": 1,
+            "denyUnless": 1,
+            "registerPolicy": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Security\\Contracts\\CapabilityCheckerInterface": {
+        "methods": {
+            "can": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Security\\Contracts\\CsrfTokenManagerInterface": {
+        "methods": {
+            "current": 0,
+            "generate": 0,
+            "isValid": 1,
+            "rotate": 0,
+            "validate": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Security\\Contracts\\EscaperInterface": {
+        "methods": {
+            "attr": 1,
+            "css": 1,
+            "html": 1,
+            "js": 1,
+            "json": 1,
+            "textarea": 1,
+            "url": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Security\\Contracts\\GateInterface": {
+        "methods": {
+            "authorize": 1,
+            "can": 1,
+            "cannot": 1,
+            "flushCache": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Security\\Contracts\\NonceHandlerInterface": {
+        "methods": {
+            "create": 1,
+            "verify": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Security\\Contracts\\NonceInterface": {
+        "methods": {
+            "check": 2,
+            "create": 1,
+            "field": 1,
+            "verify": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Security\\Contracts\\PasswordHasherInterface": {
+        "methods": {
+            "hash": 1,
+            "needsRehash": 1,
+            "verify": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Security\\Contracts\\PolicyInterface": {
+        "methods": {
+            "allows": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Security\\Contracts\\SanitizerInterface": {
+        "methods": {
+            "array": 2,
+            "bool": 1,
+            "email": 1,
+            "float": 1,
+            "int": 1,
+            "text": 1,
+            "url": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Security\\Contracts\\SecureRandomInterface": {
+        "methods": {
+            "bytes": 1,
+            "hex": 1,
+            "token": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Security\\Contracts\\TokenGeneratorInterface": {
+        "methods": {
+            "opaque": 0,
+            "signed": 1,
+            "uuid": 0,
+            "verifySigned": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Security\\Escaping\\DefaultEscaper": {
+        "methods": {
+            "attr": 1,
+            "css": 1,
+            "html": 1,
+            "js": 1,
+            "json": 1,
+            "textarea": 1,
+            "url": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Security\\Escaping\\Escaper": {
+        "methods": {
+            "attr": 1,
+            "css": 1,
+            "html": 1,
+            "js": 1,
+            "json": 1,
+            "textarea": 1,
+            "url": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Security\\Exceptions\\AuthorizationException": {
+        "methods": [],
+        "constants": []
+    },
+    "OpenMeta\\Security\\Exceptions\\CsrfException": {
+        "methods": [],
+        "constants": []
+    },
+    "OpenMeta\\Security\\Exceptions\\InvalidNonceException": {
+        "methods": [],
+        "constants": []
+    },
+    "OpenMeta\\Security\\Exceptions\\InvalidTokenException": {
+        "methods": [],
+        "constants": []
+    },
+    "OpenMeta\\Security\\Exceptions\\PermissionDeniedException": {
+        "methods": [],
+        "constants": []
+    },
+    "OpenMeta\\Security\\Exceptions\\SecurityConfigurationException": {
+        "methods": [],
+        "constants": []
+    },
+    "OpenMeta\\Security\\Exceptions\\SecurityException": {
+        "methods": [],
+        "constants": []
+    },
+    "OpenMeta\\Security\\Hashing\\Hasher": {
+        "methods": {
+            "equals": 2,
+            "hmac": 2,
+            "sha256": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Security\\Hashing\\PasswordHasher": {
+        "methods": {
+            "__construct": 0,
+            "hash": 1,
+            "needsRehash": 1,
+            "verify": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Security\\Nonce\\HmacNonceHandler": {
+        "methods": {
+            "__construct": 1,
+            "create": 1,
+            "verify": 2
+        },
+        "constants": [
+            "TICK_SECONDS"
+        ]
+    },
+    "OpenMeta\\Security\\Nonce\\Nonce": {
+        "methods": {
+            "__construct": 1,
+            "check": 2,
+            "create": 1,
+            "field": 1,
+            "verify": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Security\\Permissions\\Gate": {
+        "methods": {
+            "__construct": 2,
+            "authorize": 1,
+            "can": 1,
+            "cannot": 1,
+            "flushCache": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Security\\Permissions\\Permission": {
+        "methods": {
+            "all": 0
+        },
+        "constants": [
+            "EDIT_CONTENT",
+            "MANAGE",
+            "MANAGE_FIELDS",
+            "MANAGE_SETTINGS",
+            "READ"
+        ]
+    },
+    "OpenMeta\\Security\\Permissions\\PermissionMap": {
+        "methods": {
+            "__construct": 0,
+            "all": 0,
+            "capabilitiesFor": 1,
+            "defaults": 0,
+            "define": 2,
+            "has": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Security\\Random\\SecureRandom": {
+        "methods": {
+            "bytes": 1,
+            "hex": 1,
+            "token": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Security\\Sanitization\\DefaultSanitizer": {
+        "methods": {
+            "array": 2,
+            "bool": 1,
+            "email": 1,
+            "float": 1,
+            "int": 1,
+            "text": 1,
+            "url": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Security\\Sanitization\\Sanitizer": {
+        "methods": {
+            "array": 2,
+            "bool": 1,
+            "email": 1,
+            "float": 1,
+            "int": 1,
+            "key": 1,
+            "nested": 1,
+            "text": 1,
+            "textarea": 1,
+            "url": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Security\\SecurityServiceProvider": {
+        "methods": {
+            "boot": 1,
+            "register": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Security\\Support\\ConstantTime\\Comparator": {
+        "methods": {
+            "equals": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Security\\Tokens\\TokenGenerator": {
+        "methods": {
+            "__construct": 2,
+            "opaque": 0,
+            "signed": 1,
+            "uuid": 0,
+            "verifySigned": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Support\\Arr\\Arr": {
+        "methods": {
+            "except": 2,
+            "first": 1,
+            "flatten": 1,
+            "get": 2,
+            "has": 2,
+            "isAssoc": 1,
+            "last": 1,
+            "only": 2,
+            "pluck": 2,
+            "set": 3,
+            "wrap": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Support\\Collections\\Collection": {
+        "methods": {
+            "all": 0,
+            "count": 0,
+            "each": 1,
+            "filter": 0,
+            "first": 0,
+            "getIterator": 0,
+            "groupBy": 1,
+            "isEmpty": 0,
+            "keys": 0,
+            "last": 0,
+            "make": 0,
+            "map": 1,
+            "pluck": 1,
+            "reduce": 1,
+            "toArray": 0,
+            "values": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Support\\Contracts\\ArrayableInterface": {
+        "methods": {
+            "toArray": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Support\\Environment\\Env": {
+        "methods": {
+            "bool": 1,
+            "get": 1,
+            "has": 1,
+            "int": 1,
+            "string": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Support\\Exceptions\\FilesystemException": {
+        "methods": [],
+        "constants": []
+    },
+    "OpenMeta\\Support\\Exceptions\\InvalidPathException": {
+        "methods": [],
+        "constants": []
+    },
+    "OpenMeta\\Support\\Exceptions\\SupportException": {
+        "methods": [],
+        "constants": []
+    },
+    "OpenMeta\\Support\\Exceptions\\UuidException": {
+        "methods": [],
+        "constants": []
+    },
+    "OpenMeta\\Support\\Filesystem\\FilesystemInterface": {
+        "methods": {
+            "delete": 1,
+            "exists": 1,
+            "get": 1,
+            "isDirectory": 1,
+            "isFile": 1,
+            "makeDirectory": 1,
+            "put": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Support\\Filesystem\\LocalFilesystem": {
+        "methods": {
+            "delete": 1,
+            "exists": 1,
+            "get": 1,
+            "isDirectory": 1,
+            "isFile": 1,
+            "makeDirectory": 1,
+            "put": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Support\\Helpers\\Helpers": {
+        "methods": {
+            "blank": 1,
+            "classBasename": 1,
+            "filled": 1,
+            "tap": 2,
+            "value": 1,
+            "with": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Support\\Paths\\Path": {
+        "methods": {
+            "basename": 1,
+            "dirname": 1,
+            "extension": 1,
+            "isAbsolute": 1,
+            "join": 0,
+            "normalize": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Support\\Reflection\\Reflector": {
+        "methods": {
+            "classOf": 1,
+            "classUsesRecursive": 1,
+            "clearCache": 0,
+            "method": 2,
+            "property": 2,
+            "shortName": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Support\\Str\\Str": {
+        "methods": {
+            "after": 2,
+            "before": 2,
+            "camel": 1,
+            "contains": 2,
+            "endsWith": 2,
+            "isEmpty": 1,
+            "length": 1,
+            "limit": 1,
+            "lower": 1,
+            "slug": 1,
+            "snake": 1,
+            "startsWith": 2,
+            "studly": 1,
+            "upper": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Support\\SupportServiceProvider": {
+        "methods": {
+            "boot": 1,
+            "register": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Support\\Traits\\Conditionable": {
+        "methods": {
+            "unless": 2,
+            "when": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Support\\Uuid\\Uuid": {
+        "methods": {
+            "isValid": 1,
+            "nil": 0,
+            "parse": 1,
+            "v4": 0
+        },
+        "constants": [
+            "PATTERN"
+        ]
+    },
+    "OpenMeta\\Support\\ValueObjects\\UuidValue": {
+        "methods": {
+            "__toString": 0,
+            "equals": 1,
+            "from": 1,
+            "nil": 0,
+            "toString": 0,
+            "v4": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Ui\\Components\\Card": {
+        "methods": {
+            "render": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Ui\\Components\\DataTable": {
+        "methods": {
+            "render": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Ui\\Components\\Form": {
+        "methods": {
+            "render": 3
+        },
+        "constants": []
+    },
+    "OpenMeta\\Ui\\Primitives\\Button": {
+        "methods": {
+            "render": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Ui\\Primitives\\Input": {
+        "methods": {
+            "render": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Ui\\Primitives\\Notice": {
+        "methods": {
+            "render": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Ui\\Theme\\Theme": {
+        "methods": {
+            "__construct": 0,
+            "css": 0,
+            "wrap": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Ui\\Tokens\\Tokens": {
+        "methods": {
+            "all": 0,
+            "css": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Ui\\UiServiceProvider": {
+        "methods": {
+            "boot": 1,
+            "register": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Validation\\Context\\ValidationContext": {
+        "methods": {
+            "__construct": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Validation\\Contracts\\MessageResolverInterface": {
+        "methods": {
+            "make": 3
+        },
+        "constants": []
+    },
+    "OpenMeta\\Validation\\Contracts\\RuleInterface": {
+        "methods": {
+            "message": 0,
+            "name": 0,
+            "passes": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Validation\\Contracts\\ValidatorInterface": {
+        "methods": {
+            "errors": 0,
+            "fails": 0,
+            "passes": 0,
+            "result": 0,
+            "validate": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Validation\\Exceptions\\InvalidRuleException": {
+        "methods": [],
+        "constants": []
+    },
+    "OpenMeta\\Validation\\Exceptions\\ValidationException": {
+        "methods": {
+            "__construct": 1,
+            "errors": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Validation\\Exceptions\\ValidationPackageException": {
+        "methods": [],
+        "constants": []
+    },
+    "OpenMeta\\Validation\\Messages\\MessageBag": {
+        "methods": {
+            "__construct": 0,
+            "make": 3
+        },
+        "constants": []
+    },
+    "OpenMeta\\Validation\\Registry\\RuleEngine": {
+        "methods": {
+            "__construct": 1,
+            "parse": 1,
+            "passes": 3,
+            "registry": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Validation\\Registry\\RuleRegistry": {
+        "methods": {
+            "extend": 2,
+            "has": 1,
+            "names": 0,
+            "registerDefaults": 0,
+            "resolve": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Validation\\Results\\ErrorBag": {
+        "methods": {
+            "add": 1,
+            "all": 0,
+            "count": 0,
+            "empty": 0,
+            "errors": 0,
+            "first": 0,
+            "get": 1,
+            "has": 0,
+            "isEmpty": 0,
+            "merge": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Validation\\Results\\ValidationError": {
+        "methods": {
+            "__construct": 4,
+            "context": 0,
+            "field": 0,
+            "toArray": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Validation\\Results\\ValidationResult": {
+        "methods": {
+            "__construct": 3,
+            "data": 0,
+            "errors": 0,
+            "failed": 0,
+            "passed": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Validation\\Rules\\ArrayRule": {
+        "methods": {
+            "__construct": 0,
+            "passes": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Validation\\Rules\\BetweenRule": {
+        "methods": {
+            "__construct": 0,
+            "passes": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Validation\\Rules\\BooleanRule": {
+        "methods": {
+            "__construct": 0,
+            "passes": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Validation\\Rules\\ClosureRule": {
+        "methods": {
+            "__construct": 2,
+            "message": 0,
+            "name": 0,
+            "passes": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Validation\\Rules\\ContainsRule": {
+        "methods": {
+            "__construct": 0,
+            "passes": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Validation\\Rules\\DateRule": {
+        "methods": {
+            "__construct": 0,
+            "passes": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Validation\\Rules\\DateTimeRule": {
+        "methods": {
+            "__construct": 0,
+            "passes": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Validation\\Rules\\EmailRule": {
+        "methods": {
+            "__construct": 0,
+            "passes": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Validation\\Rules\\EndsWithRule": {
+        "methods": {
+            "__construct": 0,
+            "passes": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Validation\\Rules\\EnumRule": {
+        "methods": {
+            "__construct": 0,
+            "passes": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Validation\\Rules\\FloatRule": {
+        "methods": {
+            "__construct": 0,
+            "passes": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Validation\\Rules\\InRule": {
+        "methods": {
+            "__construct": 0,
+            "passes": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Validation\\Rules\\IntegerRule": {
+        "methods": {
+            "__construct": 0,
+            "passes": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Validation\\Rules\\LengthRule": {
+        "methods": {
+            "__construct": 0,
+            "passes": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Validation\\Rules\\MaxRule": {
+        "methods": {
+            "__construct": 0,
+            "passes": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Validation\\Rules\\MinRule": {
+        "methods": {
+            "__construct": 0,
+            "passes": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Validation\\Rules\\NotInRule": {
+        "methods": {
+            "__construct": 0,
+            "passes": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Validation\\Rules\\NullableRule": {
+        "methods": {
+            "__construct": 0,
+            "passes": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Validation\\Rules\\NumericRule": {
+        "methods": {
+            "__construct": 0,
+            "passes": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Validation\\Rules\\ObjectRule": {
+        "methods": {
+            "__construct": 0,
+            "passes": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Validation\\Rules\\RegexRule": {
+        "methods": {
+            "__construct": 0,
+            "passes": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Validation\\Rules\\RequiredIfRule": {
+        "methods": {
+            "__construct": 0,
+            "passes": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Validation\\Rules\\RequiredRule": {
+        "methods": {
+            "__construct": 0,
+            "passes": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Validation\\Rules\\Rule": {
+        "methods": {
+            "__construct": 2,
+            "message": 0,
+            "name": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Validation\\Rules\\StartsWithRule": {
+        "methods": {
+            "__construct": 0,
+            "passes": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Validation\\Rules\\StringRule": {
+        "methods": {
+            "__construct": 0,
+            "passes": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Validation\\Rules\\UrlRule": {
+        "methods": {
+            "__construct": 0,
+            "passes": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Validation\\Rules\\UuidRule": {
+        "methods": {
+            "__construct": 0,
+            "passes": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Validation\\Support\\AttributeFormatter": {
+        "methods": {
+            "display": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Validation\\Support\\DataNormalizer": {
+        "methods": {
+            "normalize": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Validation\\Validation": {
+        "methods": {
+            "engine": 0,
+            "extend": 2,
+            "flush": 0,
+            "fromContext": 1,
+            "make": 2,
+            "registry": 0,
+            "useRegistry": 1,
+            "validate": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Validation\\ValidationServiceProvider": {
+        "methods": {
+            "boot": 1,
+            "register": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Validation\\Validator\\Validator": {
+        "methods": {
+            "__construct": 4,
+            "errors": 0,
+            "fails": 0,
+            "passes": 0,
+            "result": 0,
+            "validate": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Wordpress\\Adapters\\AdapterRegistry": {
+        "methods": {
+            "get": 1,
+            "has": 1,
+            "names": 0,
+            "register": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Wordpress\\Admin\\AdminPages": {
+        "methods": {
+            "__construct": 3,
+            "onAdminMenu": 0,
+            "register": 0,
+            "renderAdminPage": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Wordpress\\Assets\\AssetManager": {
+        "methods": {
+            "__construct": 2,
+            "enqueueScript": 1,
+            "enqueueStyle": 1,
+            "registerScript": 2,
+            "registerStyle": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Wordpress\\Bootstrap\\EnvironmentChecker": {
+        "methods": {
+            "__construct": 0,
+            "failures": 0,
+            "passes": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Wordpress\\Capabilities\\CapabilityRegistrar": {
+        "methods": {
+            "__construct": 1,
+            "permissions": 0,
+            "register": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Wordpress\\Capabilities\\WordPressCapabilityChecker": {
+        "methods": {
+            "can": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Wordpress\\Configuration\\PluginConfiguration": {
+        "methods": {
+            "__construct": 1,
+            "fromPluginFile": 1,
+            "pluginDir": 0,
+            "pluginFile": 0,
+            "textDomain": 0,
+            "version": 0,
+            "versionOptionKey": 0
+        },
+        "constants": [
+            "TEXT_DOMAIN"
+        ]
+    },
+    "OpenMeta\\Wordpress\\Contracts\\AssetManagerInterface": {
+        "methods": {
+            "enqueueScript": 1,
+            "enqueueStyle": 1,
+            "registerScript": 2,
+            "registerStyle": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Wordpress\\Contracts\\FilterManagerInterface": {
+        "methods": {
+            "addFilter": 2,
+            "applyFilters": 2,
+            "removeFilter": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Wordpress\\Contracts\\HookManagerInterface": {
+        "methods": {
+            "addAction": 2,
+            "doAction": 1,
+            "removeAction": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Wordpress\\Contracts\\LifecycleManagerInterface": {
+        "methods": {
+            "activate": 0,
+            "deactivate": 0,
+            "register": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Wordpress\\Contracts\\MetaAdapterInterface": {
+        "methods": {
+            "delete": 2,
+            "get": 2,
+            "update": 3
+        },
+        "constants": []
+    },
+    "OpenMeta\\Wordpress\\Events\\AdminLoaded": {
+        "methods": [],
+        "constants": []
+    },
+    "OpenMeta\\Wordpress\\Events\\PluginActivated": {
+        "methods": {
+            "__construct": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Wordpress\\Events\\PluginDeactivated": {
+        "methods": {
+            "__construct": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Wordpress\\Events\\RestInitialized": {
+        "methods": [],
+        "constants": []
+    },
+    "OpenMeta\\Wordpress\\Exceptions\\WordpressException": {
+        "methods": [],
+        "constants": []
+    },
+    "OpenMeta\\Wordpress\\Filters\\FilterBridge": {
+        "methods": {
+            "__construct": 1,
+            "apply": 2,
+            "filters": 0,
+            "on": 2,
+            "register": 0
+        },
+        "constants": [
+            "CONFIG",
+            "MENU_CAPABILITY",
+            "REST_NAMESPACE"
+        ]
+    },
+    "OpenMeta\\Wordpress\\Filters\\FilterManager": {
+        "methods": {
+            "__construct": 1,
+            "addFilter": 2,
+            "applyFilters": 2,
+            "removeFilter": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Wordpress\\Gutenberg\\BlockRegistrar": {
+        "methods": {
+            "__construct": 1,
+            "blockNames": 0,
+            "onInit": 0,
+            "register": 0
+        },
+        "constants": [
+            "FIELD_BLOCK",
+            "SCHEMA_BLOCK"
+        ]
+    },
+    "OpenMeta\\Wordpress\\Hooks\\ActionBridge": {
+        "methods": {
+            "__construct": 1,
+            "actions": 0,
+            "on": 2,
+            "onPluginsLoaded": 0,
+            "register": 0
+        },
+        "constants": [
+            "ADMIN_INIT",
+            "READY",
+            "REST_INIT"
+        ]
+    },
+    "OpenMeta\\Wordpress\\Hooks\\HookManager": {
+        "methods": {
+            "__construct": 1,
+            "addAction": 2,
+            "doAction": 1,
+            "removeAction": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Wordpress\\Lifecycle\\LifecycleManager": {
+        "methods": {
+            "__construct": 4,
+            "activate": 0,
+            "deactivate": 0,
+            "onAdminLoaded": 0,
+            "onRestInitialized": 0,
+            "register": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Wordpress\\Lifecycle\\UpgradeManager": {
+        "methods": {
+            "__construct": 2,
+            "maybeUpgrade": 0,
+            "storedVersion": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Wordpress\\Localization\\LocalizationAdapter": {
+        "methods": {
+            "__construct": 2,
+            "loadTextDomain": 0,
+            "register": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Wordpress\\Meta\\CommentMetaAdapter": {
+        "methods": {
+            "__construct": 1,
+            "delete": 2,
+            "get": 2,
+            "update": 3
+        },
+        "constants": []
+    },
+    "OpenMeta\\Wordpress\\Meta\\OptionsAdapter": {
+        "methods": {
+            "__construct": 1,
+            "delete": 2,
+            "get": 2,
+            "update": 3
+        },
+        "constants": []
+    },
+    "OpenMeta\\Wordpress\\Meta\\PostMetaAdapter": {
+        "methods": {
+            "__construct": 1,
+            "delete": 2,
+            "get": 2,
+            "update": 3
+        },
+        "constants": []
+    },
+    "OpenMeta\\Wordpress\\Meta\\TermMetaAdapter": {
+        "methods": {
+            "__construct": 1,
+            "delete": 2,
+            "get": 2,
+            "update": 3
+        },
+        "constants": []
+    },
+    "OpenMeta\\Wordpress\\Meta\\UserMetaAdapter": {
+        "methods": {
+            "__construct": 1,
+            "delete": 2,
+            "get": 2,
+            "update": 3
+        },
+        "constants": []
+    },
+    "OpenMeta\\Wordpress\\Meta\\WordPressFieldStorage": {
+        "methods": {
+            "__construct": 5,
+            "delete": 3,
+            "load": 3,
+            "save": 4
+        },
+        "constants": []
+    },
+    "OpenMeta\\Wordpress\\Nonce\\WordPressNonceHandler": {
+        "methods": {
+            "__construct": 0,
+            "create": 1,
+            "verify": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Wordpress\\Nonces\\WordPressNonceHandler": {
+        "methods": {
+            "create": 1,
+            "verify": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Wordpress\\Plugin\\Plugin": {
+        "methods": {
+            "__construct": 3,
+            "activate": 0,
+            "app": 0,
+            "boot": 0,
+            "deactivate": 0,
+            "isBooted": 0,
+            "pluginFile": 0,
+            "runtime": 0
+        },
+        "constants": [
+            "VERSION"
+        ]
+    },
+    "OpenMeta\\Wordpress\\Plugin\\Requirements": {
+        "methods": {
+            "check": 0,
+            "passes": 0
+        },
+        "constants": [
+            "MIN_PHP",
+            "MIN_WP"
+        ]
+    },
+    "OpenMeta\\Wordpress\\PostTypes\\PostTypeRegistrar": {
+        "methods": {
+            "__construct": 1,
+            "register": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Wordpress\\Providers\\WordpressServiceProvider": {
+        "methods": {
+            "__construct": 0,
+            "boot": 1,
+            "register": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Wordpress\\Rest\\FrameworkRestBridge": {
+        "methods": {
+            "__construct": 4,
+            "onRestApiInit": 0,
+            "register": 0
+        },
+        "constants": [
+            "DEFAULT_NAMESPACE"
+        ]
+    },
+    "OpenMeta\\Wordpress\\Rest\\RestBridge": {
+        "methods": {
+            "__construct": 4,
+            "onRestApiInit": 0,
+            "register": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Wordpress\\Runtime\\ArrayWordPressRuntime": {
+        "methods": {
+            "addAction": 2,
+            "addCapability": 2,
+            "addFilter": 2,
+            "addMenuPage": 5,
+            "addSubmenuPage": 6,
+            "adminNotice": 1,
+            "applyFilters": 2,
+            "deleteCommentMeta": 2,
+            "deletePostMeta": 2,
+            "deleteTermMeta": 2,
+            "deleteUserMeta": 2,
+            "doAction": 1,
+            "enqueueScript": 1,
+            "enqueueStyle": 1,
+            "getAdminPageSlug": 0,
+            "getCommentMeta": 2,
+            "getCurrentUserId": 0,
+            "getOption": 1,
+            "getPostMeta": 2,
+            "getTermMeta": 2,
+            "getUserMeta": 2,
+            "isLoaded": 0,
+            "loadTextDomain": 2,
+            "registerBlockType": 1,
+            "registerPostType": 1,
+            "registerRestRoute": 3,
+            "registerScript": 2,
+            "registerStyle": 2,
+            "registerTaxonomy": 2,
+            "removeAction": 2,
+            "removeFilter": 2,
+            "updateCommentMeta": 3,
+            "updateOption": 2,
+            "updatePostMeta": 3,
+            "updateTermMeta": 3,
+            "updateUserMeta": 3
+        },
+        "constants": []
+    },
+    "OpenMeta\\Wordpress\\Runtime\\NativeWordPressRuntime": {
+        "methods": {
+            "addAction": 2,
+            "addCapability": 2,
+            "addFilter": 2,
+            "addMenuPage": 5,
+            "addSubmenuPage": 6,
+            "adminNotice": 1,
+            "applyFilters": 2,
+            "deleteCommentMeta": 2,
+            "deletePostMeta": 2,
+            "deleteTermMeta": 2,
+            "deleteUserMeta": 2,
+            "doAction": 1,
+            "enqueueScript": 1,
+            "enqueueStyle": 1,
+            "getAdminPageSlug": 0,
+            "getCommentMeta": 2,
+            "getCurrentUserId": 0,
+            "getOption": 1,
+            "getPostMeta": 2,
+            "getTermMeta": 2,
+            "getUserMeta": 2,
+            "isLoaded": 0,
+            "loadTextDomain": 2,
+            "registerBlockType": 1,
+            "registerPostType": 1,
+            "registerRestRoute": 3,
+            "registerScript": 2,
+            "registerStyle": 2,
+            "registerTaxonomy": 2,
+            "removeAction": 2,
+            "removeFilter": 2,
+            "updateCommentMeta": 3,
+            "updateOption": 2,
+            "updatePostMeta": 3,
+            "updateTermMeta": 3,
+            "updateUserMeta": 3
+        },
+        "constants": []
+    },
+    "OpenMeta\\Wordpress\\Runtime\\WordPressRuntimeInterface": {
+        "methods": {
+            "addAction": 2,
+            "addCapability": 2,
+            "addFilter": 2,
+            "addMenuPage": 5,
+            "addSubmenuPage": 6,
+            "adminNotice": 1,
+            "applyFilters": 2,
+            "deleteCommentMeta": 2,
+            "deletePostMeta": 2,
+            "deleteTermMeta": 2,
+            "deleteUserMeta": 2,
+            "doAction": 1,
+            "enqueueScript": 1,
+            "enqueueStyle": 1,
+            "getAdminPageSlug": 0,
+            "getCommentMeta": 2,
+            "getCurrentUserId": 0,
+            "getOption": 1,
+            "getPostMeta": 2,
+            "getTermMeta": 2,
+            "getUserMeta": 2,
+            "isLoaded": 0,
+            "loadTextDomain": 2,
+            "registerBlockType": 1,
+            "registerPostType": 1,
+            "registerRestRoute": 3,
+            "registerScript": 2,
+            "registerStyle": 2,
+            "registerTaxonomy": 2,
+            "removeAction": 2,
+            "removeFilter": 2,
+            "updateCommentMeta": 3,
+            "updateOption": 2,
+            "updatePostMeta": 3,
+            "updateTermMeta": 3,
+            "updateUserMeta": 3
+        },
+        "constants": []
+    },
+    "OpenMeta\\Wordpress\\Settings\\SettingsAdapter": {
+        "methods": {
+            "__construct": 1,
+            "load": 1,
+            "registerGroup": 2,
+            "save": 2
+        },
+        "constants": []
+    },
+    "OpenMeta\\Wordpress\\Support\\DependencyChecker": {
+        "methods": {
+            "__construct": 0,
+            "check": 0,
+            "passes": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Wordpress\\Taxonomies\\TaxonomyRegistrar": {
+        "methods": {
+            "__construct": 1,
+            "register": 1
+        },
+        "constants": []
+    },
+    "OpenMeta\\Wordpress\\Users\\UserAdapter": {
+        "methods": {
+            "__construct": 2,
+            "can": 1,
+            "currentUserId": 0
+        },
+        "constants": []
+    },
+    "OpenMeta\\Wordpress\\WordpressServiceProvider": {
+        "methods": [],
+        "constants": []
+    }
+}

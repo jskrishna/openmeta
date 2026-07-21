@@ -1,0 +1,39 @@
+name: Coverage
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+
+concurrency:
+  group: coverage-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  coverage:
+    name: Code coverage
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup PHP (pcov)
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.3"
+          coverage: pcov
+
+      - uses: ramsey/composer-install@v3
+
+      - name: PHPUnit with coverage
+        run: vendor/bin/phpunit --configuration phpunit.xml --coverage-clover quality/coverage/clover.xml --coverage-text
+
+      - name: Enforce coverage threshold
+        run: php quality/tools/coverage-check.php quality/coverage/clover.xml ${{ vars.COVERAGE_FLOOR || '70' }}
+
+      - name: Upload coverage report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-clover
+          path: quality/coverage/clover.xml
