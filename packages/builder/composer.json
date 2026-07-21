@@ -1,0 +1,29 @@
+{
+    "name": "openmeta/builder",
+    "version": "0.10.0-beta",
+    "description": "OpenMeta visual configuration engine — canvas, schema, history, templates, conditions.",
+    "type": "library",
+    "license": "GPL-2.0-or-later",
+    "require": {
+        "php": ">=8.3",
+        "openmeta/core": "*",
+        "openmeta/support": "*",
+        "openmeta/security": "*",
+        "openmeta/validation": "*",
+        "openmeta/fields": "*",
+        "openmeta/ui": "*",
+        "openmeta/admin": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "OpenMeta\\Builder\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "OpenMeta\\Builder\\Tests\\": "tests/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
