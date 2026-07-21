@@ -30,6 +30,8 @@ parameters:
         - packages/extensions/tests
         - packages/graphql/src
         - packages/graphql/tests
+        - packages/cli/src
+        - packages/cli/tests
     excludePaths:
         - */vendor/*
         - */node_modules/*

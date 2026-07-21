@@ -43,7 +43,8 @@
       "@test:admin",
       "@test:builder",
       "@test:extensions",
-      "@test:graphql"
+      "@test:graphql",
+      "@test:cli"
     ],
     "test:core": [
       "phpunit --configuration phpunit.xml --testsuite core",
@@ -87,6 +88,9 @@
     ],
     "test:graphql": [
       "phpunit --configuration phpunit.xml --testsuite graphql"
+    ],
+    "test:cli": [
+      "phpunit --configuration phpunit.xml --testsuite cli"
     ]
   },
   "autoload": {
@@ -104,7 +108,8 @@
       "OpenMeta\\Admin\\": "packages/admin/src/",
       "OpenMeta\\Builder\\": "packages/builder/src/",
       "OpenMeta\\Extensions\\": "packages/extensions/src/",
-      "OpenMeta\\GraphQL\\": "packages/graphql/src/"
+      "OpenMeta\\GraphQL\\": "packages/graphql/src/",
+      "OpenMeta\\Cli\\": "packages/cli/src/"
     }
   },
   "autoload-dev": {
@@ -123,6 +128,7 @@
       "OpenMeta\\Builder\\Tests\\": "packages/builder/tests/",
       "OpenMeta\\Extensions\\Tests\\": "packages/extensions/tests/",
       "OpenMeta\\GraphQL\\Tests\\": "packages/graphql/tests/",
+      "OpenMeta\\Cli\\Tests\\": "packages/cli/tests/",
       "OpenMeta\\Tests\\": "tests/"
     },
     "exclude-from-classmap": [
@@ -140,6 +146,7 @@
       "/packages/builder/tests/",
       "/packages/extensions/tests/",
       "/packages/graphql/tests/",
+      "/packages/cli/tests/",
       "/tests/"
     ]
   },
