@@ -131,3 +131,10 @@ ADRs integrate with:
 # Summary
 
 Architecture Decision Records preserve the reasoning behind OpenMeta's architecture, ensuring future contributors understand not only how the framework works, but why it was designed that way.
+
+## Recent ADRs
+
+| ADR | Title |
+| --- | ----- |
+| [ADR-0023](./ADR-0023-database-dal-no-active-record.md) | Database DAL (no Active Record) |
+| [ADR-0024](./ADR-0024-post-rest-phase-order.md) | Post-REST phase order (framework-first) |

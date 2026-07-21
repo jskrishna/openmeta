@@ -57,7 +57,8 @@ README may stay shorter; SPEC is the source of truth for implementation.
 | [security/](./security/) | Capabilities, nonces, authorization helpers | [SPEC](./security/SPEC.md) |
 | [database/](./database/) | Schema, migrations, repositories, storage | [SPEC](./database/SPEC.md) |
 | [fields/](./fields/) | Field registry, types, and lifecycle | [SPEC](./fields/SPEC.md) |
-| [api/](./api/) | REST and GraphQL public API layer | [SPEC](./api/SPEC.md) |
+| [rest/](./rest/) | Framework REST infrastructure (WP-independent) | [SPEC](./rest/SPEC.md) |
+| [api/](./api/) | Application API surface (field routes; mounts REST) | [SPEC](./api/SPEC.md) |
 | [ui/](./ui/) | Shared React / UI component library | [SPEC](./ui/SPEC.md) |
 | [admin/](./admin/) | WordPress admin screens and admin app shell | [SPEC](./admin/SPEC.md) |
 | [builder/](./builder/) | Visual field / schema builder | [SPEC](./builder/SPEC.md) |
@@ -71,6 +72,7 @@ packages/
 ├── security/    README.md  SPEC.md
 ├── database/    README.md  SPEC.md
 ├── fields/      README.md  SPEC.md
+├── rest/        README.md  SPEC.md
 ├── api/         README.md  SPEC.md
 ├── ui/          README.md  SPEC.md
 ├── admin/       README.md  SPEC.md
@@ -119,7 +121,8 @@ Core
 | `support` → `core` | `core` → `support` |
 | `database` → `core` | `core` → `database` |
 | `fields` → `core` + `database` | `core` → `fields` |
-| `api` → `core` + `fields` | `database` → `admin` (unless README explicitly allows) |
+| `rest` → `core` + `fields` (+ upstream) | `rest` → `admin` / `wordpress` |
+| `api` → `core` + `fields` (+ `rest`) | `database` → `admin` (unless README explicitly allows) |
 | `builder` → `core` + `admin` + `fields` | `core` → `builder` |
 
 Each package README’s **Dependencies** section is binding for implementation.
@@ -143,7 +146,9 @@ Database
     ↓
 Fields
     ↓
-API
+Rest (framework HTTP)
+    ↓
+API (application routes)
     ↓
 UI
     ↓
@@ -155,15 +160,16 @@ Builder
 | # | Package | Status | Contract |
 | - | ------- | ------ | -------- |
 | 1 | **Core** | ✅ `v0.1.0-alpha` | [SPEC](./core/SPEC.md) |
-| 2 | **Support** | ⏳ **Next** | [SPEC](./support/SPEC.md) |
-| 3 | Validation | Waiting | [SPEC](./validation/SPEC.md) |
-| 4 | Security | Waiting | [SPEC](./security/SPEC.md) |
-| 5 | Database | Waiting | [SPEC](./database/SPEC.md) |
-| 6 | Fields | Waiting | [SPEC](./fields/SPEC.md) |
-| 7 | API | Waiting | [SPEC](./api/SPEC.md) |
-| 8 | UI | Waiting | [SPEC](./ui/SPEC.md) |
-| 9 | Admin | Waiting | [SPEC](./admin/SPEC.md) |
-| 10 | Builder | Waiting | [SPEC](./builder/SPEC.md) |
+| 2 | **Support** | ✅ | [SPEC](./support/SPEC.md) |
+| 3 | Validation | ✅ | [SPEC](./validation/SPEC.md) |
+| 4 | Security | ✅ | [SPEC](./security/SPEC.md) |
+| 5 | Database | ✅ | [SPEC](./database/SPEC.md) |
+| 6 | Fields | ✅ | [SPEC](./fields/SPEC.md) |
+| 7 | **Rest** | ✅ `v0.7.0-alpha` | [SPEC](./rest/SPEC.md) |
+| 8 | API | ✅ (app layer) | [SPEC](./api/SPEC.md) |
+| 9 | UI | Waiting | [SPEC](./ui/SPEC.md) |
+| 10 | Admin | Waiting | [SPEC](./admin/SPEC.md) |
+| 11 | Builder | Waiting | [SPEC](./builder/SPEC.md) |
 
 ### How to build
 

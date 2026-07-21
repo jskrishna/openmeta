@@ -35,7 +35,9 @@
       "@test:validation",
       "@test:security",
       "@test:database",
-      "@test:fields"
+      "@test:fields",
+      "@test:rest",
+      "@test:api"
     ],
     "test:core": [
       "phpunit --configuration phpunit.xml --testsuite core",
@@ -55,6 +57,12 @@
     ],
     "test:fields": [
       "phpunit --configuration phpunit.xml --testsuite fields"
+    ],
+    "test:rest": [
+      "phpunit --configuration phpunit.xml --testsuite rest"
+    ],
+    "test:api": [
+      "phpunit --configuration phpunit.xml --testsuite api"
     ]
   },
   "autoload": {
@@ -64,7 +72,9 @@
       "OpenMeta\\Validation\\": "packages/validation/src/",
       "OpenMeta\\Security\\": "packages/security/src/",
       "OpenMeta\\Database\\": "packages/database/src/",
-      "OpenMeta\\Fields\\": "packages/fields/src/"
+      "OpenMeta\\Fields\\": "packages/fields/src/",
+      "OpenMeta\\Rest\\": "packages/rest/src/",
+      "OpenMeta\\Api\\": "packages/api/src/"
     }
   },
   "autoload-dev": {
@@ -75,6 +85,8 @@
       "OpenMeta\\Security\\Tests\\": "packages/security/tests/",
       "OpenMeta\\Database\\Tests\\": "packages/database/tests/",
       "OpenMeta\\Fields\\Tests\\": "packages/fields/tests/",
+      "OpenMeta\\Rest\\Tests\\": "packages/rest/tests/",
+      "OpenMeta\\Api\\Tests\\": "packages/api/tests/",
       "OpenMeta\\Tests\\": "tests/"
     },
     "exclude-from-classmap": [
@@ -84,6 +96,8 @@
       "/packages/security/tests/",
       "/packages/database/tests/",
       "/packages/fields/tests/",
+      "/packages/rest/tests/",
+      "/packages/api/tests/",
       "/tests/"
     ]
   },

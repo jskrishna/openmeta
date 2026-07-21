@@ -1,112 +1,32 @@
-# Phase 08 — API Layer
+# Phase 08 — REST API
+
+> Scope: **`packages/api`.**
 
 ---
 
-# Purpose
+## Deliverables
 
-Phase 08 implements the public API layer, exposing OpenMeta functionality to external applications, integrations, and headless environments.
-
-The API should provide consistent, secure, and extensible access to framework resources.
-
----
-
-# Goals
-
-- Implement REST API
-- Implement GraphQL support
-- Standardize API responses
-- Secure API endpoints
-- Support filtering and pagination
-- Enable extension APIs
-- Maintain API consistency
+| Component | Status |
+| --------- | ------ |
+| Routes | ✅ `Router` / `RouteRegistrar` |
+| Controllers | ✅ `FieldValueController` |
+| Resources | ✅ JSON + FieldValue + Collection |
+| Authentication | ✅ Token + WP bridge |
+| Authorization | ✅ Gate-backed `Authorizer` |
 
 ---
 
-# Scope
+## Verify
 
-This phase includes:
-
-- REST API
-- GraphQL
-- Authentication
-- Authorization
-- Request Validation
-- Response Formatting
-- Error Handling
-- Pagination
-- Filtering
-- API Documentation
-
----
-
-# Deliverables
-
-- REST API
-- GraphQL Layer
-- API Authentication
-- API Documentation
-- Response Standards
-- Extension API Support
-
----
-
-# Dependencies
-
-- Phase 02
-- Phase 03
-- Phase 04
-- Phase 07
-
----
-
-# Success Criteria
-
-- APIs fully operational
-- Authentication implemented
-- Documentation complete
-- API consistency verified
-- Extension support validated
-
----
-
-# Architecture
-
-```text
-Client
-
-↓
-
-API Gateway
-
-↓
-
-Authentication
-
-↓
-
-Application Services
-
-↓
-
-Storage
-
-↓
-
-Response
+```bash
+composer test:api
+composer ci
 ```
 
----
-
-# Best Practices
-
-- Maintain backward compatibility.
-- Keep APIs resource-oriented.
-- Validate every request.
-- Document every endpoint.
-- Preserve consistent response formats.
+Contract: [`packages/api/SPEC.md`](../../packages/api/SPEC.md).
 
 ---
 
-# Summary
+## Next
 
-Phase 08 delivers a secure, extensible, and well-documented API layer, enabling OpenMeta to integrate seamlessly with modern applications and services.
+**v0.6.0-alpha** — Admin UI (+ UI kit).

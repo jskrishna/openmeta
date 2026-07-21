@@ -12,7 +12,7 @@ While the complete implementation strategy is documented in the `/docs/roadmap` 
 
 # Vision
 
-OpenMeta aims to become a modern, extensible, and developer-friendly content modeling framework for WordPress.
+OpenMeta aims to become a modern, extensible **PHP content-modeling framework** with a **WordPress-first adapter** — not “only a plugin.” Domain packages stay host-independent; Wordpress/Admin/Builder/GraphQL/CLI mount on the foundation (Core → … → Field Engine → REST).
 
 The project is built using an **Architecture First** and **Documentation First** approach, ensuring that every major feature is carefully designed before implementation.
 
@@ -29,37 +29,39 @@ Architecture & Documentation
 Core Bootstrap (v0.1.0-alpha)
 ████████████████████████████████████████ 100%
 
-Implementation (Support → Builder)
-██░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ~10%
+Implementation (WP Adapter → … → v1.0)
+███░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ~20%
 
-Testing (Core suite + CI)
+Testing (continuous five-layer gate)
 ████████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ~30%
 
 Stable Release (v1.0.0)
 □□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□ 0%
 ```
 
+Foundation (Core → REST) is in place. Next production train: **WordPress Adapter**.
 Current Focus:
 
 - ✅ Phase 01.5 — Cursor rules (`.cursor/rules` + `context`)
-- ✅ Project Architecture
-- ✅ Documentation
-- ✅ `v0.1.0-alpha` — Core
-- ✅ `v0.2.0-alpha` — Support
-- ✅ `v0.3.0-alpha` — Validation
-- ✅ `v0.4.0-alpha` — Security
-- ✅ `v0.5.0-alpha` — Database
-- ✅ `v0.6.0-alpha` — Field Engine ⭐
-- ✅ `v0.7.0-alpha` — REST API
-- ✅ `v0.8.0-alpha` — Admin (+ UI)
-- ✅ `v0.9.0-beta` — Builder (+ WordPress)
-- ✅ Phase 12 — Testing (five-layer gate)
-- ✅ Phase 13 — Release train documented
-- ⏳ **v1.0.0** — Stable
+- ✅ Project Architecture + Documentation
+- ✅ Foundation train through **REST** (`v0.1`–`v0.7`)
+- ⏳ **Phase 09 — WordPress Adapter** (`v0.8.0-alpha`) ← next
+- ⏳ Phase 10 — Admin UI
+- ⏳ Phase 11 — Visual Builder
+- ⏳ Phase 12 — GraphQL
+- ⏳ Phase 13 — CLI
+- ⏳ Phase 14 — Testing & QA (also continuous gate)
+- ⏳ Phase 15 — **v1.0.0** Stable
+
+Post-REST order (Accepted — [ADR-0024](docs/adr/ADR-0024-post-rest-phase-order.md)):
+
+```text
+WordPress Adapter → Admin UI → Visual Builder → GraphQL → CLI → Testing & QA → v1.0
+```
 
 ### Package roadmap after Core
 
-Authoritative version train: [docs/roadmap/release-milestones.md](docs/roadmap/release-milestones.md) · [phase-13-releases.md](docs/roadmap/phase-13-releases.md).
+Authoritative version train: [docs/roadmap/release-milestones.md](docs/roadmap/release-milestones.md) · [phase-15-releases.md](docs/roadmap/phase-15-releases.md).
 
 ```text
 v0.1.0-alpha
@@ -93,17 +95,32 @@ Field Engine ✅
 ↓
 
 v0.7.0-alpha
-REST API ✅
+REST (framework HTTP) ✅
 
 ↓
 
 v0.8.0-alpha
-Admin ✅
+WordPress Adapter ⏳
 
 ↓
 
-v0.9.0-beta
-Builder ✅
+v0.9.0-alpha
+Admin UI
+
+↓
+
+v0.10.0-beta
+Visual Builder
+
+↓
+
+v0.11.0-beta
+GraphQL
+
+↓
+
+v0.12.0-beta
+CLI
 
 ↓
 
@@ -206,7 +223,7 @@ See [docs/roadmap/phase-05-security.md](docs/roadmap/phase-05-security.md).
 
 ## Phase 03 — Database Layer
 
-Status: ✅ Completed (`packages/database`, `v0.3.0-alpha`)
+Status: ✅ Completed (`packages/database`, `v0.5.0-alpha`)
 
 Objectives
 
@@ -219,165 +236,140 @@ See [docs/roadmap/phase-06-database.md](docs/roadmap/phase-06-database.md).
 
 ## Phase 04 — Field Engine
 
-Status: ✅ Completed (`packages/fields`, `v0.4.0-alpha`)
+Status: ✅ Completed (`packages/fields`, `v0.6.0-alpha`)
 
 Objectives
 
-- Registry, Base Field, built-in types, Validation, Storage, Rendering ✅
-- Exit: register / save / validate / render ✅
+- Registry, Factory, Manager, Types, Validation bridge, Storage/Rendering contracts ✅
+- Exit: register / save / validate / hydrate ✅
 
 See [docs/roadmap/phase-07-fields.md](docs/roadmap/phase-07-fields.md).
 
 ---
 
-## Phase 05 — REST API
+## Phase 05–07 — (see package train)
 
-Status: ✅ Completed (`packages/api`, `v0.5.0-alpha`)
+Historical docs sometimes numbered Validation/Security/Database differently. Canonical package train:
 
-Objectives
+- Phase 03 Support · Phase 04 Validation · Phase 05 Security · Phase 06 Database · Phase 07 Fields  
 
-- Routes, Controllers, Resources, Authentication, Authorization ✅
-
-See [docs/roadmap/phase-08-api.md](docs/roadmap/phase-08-api.md).
+(Completed under `v0.2`–`v0.6` — see Current Focus above.)
 
 ---
 
-## Phase 06 — Admin UI
+## Phase 08 — REST (framework HTTP)
 
-Status: ✅ Completed (`packages/ui` + `packages/admin`, `v0.6.0-alpha`)
+Status: ✅ Completed (`packages/rest`, `v0.7.0-alpha`)
 
 Objectives
 
-- Dashboard, Menus, Settings, Forms, Tables, Components ✅
+- Framework-independent Router, Request/Response, Middleware, Resources
+- Auth contracts + Security Gate authorization bridge
+- Validation + Database pagination integration
+- **No** WordPress REST mount in this package
 
-See [docs/roadmap/phase-09-admin.md](docs/roadmap/phase-09-admin.md).
+See [docs/roadmap/phase-08-api.md](docs/roadmap/phase-08-api.md) · [packages/rest/SPEC.md](packages/rest/SPEC.md).
+
 ---
 
-## Phase 03 — Database Layer
+## Phase 09 — WordPress Adapter
+
+Status: ⏳ Next (`v0.8.0-alpha`)
+
+Objectives
+
+- Plugin bootstrap / lifecycle bridges
+- Hooks, filters, capabilities seed
+- Mount `@openmeta/rest` onto WP REST
+- Gutenberg / admin slot glue (no domain engines inside Wordpress)
+
+See [docs/roadmap/phase-11-wordpress-integration.md](docs/roadmap/phase-11-wordpress-integration.md) (historical filename; **Phase = 09**) · [packages/wordpress/SPEC.md](packages/wordpress/SPEC.md).
+
+---
+
+## Phase 10 — Admin UI
+
+Status: ⏳ Planned (`v0.9.0-alpha`)
+
+Objectives
+
+- Dashboard, menus, screens, forms, tables, settings
+- Consume Fields + Security + Rest; render via UI package
+- Require WordPress adapter bridges for production mount
+
+See [docs/roadmap/phase-09-admin.md](docs/roadmap/phase-09-admin.md) (historical filename; **Phase = 10**).
+
+---
+
+## Phase 11 — Visual Builder
+
+Status: ⏳ Planned (`v0.10.0-beta`)
+
+Objectives
+
+- Canvas, drag-and-drop, templates, conditions, preview
+- Save pipeline through Fields + Validation + Security (nonce/caps)
+- Admin slot via WordPress adapter
+
+See [docs/roadmap/phase-10-visual-builder.md](docs/roadmap/phase-10-visual-builder.md) (historical filename; **Phase = 11**).
+
+---
+
+## Phase 12 — GraphQL
+
+Status: ⏳ Planned (`v0.11.0-beta`)
+
+Objectives
+
+- GraphQL type maps / resolvers on Field Engine contracts
+- Reuse Security + Validation; host mount via adapter
+
+See [docs/roadmap/phase-12-graphql.md](docs/roadmap/phase-12-graphql.md).
+
+---
+
+## Phase 13 — CLI
+
+Status: ⏳ Planned (`v0.12.0-beta`)
+
+Objectives
+
+- Developer CLI over Core container
+- Inspect / migrate / health commands (WP-optional)
+
+See [docs/roadmap/phase-13-cli.md](docs/roadmap/phase-13-cli.md).
+
+---
+
+## Phase 14 — Testing & QA
+
+Status: ⏳ Ongoing + pre-v1.0 hardening
+
+Objectives
+
+- Five-layer gate on every package
+- Matrix compliance before Stable
+
+See [docs/roadmap/phase-14-testing.md](docs/roadmap/phase-14-testing.md) · [packages/TESTING.md](packages/TESTING.md).
+
+---
+
+## Phase 15 — v1.0 Release
 
 Status: ⏳ Planned
 
 Objectives
 
-- Storage abstraction
-- Schema management
-- Migrations
-- Repository layer
-- Query infrastructure
+- SemVer-stable public contracts
+- Migration notes + production checklist
+
+See [docs/roadmap/phase-15-releases.md](docs/roadmap/phase-15-releases.md).
 
 ---
 
-## Phase 04 — Field Engine
+## Legacy phase notes (superseded numbering)
 
-Status: ⏳ Planned
-
-Objectives
-
-- Field registry
-- Validation
-- Storage integration
-- Default field library
-- Field lifecycle
-
----
-
-## Phase 05 — Administration UI
-
-Status: ⏳ Planned
-
-Objectives
-
-- Dashboard
-- Navigation
-- Component library
-- Settings
-- Forms
-- Accessibility
-
----
-
-## Phase 06 — Field Builder
-
-Status: ⏳ Planned
-
-Objectives
-
-- Visual field builder
-- Drag-and-drop
-- Field groups
-- Templates
-- Live validation
-
----
-
-## Phase 07 — Advanced Fields
-
-Status: ⏳ Planned
-
-Objectives
-
-- Relationship fields
-- Repeater fields
-- Flexible content
-- Conditional logic
-- Advanced field library
-
----
-
-## Phase 08 — API Layer
-
-Status: ⏳ Planned
-
-Objectives
-
-- REST API
-- GraphQL
-- Authentication
-- Authorization
-- API documentation
-
----
-
-## Phase 09 — Integrations
-
-Status: ⏳ Planned
-
-Objectives
-
-- WordPress integration
-- Gutenberg
-- Plugin ecosystem
-- Import/Export
-- Webhooks
-- Developer SDK
-
----
-
-## Phase 10 — Testing
-
-Status: ⏳ Planned
-
-Objectives
-
-- Unit testing
-- Integration testing
-- API testing
-- Performance testing
-- Security testing
-- Accessibility testing
-
----
-
-## Phase 11 — Release
-
-Status: ⏳ Planned
-
-Objectives
-
-- Release candidate
-- Documentation review
-- Stable release
-- Versioning
+Older roadmap sections that listed Admin → Builder → Integrations → Testing → Release as Phases 05–11, or Admin before WordPress after REST, are **superseded** by [ADR-0024](docs/adr/ADR-0024-post-rest-phase-order.md). Keep historical `docs/roadmap/phase-*.md` files for content; trust **phase numbers in this file + release-milestones.md**.- Versioning
 - Migration guides
 
 ---
@@ -530,4 +522,4 @@ docs/adr/
 
 # Summary
 
-The OpenMeta roadmap defines a structured, architecture-driven path from project planning to a stable production release. By following clearly defined development phases, measurable milestones, and documentation-first practices, the project aims to deliver a scalable, maintainable, and extensible framework for the WordPress ecosystem.
+The OpenMeta roadmap defines a structured, architecture-driven path from planning to **v1.0**. OpenMeta is a **PHP framework** with a **WordPress-first adapter**. After REST, the train is WordPress Adapter → Admin → Builder → GraphQL → CLI → Testing & QA → Stable ([ADR-0024](docs/adr/ADR-0024-post-rest-phase-order.md)).

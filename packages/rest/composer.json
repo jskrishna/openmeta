@@ -1,0 +1,28 @@
+{
+    "name": "openmeta/rest",
+    "version": "0.7.0-alpha",
+    "description": "OpenMeta framework REST infrastructure — router, middleware, resources (WordPress-independent).",
+    "type": "library",
+    "license": "GPL-2.0-or-later",
+    "require": {
+        "php": ">=8.3",
+        "openmeta/core": "*",
+        "openmeta/support": "*",
+        "openmeta/validation": "*",
+        "openmeta/security": "*",
+        "openmeta/database": "*",
+        "openmeta/fields": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "OpenMeta\\Rest\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "OpenMeta\\Rest\\Tests\\": "tests/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
