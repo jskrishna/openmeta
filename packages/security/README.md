@@ -1,61 +1,35 @@
 # `@openmeta/security`
 
-> Pre-alpha contract — implement against this document, not ad-hoc assumptions.
+> Framework security primitives. **Pure PHP. No WordPress code. No UI.**
+
+**Status:** ✅ Complete (Phase 5) · **v0.4.0-alpha**  
+**Blueprint:** [SPEC.md](./SPEC.md) · Docs: [docs/README.md](./docs/README.md)
 
 ---
 
 ## Purpose
 
-Centralize capabilities, nonces, authorization helpers, and secure-by-default utilities used across admin, API, and field access paths.
+Interface-driven Gate/Authorizer, HMAC Nonce + CSRF, sanitize/escape, password hashing, CSPRNG, signed tokens.
+
+WordPress capability/nonce adapters: `@openmeta/wordpress` (bind Security contracts).
 
 ---
 
-## Responsibilities
+## Exit criteria
 
-- Capability and role helpers
-- Nonce create/verify utilities
-- Authorization gates for mutations and sensitive reads
-- Sanitization/escaping helpers at package boundaries (where shared)
-
-Must not own business workflows or UI screens.
-
----
-
-## Public APIs
-
-- Capability check APIs
-- Nonce APIs
-- Authorization gate contracts
-- Shared sanitization/escaping helpers documented for package use
+- ✅ Framework-independent (Composer: core + support only)
+- ✅ No WordPress-specific code in this package
+- ✅ Services interface-driven
+- ✅ CSRF & Nonce (HMAC) work
+- ✅ Sanitization / escaping extensible via contracts
+- ✅ Authorization storage-independent (`ArrayCapabilityChecker`)
+- ✅ PHPUnit / PHPStan / PHPCS green
 
 ---
 
-## Dependencies
+## Verify
 
-- `packages/core`
-- WordPress Roles / Capabilities / Nonces APIs
-
-Must not depend on `admin`, `api`, `fields`, or `builder`.
-
----
-
-## Extension Points
-
-- Custom capability maps
-- Authorization policy registration
-- Security event hooks (denied access, nonce failure)
-
----
-
-## Folder Structure
-
-```text
-packages/security/
-├── src/
-│   ├── Capabilities/
-│   ├── Nonces/
-│   ├── Authz/
-│   └── Sanitization/
-├── tests/
-└── README.md
+```bash
+composer test:security
+composer ci
 ```
