@@ -18,6 +18,14 @@ parameters:
         - packages/rest/tests
         - packages/api/src
         - packages/api/tests
+        - packages/wordpress/src
+        - packages/wordpress/tests
+        - packages/ui/src
+        - packages/ui/tests
+        - packages/admin/src
+        - packages/admin/tests
+        - packages/builder/src
+        - packages/builder/tests
     excludePaths:
         - */vendor/*
         - */node_modules/*
