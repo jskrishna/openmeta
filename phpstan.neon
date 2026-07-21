@@ -12,6 +12,21 @@ parameters:
         - packages/security/tests
         - packages/database/src
         - packages/database/tests
+        - packages/fields/src
+        - packages/fields/tests
+        - packages/rest/src
+        - packages/rest/tests
+        - packages/api/src
+        - packages/api/tests
+        - packages/ui/src
+        - packages/ui/tests
+        - packages/admin/src
+        - packages/admin/tests
+        - packages/builder/src
+        - packages/builder/tests
+        - packages/wordpress/src
+        - packages/wordpress/tests
+        - tests/Phase12
     excludePaths:
         - */vendor/*
         - */node_modules/*
@@ -25,6 +40,7 @@ parameters:
         - packages/core/tests/smoke.php
         - packages/core/config/*
         - packages/database/tests/Fixtures/*
+        - packages/rest/tests/Fixtures/*
 
     treatPhpDocTypesAsCertain: false
     reportUnmatchedIgnoredErrors: false

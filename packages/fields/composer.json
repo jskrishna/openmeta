@@ -1,0 +1,27 @@
+{
+    "name": "openmeta/fields",
+    "version": "0.6.0-alpha",
+    "description": "OpenMeta field engine \u2014 registry, types, validation, storage, and rendering.",
+    "type": "library",
+    "license": "GPL-2.0-or-later",
+    "require": {
+        "php": ">=8.3",
+        "openmeta/core": "*",
+        "openmeta/support": "*",
+        "openmeta/validation": "*",
+        "openmeta/database": "*",
+        "openmeta/security": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "OpenMeta\\Fields\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "OpenMeta\\Fields\\Tests\\": "tests/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
