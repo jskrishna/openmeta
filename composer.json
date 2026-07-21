@@ -41,7 +41,8 @@
       "@test:wordpress",
       "@test:ui",
       "@test:admin",
-      "@test:builder"
+      "@test:builder",
+      "@test:sdk"
     ],
     "test:core": [
       "phpunit --configuration phpunit.xml --testsuite core",
@@ -79,6 +80,9 @@
     ],
     "test:builder": [
       "phpunit --configuration phpunit.xml --testsuite builder"
+    ],
+    "test:sdk": [
+      "phpunit --configuration phpunit.xml --testsuite sdk"
     ]
   },
   "autoload": {
@@ -94,7 +98,8 @@
       "OpenMeta\\Wordpress\\": "packages/wordpress/src/",
       "OpenMeta\\Ui\\": "packages/ui/src/",
       "OpenMeta\\Admin\\": "packages/admin/src/",
-      "OpenMeta\\Builder\\": "packages/builder/src/"
+      "OpenMeta\\Builder\\": "packages/builder/src/",
+      "OpenMeta\\Sdk\\": "packages/sdk/src/"
     }
   },
   "autoload-dev": {
@@ -111,6 +116,7 @@
       "OpenMeta\\Ui\\Tests\\": "packages/ui/tests/",
       "OpenMeta\\Admin\\Tests\\": "packages/admin/tests/",
       "OpenMeta\\Builder\\Tests\\": "packages/builder/tests/",
+      "OpenMeta\\Sdk\\Tests\\": "packages/sdk/tests/",
       "OpenMeta\\Tests\\": "tests/"
     },
     "exclude-from-classmap": [
@@ -126,6 +132,7 @@
       "/packages/ui/tests/",
       "/packages/admin/tests/",
       "/packages/builder/tests/",
+      "/packages/sdk/tests/",
       "/tests/"
     ]
   },
