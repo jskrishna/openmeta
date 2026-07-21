@@ -137,13 +137,15 @@ OpenMeta should become the foundation developers choose when building modern Wor
 
 Current Stage:
 
-**Pre-Alpha**
+**Pre-Alpha — Core Bootstrap `v0.1.0-alpha` ✅**
 
-The project is currently in the planning and architecture phase.
+Shipped: Application, Kernel, Container, Config, Providers, Bootstrap, PHPUnit, CI.
 
-No production-ready version has been released.
+Next: **Support Package** → Validation → Security → Database → Fields → API → Admin → Builder → `v1.0.0`
 
-Development will begin after the architecture and documentation are finalized.
+Track progress: [milestones](https://github.com/jskrishna/openmeta/milestones) · [`.github/MILESTONES.md`](.github/MILESTONES.md)
+
+No production-ready (`v1.0.0`) release yet.
 
 ---
 
@@ -175,17 +177,25 @@ Detailed documentation will continue to evolve alongside implementation.
 
 # Roadmap
 
+```text
+v0.1.0-alpha (Core) ✅
+    ↓
+Support → Validation → Security → Database → Fields → API → Admin → Builder
+    ↓
+v1.0.0
+```
+
 ## Phase 00
 
-Planning & Documentation
+Planning & Documentation ✅
 
 ## Phase 01
 
-Plugin Bootstrap
+Plugin Bootstrap ✅ (`v0.1.0-alpha`)
 
 ## Phase 02
 
-Core Framework
+Core Framework ✅ spine; remaining packages per build order
 
 ## Phase 03
 

@@ -281,17 +281,22 @@ Each module should expose a narrow public surface and remain replaceable for tes
 
 # Database Architecture
 
+OpenMeta ships a **Database Abstraction Layer (DAL)** — **no Active Record** ([ADR-0023](docs/adr/ADR-0023-database-dal-no-active-record.md)).
+
+```text
+Application → Repository → Query Builder → Connection → Driver → Database Engine
+```
+
 Storage follows a layered strategy so domain code does not depend on raw SQL or WordPress meta details.
 
 Responsibilities:
 
-- Storage abstraction and repositories
-- Schema management and migrations
-- Relationship persistence
-- Indexing strategy
-- Clear boundaries for custom tables vs post meta usage
+- Connection manager + driver contracts (memory / PDO now; WP adapter later)
+- Query builder, repositories, schema, migrations
+- Relationship batch loaders, transactions, pagination, metadata
+- Clear boundaries for custom tables vs post meta (meta strategy via future WP driver)
 
-See ADR-0006 and `docs/database/` for the full storage model.
+See ADR-0006, `packages/database/SPEC.md`, and `docs/database/` for the storage model.
 
 ---
 
@@ -346,13 +351,15 @@ Rendering must respect location rules, conditional logic, capabilities, and esca
 
 # Validation Engine
 
-Validation is applied before persistence and again at API boundaries when required.
+Validation is a **core shared service**, not a feature of Fields or APIs.
+
+It is applied before persistence and again at API / form / builder boundaries when required. Downstream packages (Database schema checks, Field definitions, form submissions, REST requests, Admin settings, Builder configuration, Import/Export, plugin extensions) **must reuse** `@openmeta/validation` — they must not ship parallel validators.
 
 Responsibilities:
 
 - Built-in validation rules
-- Custom validation callbacks
-- Structured error reporting
+- Custom validation callbacks / registry extensions
+- Structured error reporting (`ErrorBag` / `ValidationResult`)
 - Consistent messages for UI and API consumers
 
 Invalid data must never be silently persisted.

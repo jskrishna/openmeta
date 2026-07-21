@@ -54,6 +54,26 @@ Phase 00
 
 # Success Criteria
 
+Workspace tooling (Phase 1 — ~30 min checklist):
+
+- [x] Configure Composer (`composer.json` + lock)
+- [x] Configure PSR-4 Autoloading (`OpenMeta\\Core\\` → `packages/core/src/`)
+- [x] Install PHPUnit
+- [x] Install PHPStan
+- [x] Install PHPCS
+- [x] Configure GitHub Actions (`.github/workflows/ci.yml` + related)
+- [x] Verify all tools run successfully
+
+```bash
+composer validate --no-check-publish --strict
+composer install
+composer ci
+```
+
+Goal: **`composer install` + CI green** (PHPStan → PHPCS → PHPUnit).
+
+Also:
+
 - Project builds successfully
 - Development environment operational
 - Repository standards enforced

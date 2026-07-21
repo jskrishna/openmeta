@@ -103,55 +103,141 @@ Documentation
 
 ### Added
 
-- None.
+- None (post-`v0.9.0-beta` work toward **v1.0.0** Stable).
 
 ### Changed
 
-- None.
+- Phase 13 release train is authoritative (one package theme per alpha; Builder at beta; then Stable).
 
-### Deprecated
+### Next
 
-- None.
+```text
+v1.0.0 — Stable
+```
 
-### Removed
+---
 
-- None.
+## [0.9.0-beta] - 2026-07-21
 
-### Fixed
+**Builder beta** — visual field builder + WordPress plugin mount.
 
-- None.
+### Added
 
-### Security
-
-- None.
+- `packages/builder` (`v0.9.0-beta`): Canvas, Drag & Drop, Templates, Conditions, Preview.
+- `packages/wordpress` (`v0.9.0-beta`): Plugin bootstrap, Hooks, Filters, Admin pages, Capabilities, Gutenberg, REST bridge.
+- Root `openmeta.php` plugin entry.
+- Phase 12 five-layer testing gate on every package.
 
 ### Documentation
 
-- None.
+- [phase-13-releases.md](docs/roadmap/phase-13-releases.md), release train realigned.
+
+---
+
+## [0.8.0-alpha] - 2026-07-21
+
+**Admin** — WordPress admin experience + UI kit.
+
+### Added
+
+- `packages/ui` (`v0.8.0-alpha`): Tokens, Primitives, Card/Form/DataTable, Theme.
+- `packages/admin` (`v0.8.0-alpha`): Dashboard, Menus, Screens, Forms, Tables, Settings.
+
+---
+
+## [0.7.0-alpha] - 2026-07-21
+
+**REST API** — public HTTP API layer.
+
+### Added
+
+- `packages/api` (`v0.7.0-alpha`): Router, RestKernel, Controllers, Resources, Token + WP Auth, Authorizer.
+
+---
+
+## [0.6.0-alpha] - 2026-07-21
+
+**Field Engine** — content modeling heart.
+
+### Added
+
+- `packages/fields` (`v0.6.0-alpha`): Registry, types (text/number/boolean/repeater/relationship), validation, storage, rendering, REST/GQL maps.
+
+---
+
+## [0.5.0-alpha] - 2026-07-21
+
+**Database** — schema and persistence spine.
+
+### Added
+
+- `packages/database` (`v0.5.0-alpha`): Connections (PDO + Memory), Schema, Migrator, QueryBuilder, Repository, Relations.
+
+---
+
+## [0.4.0-alpha] - 2026-07-21
+
+**Security** — capabilities, nonces, sanitize/escape.
+
+### Added
+
+- `packages/security` (`v0.4.0-alpha`): Gate, PermissionMap, Array + WP capability checkers, Nonce, Sanitizer, Escaper.
+
+---
+
+## [0.3.0-alpha] - 2026-07-21
+
+**Validation** — rule engine and error bags.
+
+### Added
+
+- `packages/validation` (`v0.3.0-alpha`): Validation facade, RuleEngine, ErrorBag, MessageBag, built-in rules.
+
+---
+
+## [0.2.0-alpha] - 2026-07-21
+
+**Support** — shared helpers.
+
+### Added
+
+- `packages/support` (`v0.2.0-alpha`): Arr, Str, Collection, Path, Filesystem, Env, Uuid, Reflector, Helpers, Conditionable.
 
 ---
 
 ## [0.1.0-alpha] - 2026-07-21
 
-First public pre-release. Milestone v0.1 — **core kernel only**.
+**First Core Bootstrap pre-release.** Minimum working framework — no database, fields, API, or WordPress integration.
+
+### Completed
+
+- ✅ Core Bootstrap  
+- ✅ Container (bind / singleton / resolve / aliases)  
+- ✅ Config (`app` / `database` / `api` + ConfigRepository)  
+- ✅ Kernel (Bootstrap → Initialize → Ready)  
+- ✅ Providers (Register → Boot)  
+- ✅ Application + Bootstrap sequence → Application Ready  
+- ✅ PHPUnit suite + smoke test  
+- ✅ CI: Composer Install → PHPStan → PHPCS → PHPUnit → Success  
 
 ### Added
 
-- `packages/core` runtime spine: Bootstrap → Container → Config → Kernel → Service Provider.
-- `OpenMeta\Core\Bootstrap\Bootstrap::init()` entrypoint (`VERSION = 0.1.0-alpha`).
-- Minimal DI container, nested config repository, kernel boot sequence, and `ServiceProviderInterface`.
-- Domain package layout stubs (`admin`, `api`, `database`, `fields`, `builder`, `ui`, `validation`, `security`, `support`).
-- Core smoke test (`composer test:core`).
+- `packages/core` runtime: Contracts, Application, Bootstrap, Container, Config, Kernel, Providers, Events.
+- Entrypoints: `Bootstrap::run()`, `Application::boot()`, `Bootstrapper::boot()`.
+- Default config files under `packages/core/config/`.
+- PHPUnit tests: Application, Container, Provider, Config, Kernel, Bootstrap.
+- GitHub Actions CI sequence (PHP 8.3 / 8.4).
+- Domain package layout stubs (`support`, `validation`, `security`, `database`, `fields`, `api`, `ui`, `admin`, `builder`).
 - Architecture-first documentation, ADRs, roadmap, security, and contribution guides.
-- GitHub workflows, issue/PR templates, and community files.
 
 ### Changed
 
-- Monorepo package map moved from feature stubs (graphql/react/cli/…) to domain packages.
+- Monorepo package map aligned to Core-first dependency rules (`core` depends on zero other OpenMeta packages).
 
 ### Deprecated
 
-- None.
+- `Bootstrap::init()` — use `Bootstrap::run()`.
+- Legacy Kernel `boot()` / `isBooted()` — prefer `run()` / `isReady()`.
 
 ### Removed
 
@@ -159,7 +245,7 @@ First public pre-release. Milestone v0.1 — **core kernel only**.
 
 ### Fixed
 
-- Documentation consistency (PHP 8.3+, roadmap phases, changelog honesty).
+- Documentation and tooling consistency (PHP 8.3+, phpstan/phpcs green).
 
 ### Security
 
@@ -167,7 +253,13 @@ First public pre-release. Milestone v0.1 — **core kernel only**.
 
 ### Documentation
 
-- Package README contracts (Purpose, Responsibilities, Public APIs, Dependencies, Extension Points, Folder Structure).
+- Core milestone doc, build order, and [`.github/MILESTONES.md`](.github/MILESTONES.md) package-tracking process.
+
+### Next
+
+```text
+Support → Validation → Security → Database → Fields → API → Admin → Builder → v1.0.0
+```
 
 ---
 

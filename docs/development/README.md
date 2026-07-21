@@ -6,6 +6,8 @@ Guides for contributing to and extending OpenMeta.
 
 | Doc | Topic |
 | --- | ----- |
+| [cursor-workflow.md](./cursor-workflow.md) | **Cursor AI phase cycle** (docs → ADR → code → CI → commit) |
+| [../.cursor/README.md](../../.cursor/README.md) | **Phase 01.5** Cursor rules + context |
 | [overview.md](./overview.md) | Dev docs map |
 | [philosophy.md](./philosophy.md) | How we build |
 | [development-environment.md](./development-environment.md) | Tooling requirements |

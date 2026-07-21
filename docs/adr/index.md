@@ -27,6 +27,7 @@ The Architecture Decision Records are organized into the following areas:
 - ADR-0004 — Content Model
 - ADR-0005 — Field Architecture
 - ADR-0006 — Storage Strategy
+- ADR-0023 — Database DAL (No Active Record)
 
 ---
 

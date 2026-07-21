@@ -76,6 +76,19 @@ Install dependencies:
 composer install
 ```
 
+If `composer` is not on your `PATH` (common on Windows), use the local PHAR:
+
+```bash
+php composer.phar install
+```
+
+Verify the workspace (PHPStan → PHPCS → PHPUnit):
+
+```bash
+composer validate --no-check-publish --strict
+composer ci
+```
+
 Install frontend dependencies (if required):
 
 ```bash

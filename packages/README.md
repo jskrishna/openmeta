@@ -1,89 +1,179 @@
 # Packages
 
-OpenMeta monorepo packages. Each package README is an **AI/implementation contract**.
+OpenMeta monorepo packages. Each package has:
 
-Every package must document:
+| File | Role |
+| ---- | ---- |
+| **README.md** | Short overview / AI quick contract |
+| **SPEC.md** | **Implementation contract** (binding) |
 
-1. Purpose
-2. Responsibilities
-3. Public APIs
-4. Dependencies
-5. Extension Points
-6. Folder Structure
+See [BLUEPRINTS.md](./BLUEPRINTS.md) — construction set status (10 package spines).  
+See [TESTING.md](./TESTING.md) — **Phase 10** gate after every package (Unit → Integration → WP → Performance).
 
-Implement against those sections — do not invent cross-package couplings that are not listed under Dependencies / Extension Points.
+Implement against **SPEC.md**. Do not invent cross-package couplings outside **Dependency Rules**.
+
+### Why SPEC (not 100 pages of docs)
+
+```text
+“Build Database package”
+        ↓
+packages/database/SPEC.md
+        ↓
+kya banana · kya nahi · dependencies · public API · testing
+```
+
+One SPEC per package = enough context for Cursor (or any contributor) to implement without dumping the whole docs tree.
+
+---
+
+## SPEC.md required sections
+
+Every `SPEC.md` must use this structure (see [SPEC.TEMPLATE.md](./SPEC.TEMPLATE.md)):
+
+1. Purpose  
+2. Responsibilities  
+3. Public Contracts  
+4. Internal Components  
+5. Folder Structure  
+6. Dependency Rules  
+7. Lifecycle  
+8. Extension Points  
+9. Performance  
+10. Security  
+11. Testing Strategy  
+12. Future Scope  
+
+README may stay shorter; SPEC is the source of truth for implementation.
 
 ---
 
 ## Package map
 
-| Package | Role |
-| ------- | ---- |
-| [core/](./core/) | Bootstrap, container, events, shared contracts |
-| [admin/](./admin/) | WordPress admin screens and admin app shell |
-| [api/](./api/) | REST and GraphQL public API layer |
-| [database/](./database/) | Schema, migrations, repositories, storage |
-| [fields/](./fields/) | Field registry, types, and lifecycle |
-| [builder/](./builder/) | Visual field / schema builder |
-| [ui/](./ui/) | Shared React / UI component library |
-| [validation/](./validation/) | Validation rules and error contracts |
-| [security/](./security/) | Capabilities, nonces, authorization helpers |
-| [support/](./support/) | Shared helpers and utilities |
+| Package | Role | Blueprint |
+| ------- | ---- | --------- |
+| [core/](./core/) | Bootstrap, container, events, shared contracts | [SPEC](./core/SPEC.md) |
+| [support/](./support/) | Shared helpers and utilities | [SPEC](./support/SPEC.md) |
+| [validation/](./validation/) | Validation rules and error contracts | [SPEC](./validation/SPEC.md) |
+| [security/](./security/) | Capabilities, nonces, authorization helpers | [SPEC](./security/SPEC.md) |
+| [database/](./database/) | Schema, migrations, repositories, storage | [SPEC](./database/SPEC.md) |
+| [fields/](./fields/) | Field registry, types, and lifecycle | [SPEC](./fields/SPEC.md) |
+| [api/](./api/) | REST and GraphQL public API layer | [SPEC](./api/SPEC.md) |
+| [ui/](./ui/) | Shared React / UI component library | [SPEC](./ui/SPEC.md) |
+| [admin/](./admin/) | WordPress admin screens and admin app shell | [SPEC](./admin/SPEC.md) |
+| [builder/](./builder/) | Visual field / schema builder | [SPEC](./builder/SPEC.md) |
 
 ```text
 packages/
 │
-├── core/
-├── admin/
-├── api/
-├── database/
-├── fields/
-├── builder/
-├── ui/
-├── validation/
-├── security/
-└── support/
+├── core/        README.md  SPEC.md
+├── support/     README.md  SPEC.md
+├── validation/  README.md  SPEC.md
+├── security/    README.md  SPEC.md
+├── database/    README.md  SPEC.md
+├── fields/      README.md  SPEC.md
+├── api/         README.md  SPEC.md
+├── ui/          README.md  SPEC.md
+├── admin/       README.md  SPEC.md
+└── builder/     README.md  SPEC.md
 ```
 
 ---
 
-## Dependency direction (authoritative)
-
-**Rule:** in the stack below, a package may only depend on layers **above** it. It must never import a layer **below** it.
+## Dependency rules (authoritative)
 
 ```text
 Core
- ↓
-Support
- ↓
-Database
- ↓
-Fields
- ↓
-API
- ↓
-Admin
- ↓
-Builder
+│
+├── No dependencies on other OpenMeta packages
+│
+└── Every other package depends on Core
+```
+
+### Dependency graph
+
+```text
+Core
+│
+├── Support
+├── Database
+├── Validation
+├── Security
+├── API
+├── Fields
+├── UI
+├── Admin
+└── Builder
 ```
 
 ### Hard rules
 
-- **`core` must never depend on `database`, `fields`, `api`, `admin`, `builder`, or `ui`.**
-- Lower layers may depend on upper layers (e.g. `fields` → `database` → `core`).
-- `support` is a shared utility package: it must not depend on any other OpenMeta package; `core` and layers below Core may depend on `support`.
-- Side packages (`ui`, `validation`, `security`) may depend on `core` / `support` (and others only as listed in their README) — **never** the reverse into `core`.
+1. **`core` depends on zero other OpenMeta packages** (not even `support`).
+2. **Every other package must depend on `core`** (directly).
+3. Sibling packages may depend on each other only when their own README allows it (e.g. `fields` → `database`, `api` → `fields`).
+4. **Nothing may depend upward into a forbidden direction that pulls `core` toward domain packages** — i.e. never `core` → `fields` / `database` / `api` / `admin` / `builder` / `ui` / …
 
 ### Examples
 
 | Allowed | Forbidden |
 | ------- | --------- |
+| `support` → `core` | `core` → `support` |
 | `database` → `core` | `core` → `database` |
-| `fields` → `database` | `core` → `fields` |
-| `api` → `fields` | `database` → `admin` |
-| `builder` → `admin` / `fields` | `core` → `builder` |
+| `fields` → `core` + `database` | `core` → `fields` |
+| `api` → `core` + `fields` | `database` → `admin` (unless README explicitly allows) |
+| `builder` → `core` + `admin` + `fields` | `core` → `builder` |
 
 Each package README’s **Dependencies** section is binding for implementation.
+
+---
+
+## Coding order
+
+**Actual implementation order.** One package at a time. Prompt = that package’s `SPEC.md`.
+
+```text
+Core
+    ↓
+Support
+    ↓
+Validation
+    ↓
+Security
+    ↓
+Database
+    ↓
+Fields
+    ↓
+API
+    ↓
+UI
+    ↓
+Admin
+    ↓
+Builder
+```
+
+| # | Package | Status | Contract |
+| - | ------- | ------ | -------- |
+| 1 | **Core** | ✅ `v0.1.0-alpha` | [SPEC](./core/SPEC.md) |
+| 2 | **Support** | ⏳ **Next** | [SPEC](./support/SPEC.md) |
+| 3 | Validation | Waiting | [SPEC](./validation/SPEC.md) |
+| 4 | Security | Waiting | [SPEC](./security/SPEC.md) |
+| 5 | Database | Waiting | [SPEC](./database/SPEC.md) |
+| 6 | Fields | Waiting | [SPEC](./fields/SPEC.md) |
+| 7 | API | Waiting | [SPEC](./api/SPEC.md) |
+| 8 | UI | Waiting | [SPEC](./ui/SPEC.md) |
+| 9 | Admin | Waiting | [SPEC](./admin/SPEC.md) |
+| 10 | Builder | Waiting | [SPEC](./builder/SPEC.md) |
+
+### How to build
+
+```text
+Open packages/<name>/SPEC.md → implement → tests → composer ci
+```
+
+Do not skip ahead unless Dependency Rules allow it. Details: [core/docs/build-order.md](./core/docs/build-order.md).
+
+Detail: [core/docs/build-order.md](./core/docs/build-order.md).
 
 ---
 
