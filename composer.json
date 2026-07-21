@@ -45,6 +45,7 @@
             "@test:extensions",
             "@test:graphql",
             "@test:cli",
+            "@test:framework",
             "@test:generator"
         ],
         "test:core": [
@@ -93,6 +94,9 @@
         "test:cli": [
             "phpunit --configuration phpunit.xml --testsuite cli"
         ],
+        "test:framework": [
+            "phpunit --configuration phpunit.xml --testsuite framework"
+        ],
         "test:generator": [
             "phpunit --configuration phpunit.xml --testsuite generator"
         ]
@@ -114,6 +118,7 @@
             "OpenMeta\\Extensions\\": "packages/extensions/src/",
             "OpenMeta\\GraphQL\\": "packages/graphql/src/",
             "OpenMeta\\Cli\\": "packages/cli/src/",
+            "OpenMeta\\Framework\\": "packages/framework/src/",
             "OpenMeta\\Generator\\": "packages/generator/src/"
         }
     },
@@ -134,6 +139,7 @@
             "OpenMeta\\Extensions\\Tests\\": "packages/extensions/tests/",
             "OpenMeta\\GraphQL\\Tests\\": "packages/graphql/tests/",
             "OpenMeta\\Cli\\Tests\\": "packages/cli/tests/",
+            "OpenMeta\\Framework\\Tests\\": "packages/framework/tests/",
             "OpenMeta\\Generator\\Tests\\": "packages/generator/tests/",
             "OpenMeta\\Tests\\": "tests/"
         },
@@ -154,6 +160,7 @@
             "/packages/graphql/tests/",
             "/packages/cli/tests/",
             "/tests/",
+            "/packages/framework/tests/",
             "/packages/generator/tests/"
         ]
     },
